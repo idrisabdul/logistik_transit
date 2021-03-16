@@ -55,9 +55,9 @@
                             $nopo = $show_po->noreftxt;
                             $result2 = $this->db->query("SELECT * FROM lpb where potxt='$nopo'");
                             if ($result2->num_rows() >= 1) {
-                              $status = "LPB";
+                              $status = "<div class='badge badge-success'>LPB</div>";
                             } else {
-                              $status = "-";
+                              $status = "<div class='badge badge-warning'>__</div>";
                             }
                             ?>
                             <tr>
@@ -68,7 +68,7 @@
                               <td><?= $tanggal; ?></td>
                               <td><?= $show_po->nama_supply; ?></td>
                               <td><?= $status ?></td>
-                              <td><?= anchor('tabel_lpb/tambah_lpb/' . $show_po->id, '<button type="button" href="#" class="btn btn-outline-info my-1">
+                              <td><?= anchor('tabel_lpb/tambah_lpb/' . $show_po->id, '<button type="button" href="#" class="btn btn-outline-info">
                                                     input</button>') ?></td>
                             </tr>
                             <?php $i++ ?>

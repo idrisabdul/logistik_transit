@@ -57,7 +57,7 @@
 
                                                     $no = 0;
                                                     foreach ($stok_gudang->result_array() as $row) {
-                                                        $no++;
+                                                        $no = $no + 1;
 
                                                         $kodebar = $row['kodebar'];
 

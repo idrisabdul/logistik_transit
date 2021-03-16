@@ -68,9 +68,9 @@
 
 
                                                             if ($qtylpb >= $qtybkb && $qtybkb > 0) {
-                                                                $status = "Sebagian";
+                                                                $status = "<div class='badge badge-success'>Sebagian</div>";
                                                             } else {
-                                                                $status = "Stok";
+                                                                $status = "<div class='badge badge-warning'>Stok</div>";
                                                             }
                                                     ?>
                                                             <tr>
@@ -78,7 +78,7 @@
                                                                 <td><?= $row['potxt']; ?></td>
                                                                 <td><?= $row['suplier'] ?></td>
                                                                 <td><?= $status ?></td>
-                                                                <td><?= anchor('tabel_bkb/tampil_input_bkb/' . $row['id'], '<button type="button" href="#" class="btn btn-outline-info my-1">
+                                                                <td><?= anchor('tabel_bkb/tampil_input_bkb/' . $row['id'], '<button type="button" href="#" class="btn btn-outline-info">
                                                     input</button>') ?></td>
                                                             </tr>
                                                         <?php } ?>

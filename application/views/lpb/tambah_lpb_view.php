@@ -32,8 +32,18 @@
                         <div class="row">
                             <div class="col-12 col-md-12 col-lg">
                                 <div class="card">
-                                    <h2 class="section-title ml-2"><?= $nopo ?></h2>
-                                    <p class="section-lead"><?= $supply ?></p>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h2 class="section-title ml-2"><?= $nopo ?></h2>
+                                            <p class="section-lead"><?= $supply ?></p>
+                                        </div>
+                                        <div class="col-md-4"></div>
+                                        <div class="col-md-1 text-right">
+                                            <button type="button" href="#" class="btn btn-lg btn-outline-info mt-4 mr-6 trigger-info">
+                                                <i class="fas fa-camera"></i></button>
+                                        </div>
+                                        <div class="col-md-1"></div>
+                                    </div>
                                     <div class="card-body">
                                         <form action="<?= base_url('tabel_lpb/save') ?>" method="post">
                                             <div class="table-responsive">

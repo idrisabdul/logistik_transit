@@ -13,6 +13,10 @@
 <script src="<?= base_url() ?>/assets/js/stisla.js"></script>
 
 <!-- JS Libraies -->
+<!-- JS Libraies -->
+<script src="<?= base_url() ?>/assets/modules/dist/js/iziToast.min.js"></script>
+<!-- Page Specific JS File -->
+<script src="<?= base_url() ?>/assets/js/page/modules-toastr.js"></script>
 
 <!-- Template JS File -->
 <script src="<?= base_url() ?>/assets/js/scripts.js"></script>

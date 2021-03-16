@@ -41,7 +41,7 @@ class Login extends CI_Controller
                 ];
 
                 $this->session->set_userdata($data);
-                redirect('tabel_lpb');
+                redirect('home');
             } else {
                 $this->session->set_flashdata('pesan', 'Password tidak ditemukan');
                 redirect('login');
