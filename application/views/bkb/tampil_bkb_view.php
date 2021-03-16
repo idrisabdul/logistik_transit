@@ -21,7 +21,7 @@
             <div class="main-content">
                 <section class="section">
                     <div class="section-header">
-                        <h1>Logistik Transit HO</h1>
+                        <h2 class="section-title my-0"><?= $title ?></h2>
                         <div class="section-header-breadcrumb">
                             <div class="breadcrumb-item active"><a href="menu.htm">Home</a></div>
                             <div class="breadcrumb-item">Tambah BKB</div>
@@ -32,13 +32,13 @@
                         <div class="row">
                             <div class="col-12 col-md-12 col-lg">
                                 <div class="card">
+                                    <h2 class="section-title ml-2"><?= $nopo ?></h2>
+                                    <p class="section-lead"><?= $suplier ?></p>
                                     <div class="card-body">
-                                        <div class="card-header">
-                                            <h4>NO PO</h4>
-                                        </div>
+
                                         <form action="<?= base_url('tabel_bkb/save') ?>" method="post">
                                             <div class="table-responsive">
-                                                <table class="table table-sm mt-2" style="width:100%">
+                                                <table class="table table-sm" style="width:100%">
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">No</th>

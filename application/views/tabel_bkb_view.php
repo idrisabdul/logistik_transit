@@ -22,7 +22,7 @@
 
                 <section class="section">
                     <div class="section-header">
-                        <h1>Logistik Transit HO</h1>
+                        <h2 class="section-title my-0"><?= $title ?></h2>
                         <div class="section-header-breadcrumb">
                             <div class="breadcrumb-item active"><a href="#">Home</a></div>
                             <div class="breadcrumb-item">Bukti Keluar Barang</div>
@@ -33,19 +33,16 @@
                         <div class="row">
                             <div class="col-12 col-md-12 col-lg">
                                 <div class="card">
-                                    <div class="card-header">
-                                        <h4><?= $title ?></h4>
-                                    </div>
                                     <?= $this->session->flashdata('message'); ?>
                                     <div class="card-body">
-                                        <div class="form-group">
+                                        <div class="form-group text-right">
                                             <button class="btn btn-outline-success">Print</button>
                                             <?php if ($this->session->userdata('level') == 1) { ?>
-                                                <a class='btn btn-primary' href='<?= base_url('tabel_bkb/tabel_lpb_distinct'); ?>'>Input Barang Keluar</a>
+                                                <a class='btn btn-primary ml-1 mr-3' href='<?= base_url('tabel_bkb/tabel_lpb_distinct'); ?>'>Input Barang Keluar</a>
                                             <?php } ?>
                                         </div>
                                         <div class="table-responsive">
-                                            <table class="table table-striped" style="width:100%" id="myTable">
+                                            <table class="table table-sm" style="width:100%" id="myTable">
                                                 <thead>
                                                     <tr>
                                                         <?php if ($this->session->userdata('level') == 1) { ?>
@@ -79,7 +76,7 @@
                                                         <tr>
 
                                                             <?php if ($this->session->userdata('level') == 1) { ?><td>
-                                                                    <?= anchor('tabel_bkb/edit_bkb/' . $row->ID, '<button type="button" href="#" class="btn btn-outline-info my-1">
+                                                                    <?= anchor('tabel_bkb/edit_bkb/' . $row->ID, '<button type="button" href="#" class="btn btn-sm btn-outline-info my-1">
                                                                 <i class="far fa-edit"></i></button>'); ?> </td>
                                                             <?php } ?>
                                                             <td><?php echo $count; ?></td>

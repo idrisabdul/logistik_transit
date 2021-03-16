@@ -23,9 +23,7 @@ class Tabel_bkb extends CI_Controller
 
     public function tabel_lpb_distinct()
     {
-
-
-        $data['title'] = 'Input BKB';
+        $data['title'] = 'Daftar Barang Transit';
         $data['data_lpb'] = $this->tabel_lpb_model->get_data_lpb_distinct();
         $this->load->view('input_bkb_view', $data);
     }
@@ -229,9 +227,15 @@ class Tabel_bkb extends CI_Controller
 
     public function tampil_input_bkb($id)
     {
+        $data['title'] = 'Input BKB';
+
         $data['barang_item_bkb'] = $this->tabel_bkb_model->getItemBKB($id)->result_array();
 
-        $data['title'] = 'Input BKB';
+        foreach ($data['barang_item_bkb'] as $row) {
+            $data['nopo'] = $row['potxt'];
+            $data['suplier'] = $row['suplier'];
+        }
+
         // echo "<pre>";
         // var_dump($data['barang_item_bkb']);
         // echo "</pre>";

@@ -21,7 +21,7 @@
             <div class="main-content">
                 <section class="section">
                     <div class="section-header">
-                        <h1>Logistik Transit HO</h1>
+                        <h2 class="section-title my-0">Input LPB</h2>
                         <div class="section-header-breadcrumb">
                             <div class="breadcrumb-item active"><a href="menu.htm">Home</a></div>
                             <div class="breadcrumb-item">Tambah LPB</div>
@@ -32,10 +32,12 @@
                         <div class="row">
                             <div class="col-12 col-md-12 col-lg">
                                 <div class="card">
+                                    <h2 class="section-title ml-2"><?= $nopo ?></h2>
+                                    <p class="section-lead"><?= $supply ?></p>
                                     <div class="card-body">
                                         <form action="<?= base_url('tabel_lpb/save') ?>" method="post">
                                             <div class="table-responsive">
-                                                <table class="table table-sm mt-2" style="width:100%">
+                                                <table class="table table-sm" style="width:100%">
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">ID</th>
@@ -87,7 +89,7 @@
                                                                 <td><?= $bp['sat'] ?></td>
 
                                                                 <td><input type="date" class="form-control" name="tglinput<?= $no ?>"></td>
-                                                                <td><input type="text" class="form-control" name="time<?= $no ?>" placeholder="waktu"></td>
+                                                                <td><input type="text" class="form-control" name="time<?= $no ?>"></td>
                                                                 <td><input type="text" class="form-control" name="qty_lpb<?= $no ?>"></td>
                                                                 <td><input type="text" class="form-control" name="transporter<?= $no ?>"></td>
                                                                 <td><input type="text" class="form-control" name="asal<?= $no ?>"></td>

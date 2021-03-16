@@ -23,31 +23,27 @@
 
         <section class="section">
           <div class="section-header">
-            <h1>Logistik Transit HO</h1>
+            <h2 class="section-title my-0">Tabel LPB</h2>
             <div class="section-header-breadcrumb">
               <div class="breadcrumb-item active"><a href="#">Home</a></div>
               <div class="breadcrumb-item">Laporan Penerimaan Barang</div>
             </div>
           </div>
 
-          <div class="section-body">
+          <div class="section-body mt-0">
             <div class="row">
               <div class="col-12 col-md-12 col-lg">
                 <div class="card">
-                  <div class="card-header">
-                    <h4>TABEL LPB</h4>
-                  </div>
                   <div class="card-body">
-
                     <?= $this->session->flashdata('message'); ?>
-                    <div class="form-group">
+                    <div class="form-group text-right">
                       <button class="btn btn-outline-success">Print</button>
                       <?php if ($this->session->userdata('level') == 1) { ?>
-                        <a class='btn btn-primary' href="<?= base_url('tabel_lpb/add_new'); ?>">Tambah Barang</a>
+                        <a class='btn btn-primary mr-3 ml-1' href="<?= base_url('tabel_lpb/add_new'); ?>">Tambah Barang</a>
                       <?php } ?>
                     </div>
                     <div class="table-responsive">
-                      <table class="table table-striped" style="width:100%" id="myTable">
+                      <table class="table table-sm" style="width:100%" id="myTable">
                         <thead>
                           <tr>
                             <th scope="col">Aksi</th>
@@ -81,10 +77,10 @@
 
                               <td>
                                 <?php if ($this->session->userdata('level') == 1) { ?>
-                                  <?= anchor('tabel_lpb/edit_lpb/' . $row['id'], '<button type="button" href="#" class="btn btn-outline-info my-1">
+                                  <?= anchor('tabel_lpb/edit_lpb/' . $row['id'], '<button type="button" href="#" class="btn btn-sm btn-outline-info my-1">
                                                     <i class="far fa-edit"></i></button>') ?>
                                 <?php } ?>
-                                <?= anchor('tabel_lpb/cetakpo/' . $row['id'], '<button type="button" href="#" class="btn btn-outline-danger">
+                                <?= anchor('tabel_lpb/cetakpo/' . $row['id'], '<button type="button" href="#" class="btn btn-sm btn-outline-danger">
                                                     <i class="fas fa-print"></i></button>') ?></td>
                               <td><?php echo $count; ?></td>
                               <?php $tanggal = date("j F Y", strtotime($row['tgl'])); ?>

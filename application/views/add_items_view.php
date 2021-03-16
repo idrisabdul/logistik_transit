@@ -22,7 +22,7 @@
       <div class="main-content">
         <section class="section">
           <div class="section-header">
-            <h1>Logistik Transit HO</h1>
+            <h2 class="section-title my-0">Daftar Purchase Order</h2>
             <div class="section-header-breadcrumb">
               <div class="breadcrumb-item active"><a href="menu.htm">Home</a></div>
               <div class="breadcrumb-item">Input Penerimaan Barang Transit HO</div>
@@ -34,9 +34,6 @@
               <div class="col-12 col-md-12 col-lg">
                 <div class="card">
                   <div class="card-body">
-                    <div class="card-header">
-                      <h4>Data PO</h4>
-                    </div>
                     <div class="table-responsive">
                       <table class="table table-sm" id="myTable">
                         <thead>
