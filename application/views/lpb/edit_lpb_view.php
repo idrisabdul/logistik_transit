@@ -36,10 +36,9 @@
                                         <?php $i = 1; ?>
                                         <?php foreach ($po->result_array() as $item_po) : ?>
                                             <form action="<?= base_url('tabel_lpb/update/' . $item_po['id']) ?>" method="post">
-                                                <h4><?= $item_po['potxt']; ?></h4>
-                                                <div class="card-header ml-0">
-                                                    <h4><?= $item_po['suplier'] ?></h4>
-                                                </div>
+                                                <h2 class="section-title ml-2"><?= $item_po['potxt']; ?></h2>
+                                                <p class="section-lead ml-12"><?= $item_po['suplier'] ?></p>
+
 
                                                 <div class="form-row">
                                                     <div class="form-group col-md-6">

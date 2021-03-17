@@ -170,7 +170,7 @@ class Tabel_lpb extends CI_Controller
             //$this->db->insert('lpb', $data);
 
             //-------INSERT OR UPDATE-----
-            $queryLPB = "SELECT * FROM `lpb` WHERE `kodebar` = $kodebar";
+            $queryLPB = "SELECT * FROM `lpb` WHERE `kodebar` = $kodebar AND `potxt`= '$potxt' AND `merek` = '$merek'";
             $jika_barang_ada = $this->db->query($queryLPB);
 
             //mengambil qty barang
@@ -216,10 +216,10 @@ class Tabel_lpb extends CI_Controller
                             'depart' => $depart,
                             'kodept' => $kodept,
                         ];
-                        $this->tabel_lpb_model->updateItemLPB($dataupdate, $kodebar);
+                        $this->tabel_lpb_model->updateItemLPB($dataupdate, $kodebar, $potxt, $merek);
                     } else {
                         //kalau qty barang lpb 0; update sesuai inputan qty lpb
-                        $this->tabel_lpb_model->updateItemLPB($datates, $kodebar);
+                        $this->tabel_lpb_model->updateItemLPB($datates, $kodebar, $potxt, $merek);
                     }
                 } else {
                     //insert
@@ -230,22 +230,7 @@ class Tabel_lpb extends CI_Controller
             // ------END INSERT OR UPDATE -----
 
 
-            // --------- UPDATE  SISA ITEM PO ---------
-            $sumSisaPO = "SELECT * FROM `item_po` WHERE `kodebar` = $kodebar";
-            $sisa = $this->db->query($sumSisaPO)->row_array();
 
-            $qtysisa = $sisa['qty_sisa'];
-
-
-            if ($qtysisa == 0) {
-                $qtysisa1 = $qty_po - $qty_lpb;
-                $qryQtyLpb = "UPDATE `item_po` SET `qty_sisa` = $qtysisa1 WHERE `kodebar` = $kodebar";
-                $this->db->query($qryQtyLpb);
-            } else if ($qtysisa > 0) {
-                $qtysisa2 = $qtysisa - $qty_lpb;
-                $qryQtyLpb = "UPDATE `item_po` SET `qty_sisa` = $qtysisa2 WHERE `kodebar` = $kodebar";
-                $this->db->query($qryQtyLpb);
-            }
             // --------- END UPDATE SISA ITEM PO ---------
 
         }

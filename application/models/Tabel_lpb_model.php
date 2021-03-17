@@ -4,6 +4,7 @@ class Tabel_lpb_model extends CI_Model
 {
     public function get_data_lpb()
     {
+        $this->db->order_by('no_lpb', 'desc');
         $result = $this->db->get('lpb');
         return $result;
     }
@@ -41,6 +42,7 @@ class Tabel_lpb_model extends CI_Model
 
     public function get_data_bkb()
     {
+        $this->db->order_by('nobkb', 'desc');
         return $this->db->get('bkb');
     }
 
@@ -90,8 +92,8 @@ class Tabel_lpb_model extends CI_Model
         return $this->db->get_where('lpb', ['kodebar' => $kodebar])->row_array();
     }
 
-    public function updateItemLPB($data, $kodebar)
+    public function updateItemLPB($data, $kodebar, $potxt, $merek)
     {
-        $this->db->update('lpb', $data, ['kodebar' => $kodebar]);
+        $this->db->update('lpb', $data, ['kodebar' => $kodebar] && ['potxt' => $potxt] && ['merek' => $merek]);
     }
 }

@@ -39,7 +39,7 @@
                     <div class="form-group text-right">
                       <button class="btn btn-outline-success">Print</button>
                       <?php if ($this->session->userdata('level') == 1) { ?>
-                        <a class='btn btn-primary mr-3 ml-1' href="<?= base_url('tabel_lpb/add_new'); ?>">Tambah Barang</a>
+                        <a class='btn btn-primary mr-3 ml-1' href="<?= base_url('tabel_lpb/add_new'); ?>">Terima Barang</a>
                       <?php } ?>
                     </div>
                     <div class="table-responsive">

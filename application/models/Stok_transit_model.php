@@ -5,7 +5,7 @@ class Stok_transit_model extends CI_Model
     public function stokTransit()
     {
         $this->db->group_by('kodebar');
-        $this->db->order_by('nabar', 'ASC');
+        $this->db->order_by('no_lpb', 'desc');
         return $this->db->get('lpb');
     }
 

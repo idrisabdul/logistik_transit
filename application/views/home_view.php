@@ -205,6 +205,16 @@
 
             <!-- Footer -->
             <?php $this->load->view('_partials/footer.php'); ?>
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $('#example').DataTable({
+                        "lengthMenu": [
+                            [5],
+                            [5]
+                        ]
+                    });
+                });
+            </script>
         </div>
     </div>
 
