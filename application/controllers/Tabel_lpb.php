@@ -216,6 +216,14 @@ class Tabel_lpb extends CI_Controller
                             'depart' => $depart,
                             'kodept' => $kodept,
                         ];
+                        $this->session->set_flashdata('message', '<div class="alert alert-light alert-dismissible show fade col-md-6">
+                        <div class="alert-body">
+                          <button class="close" data-dismiss="alert">
+                            <span>&times;</span>
+                          </button>
+                          Item LPB Berhasil ditambahkan
+                        </div>
+                        </div>');
                         $this->tabel_lpb_model->updateItemLPB($dataupdate, $kodebar, $potxt, $merek);
                     } else {
                         //kalau qty barang lpb 0; update sesuai inputan qty lpb
@@ -223,6 +231,14 @@ class Tabel_lpb extends CI_Controller
                     }
                 } else {
                     //insert
+                    $this->session->set_flashdata('message', '<div class="alert alert-light alert-dismissible show fade col-md-6">
+                    <div class="alert-body">
+                      <button class="close" data-dismiss="alert">
+                        <span>&times;</span>
+                      </button>
+                      Item LPB Berhasil ditambahkan
+                    </div>
+                    </div>');
                     $this->db->insert('lpb', $datates);
                 }
 
@@ -236,7 +252,7 @@ class Tabel_lpb extends CI_Controller
         }
 
 
-        $this->session->set_flashdata('message', '<div class="alert alert-info" role="alert">Data Berhasil Dimasukkan</div>');
+
 
         redirect('tabel_lpb');
     }
