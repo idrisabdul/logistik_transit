@@ -94,6 +94,10 @@ class Tabel_lpb_model extends CI_Model
 
     public function updateItemLPB($data, $kodebar, $potxt, $merek)
     {
-        $this->db->update('lpb', $data, ['kodebar' => $kodebar] && ['potxt' => $potxt] && ['merek' => $merek]);
+        $this->db->set($data);
+        $this->db->where('kodebar', $kodebar);
+        $this->db->where('potxt', $potxt);
+        $this->db->where('merek', $merek);
+        return $this->db->update('lpb');
     }
 }

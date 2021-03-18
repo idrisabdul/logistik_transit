@@ -113,7 +113,7 @@ class Tabel_lpb extends CI_Controller
                 'asal' => $asal,
 
                 'petugas' => $petugas,
-                'tglinput' => $tglinput,
+                'tgl' => $tglinput,
                 'user' => $user,
                 'txtperiode' => $periode,
                 'thn' => date('Y'),
@@ -204,7 +204,7 @@ class Tabel_lpb extends CI_Controller
                             'asal' => $asal,
 
                             'petugas' => $petugas,
-                            'tglinput' => $tglinput,
+                            'tgl' => $tglinput,
                             'user' => $user,
                             'txtperiode' => $periode,
                             'thn' => date('Y'),
