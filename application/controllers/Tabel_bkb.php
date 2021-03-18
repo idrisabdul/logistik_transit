@@ -209,7 +209,7 @@ class Tabel_bkb extends CI_Controller
             foreach ($item_bkb as $qr) {
                 # code...
 
-                $image_name = "HO-BKB-" . substr($qr['nobkbtxt'], -8) . '.png'; //buat name dari qr code sesuai dengan nim
+                $image_name = substr($qr['nobkbtxt'], -8) . '.png'; //buat name dari qr code
                 $params['data'] = $qr['nobkbtxt']; //data yang akan di jadikan QR CODE
                 $params['level'] = 'H'; //H=High
                 $params['size'] = 10;

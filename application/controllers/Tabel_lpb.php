@@ -261,7 +261,7 @@ class Tabel_lpb extends CI_Controller
     public function update($id)
     {
         $data = [
-            'tgl' => $this->input->post('tglinput'),
+            'tgl' => $this->input->post('tgl'),
             'jam' => $this->input->post('jam'),
             'qty_lpb' => $this->input->post('qty_lpb'),
             'sj' => $this->input->post('sj'),

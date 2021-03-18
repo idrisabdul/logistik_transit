@@ -67,7 +67,7 @@
                         <td width="137" height="19">
                             <font face="Verdana" size="1"><?php echo $row['pengirim']; ?></font>
                         </td>
-                        <td width="61" rowspan="3"> <img width="50" src='<?= base_url('assets/images/bkb_qrcode/' . substr($row['nobkbtxt'], -7) . '.png'); ?>'></td>
+                        <td width="61" rowspan="3"> <img width="50" src='<?= base_url('assets/images/bkb_qrcode/') . substr($row['nobkbtxt'], -7) . '.png'; ?>'></td>
                         <td width="9" height="19">&nbsp;</td>
                         <td width="204" height="19">
                             <font face="Verdana" size="1">No.Purchase
