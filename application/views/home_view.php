@@ -32,7 +32,7 @@
                                         <div class="owl-carousel owl-theme" id="products-carousel">
                                             <div class="row">
                                                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                                                    <div class="card card-statistic-1">
+                                                    <div class="card shadow-secondary card-statistic-1">
                                                         <div class="card-icon bg-success">
                                                             <i class="fas fa-box"></i>
                                                         </div>
@@ -47,7 +47,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                                                    <div class="card card-statistic-1">
+                                                    <div class="card shadow-secondary card-statistic-1">
                                                         <div class="card-icon bg-danger">
                                                             <i class="fas fa-truck"></i>
                                                         </div>
@@ -62,7 +62,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                                                    <div class="card card-statistic-1">
+                                                    <div class="card shadow-secondary card-statistic-1">
                                                         <div class="card-icon bg-warning">
                                                             <i class="far fa-credit-card"></i>
                                                         </div>
@@ -77,7 +77,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                                                    <div class="card card-statistic-1">
+                                                    <div class="card shadow-secondary card-statistic-1">
                                                         <div class="card-icon bg-primary">
                                                             <i class="fas fa-user"></i>
                                                         </div>
@@ -85,9 +85,9 @@
                                                             <div class="card-header">
                                                                 <h4>Users</h4>
                                                             </div>
-                                                            <div class="card-body">
+                                                            <div class="card-body my-0">
                                                                 <?= $this->session->userdata('nama'); ?>
-                                                            </div>
+                                                            </div><?= $this->session->userdata('periode'); ?>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -171,28 +171,55 @@
 
                                         <div class="row mt-1">
                                             <div class="col-md">
-                                                <a href="<?= base_url('tabel_lpb/add_new') ?>">
-                                                    <div class="card card-hero">
-                                                        <div class="card-header">
-                                                            <div class="card-icon">
-                                                                <i class="far fa-edit"></i>
+                                                <?php if ($this->session->userdata('level') == 1) { ?>
+                                                    <a href="<?= base_url('tabel_lpb/add_new') ?>">
+                                                        <div class="card shadow-primary card-hero">
+                                                            <div class="card-header">
+                                                                <div class="card-icon">
+                                                                    <i class="far fa-edit"></i>
+                                                                </div>
+                                                                <h5>Input LPB</h5>
                                                             </div>
-                                                            <h5>Input LPB</h5>
                                                         </div>
-                                                    </div>
-                                                </a>
+                                                    </a>
+                                                <?php } else { ?>
+                                                    <a href="<?= base_url('tabel_lpb') ?>">
+                                                        <div class="card shadow-primary card-hero">
+                                                            <div class="card-header">
+                                                                <div class="card-icon">
+                                                                    <i class="far fa-edit"></i>
+                                                                </div>
+                                                                <h5>Lihat LPB</h5>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                <?php } ?>
                                             </div>
                                             <div class="col-md">
-                                                <a href="<?= base_url('tabel_bkb/tabel_lpb_distinct') ?>">
-                                                    <div class="card bg-danger card-hero">
-                                                        <div class="card-header">
-                                                            <div class="card-icon">
-                                                                <i class="fas fa-truck"></i>
+                                                <?php if ($this->session->userdata('level') == 1) { ?>
+                                                    <a href="<?= base_url('tabel_bkb/tabel_lpb_distinct') ?>">
+                                                        <div class="card shadow-primary bg-danger card-hero">
+                                                            <div class="card-header">
+                                                                <div class="card-icon">
+                                                                    <i class="fas fa-truck"></i>
+                                                                </div>
+                                                                <h5>Input BKB</h5>
                                                             </div>
-                                                            <h5>Input BKB</h5>
                                                         </div>
-                                                    </div>
-                                                </a>
+                                                    </a>
+                                                <?php } else { ?>
+                                                    <a href="<?= base_url('tabel_bkb') ?>">
+                                                        <div class="card shadow-primary bg-danger card-hero">
+                                                            <div class="card-header">
+                                                                <div class="card-icon">
+                                                                    <i class="fas fa-truck"></i>
+                                                                </div>
+                                                                <h5>Lihat BKB</h5>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+
+                                                <?php } ?>
                                             </div>
                                         </div>
                                     </div>

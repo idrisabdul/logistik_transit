@@ -40,75 +40,62 @@
                                                 <p class="section-lead ml-12"><?= $item_po['suplier'] ?></p>
 
 
-                                                <div class="form-row">
-                                                    <div class="form-group col-md-6">
+                                                <div class="form-row my-0">
+                                                    <div class="form-group col-md-2">
                                                         <label for="inputEmail4">Kode Barang</label>
                                                         <input type="text" class="form-control" id="kodebar" name="kodebar" readonly value="<?= $item_po['kodebar']; ?>">
                                                     </div>
-                                                    <div class="form-group col-md-6">
+                                                    <div class="form-group col-md-3">
                                                         <label for="inputPassword4">Nama Barang</label>
                                                         <input type="text" class="form-control" id="nabar" name="nabar" readonly value="<?= $item_po['nabar']; ?>">
                                                     </div>
-                                                </div>
-
-                                                <div class="form-group row col-md-6">
-                                                    <label for="inputEmail3" class="col-sm-3 col-form-label">Merek Jenis</label>
-                                                    <div class="col-sm-9">
+                                                    <div class="form-group col-md-2">
+                                                        <label for="inputEmail4">Merek Jenis</label>
                                                         <input type="text" class="form-control" name="merek" readonly value="<?= $item_po['merek'] ?>">
+
                                                     </div>
-                                                </div>
-                                                <div class="form-group row col-md-6">
-                                                    <label class="col-sm-3 col-form-label">QTY PO</label>
-                                                    <div class="col-sm-9">
+                                                    <div class="form-group col-md-2">
+                                                        <label>QTY PO</label>
                                                         <input type="text" class="form-control" name="qty_po" readonly value="<?= $item_po['qty_po'] ?>">
                                                     </div>
-                                                </div>
-                                                <div class="form-group row col-md-6">
-                                                    <label class="col-sm-3 col-form-label">SAT</label>
-                                                    <div class="col-sm-9">
+                                                    <div class="form-group col-md-2">
+                                                        <label>SAT</label>
                                                         <input type="text" class="form-control" name="sat" readonly value="<?= $item_po['sat'] ?>">
                                                     </div>
                                                 </div>
 
-                                                <div class="card-header">
-                                                    <h4>Penerimaan</h4>
-                                                </div>
-                                                <div class="form-group row col-md-6">
-                                                    <label class="col-sm-3 col-form-label">Tanggal</label>
-                                                    <div class="col-sm-9">
+                                                <h4 class="section-title">Penerimaan</h4>
+
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-2">
+                                                        <label>Tanggal</label>
                                                         <input type="date" class="form-control" name="tgl" value="<?= $item_po['tgl'] ?>">
                                                     </div>
-                                                </div>
 
-                                                <div class="form-group row col-md-6">
-                                                    <label class="col-sm-3 col-form-label">Jam</label>
-                                                    <div class="col-sm-9">
+                                                    <div class="form-group col-md-2">
+                                                        <label>Jam</label>
                                                         <input type="text" class="form-control" name="jam" value="<?= $item_po['jam'] ?>">
-                                                    </div>
-                                                </div>
 
-                                                <div class="form-group row col-md-6">
-                                                    <label class="col-sm-3 col-form-label">QTY LPB</label>
-                                                    <div class="col-sm-9">
+                                                    </div>
+
+                                                    <div class="form-group col-md-2">
+                                                        <label>QTY LPB</label>
                                                         <input type="text" class="form-control" name="qty_lpb" value="<?= $item_po['qty_lpb'] ?>">
+
                                                     </div>
-                                                </div>
-                                                <div class="form-group row col-md-6">
-                                                    <label class="col-sm-3 col-form-label">No SJ</label>
-                                                    <div class="col-sm-9">
+                                                    <div class="form-group col-md-2">
+                                                        <label>No SJ</label>
                                                         <input type="text" name="sj" class="form-control" value="<?= $item_po['sj'] ?>">
+
                                                     </div>
-                                                </div>
-                                                <div class="form-group row col-md-6">
-                                                    <label class="col-sm-3 col-form-label">Nama Transporter</label>
-                                                    <div class="col-sm-9">
+                                                    <div class="form-group col-md-2">
+                                                        <label>Nama Transporter</label>
                                                         <input type="text" class="form-control" name="transporter" value="<?= $item_po['transporter'] ?>">
                                                     </div>
-                                                </div>
-                                                <div class="form-group row col-md-6">
-                                                    <label class="col-sm-3 col-form-label">Ket</label>
-                                                    <div class="col-sm-9">
+                                                    <div class="form-group col-md-2">
+                                                        <label>Ket</label>
                                                         <input type="text" class="form-control" name="ket" value="<?= $item_po['ket'] ?>">
+
                                                     </div>
                                                 </div>
 

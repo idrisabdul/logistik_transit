@@ -33,8 +33,8 @@
                         <div class="row">
                             <div class="col-12 col-md-12 col-lg">
                                 <div class="card">
-                                    <?= $this->session->flashdata('message'); ?>
                                     <div class="card-body">
+                                        <?= $this->session->flashdata('message'); ?>
                                         <div class="form-group text-right">
                                             <button class="btn btn-outline-success">Print</button>
                                             <?php if ($this->session->userdata('level') == 1) { ?>
@@ -82,7 +82,12 @@
                                                             <td><?php echo $count; ?></td>
                                                             <?php $tanggal = date("j F Y", strtotime($row->tgl)); ?>
                                                             <td><?= $tanggal; ?></td>
-                                                            <td><?= substr($row->nobkbtxt, -8); ?></td>
+                                                            <td><?php if ($this->session->userdata('level') == 1) { ?>
+                                                                    <?= substr($row->nobkbtxt, -8); ?>
+                                                                <?php } else {
+                                                                    echo $row->nobkbtxt;
+                                                                } ?>
+                                                            </td>
                                                             <td><?php echo $row->kodebar; ?></td>
 
                                                             <td><?php echo $row->nabar; ?></td>

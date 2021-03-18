@@ -45,4 +45,11 @@ class Tabel_bkb_model extends CI_Model
     {
         return $this->db->get_where('bkb', ['kodebar' => $kodebar]);
     }
+
+    function getnoBkbItem($id)
+    {
+        $cari = $this->db->get_where('bkb', ['ID' => $id])->row_array();
+
+        return $this->db->get_where('bkb', ['nobkbtxt' => $cari['nobkbtxt']])->result_array();
+    }
 }

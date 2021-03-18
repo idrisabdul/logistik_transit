@@ -184,6 +184,47 @@ class Tabel_bkb extends CI_Controller
         $this->load->view('bkb/edit_bkb_view', $data);
     }
 
+    public function cetakBKB($id)
+    {
+        $data['title'] = 'Cetak BKB';
+
+        $this->load->library('ciqrcode');
+
+        $config['cacheable']    = true; //boolean, the default is true
+        $config['cachedir']     = './assets/'; //string, the default is application/cache/
+        $config['errorlog']     = './assets/'; //string, the default is application/logs/
+        $config['imagedir']     = './assets/images/bkb_qrcode/'; //direktori penyimpanan qr code
+        $config['quality']      = true; //boolean, the default is true
+        $config['size']         = '1024'; //interger, the default is 1024
+        $config['black']        = array(224, 255, 255); // array, default is array(255,255,255)
+        $config['white']        = array(70, 130, 180); // array, default is array(0,0,0)
+        $this->ciqrcode->initialize($config);
+
+        $cetakbkb = $this->tabel_bkb_model->getIdBKB($id);
+
+        $item_bkb = $this->tabel_bkb_model->getnoBkbItem($id);
+
+        foreach ($cetakbkb as $qrcode) :
+
+            foreach ($item_bkb as $qr) {
+                # code...
+
+                $image_name = "HO-BKB-" . substr($qr['nobkbtxt'], -8) . '.png'; //buat name dari qr code sesuai dengan nim
+                $params['data'] = $qr['nobkbtxt']; //data yang akan di jadikan QR CODE
+                $params['level'] = 'H'; //H=High
+                $params['size'] = 10;
+                $params['savename'] = FCPATH . $config['imagedir'] . $image_name; //simpan image QR CODE ke folder assets/images/
+                $this->ciqrcode->generate($params); // fungsi untuk generate QR CODE
+            }
+
+        endforeach;
+
+        $data['cetakbkb'] = $this->tabel_bkb_model->getIdBKB($id);
+        $data['item_bkb'] = $this->tabel_bkb_model->getnoBkbItem($id);
+
+        $this->load->view('bkb/cetak_bkb_view', $data);
+    }
+
     public function updateBKB($id)
     {
         $data = [

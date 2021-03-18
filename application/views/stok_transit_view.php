@@ -36,7 +36,7 @@
                                         <h4>Stok Barang</h4>
                                     </div>
                                     <div class="card-body">
-                                        <div class="table-responsive">
+                                        <div class="table-responsive mx-6">
                                             <table class="table table-sm" id="myTable">
                                                 <thead>
                                                     <tr>
@@ -48,7 +48,7 @@
                                                         <th>QTY BKB</th>
                                                         <th>Sisa Stok</th>
                                                         <th>Rincian</th>
-                                                        <th>Tanggal Input Barang</th>
+                                                        <th>No PO</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -87,7 +87,7 @@
                                                             echo "<td>" . $qtybkb . "</td>";
                                                             echo "<td>" . $saldo . "</td>";
                                                             echo "<td>" . "-" . "</td>";
-                                                            echo "<td>" . $row['tglinput'] . "</td>";
+                                                            echo "<td>" . $row['potxt'] . "</td>";
                                                             echo "</tr>";
                                                         }
                                                     }

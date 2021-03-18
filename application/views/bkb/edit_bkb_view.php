@@ -37,99 +37,83 @@
                                         <?php $i = 1; ?>
                                         <?php foreach ($bkbtxt as $item_po) : ?>
                                             <form action="<?= base_url('tabel_bkb/updatebkb/' . $item_po['ID']) ?>" method="post">
-                                                <h4><?= $item_po['nopotxt']; ?></h4>
-                                                <div class="card-header ml-0">
-                                                    <h4><?= $item_po['nobkbtxt'] ?></h4>
-                                                </div>
+                                                <h2 class="section-title ml-2"><?= $item_po['nopotxt']; ?></h2>
+                                                <p class="section-lead ml-10"><?= $item_po['nobkbtxt'] ?></p>
 
                                                 <div class="form-row">
-                                                    <div class="form-group col-md-6">
+                                                    <div class="form-col-md-2">
                                                         <label for="inputEmail4">Kode Barang</label>
                                                         <input type="text" class="form-control" id="kodebar" name="kodebar" readonly value="<?= $item_po['kodebar']; ?>">
                                                     </div>
-                                                    <div class="form-group col-md-6">
+                                                    <div class="form-col-md-2">
                                                         <label for="inputPassword4">Nama Barang</label>
                                                         <input type="text" class="form-control" id="nabar" name="nabar" readonly value="<?= $item_po['nabar']; ?>">
                                                     </div>
-                                                </div>
-
-                                                <div class="form-group row col-md-6">
-                                                    <label class="col-sm-3 col-form-label">QTY PO</label>
-                                                    <div class="col-sm-9">
+                                                    <div class="form-group col-md-2">
+                                                        <label>QTY PO</label>
                                                         <input type="text" class="form-control" name="qty_po" readonly value="<?= $item_po['qty_lpb'] ?>">
                                                     </div>
-                                                </div>
-                                                <div class="form-group row col-md-6">
-                                                    <label class="col-sm-3 col-form-label">SAT</label>
-                                                    <div class="col-sm-9">
+                                                    <div class="form-group col-md-2">
+                                                        <label>SAT</label>
                                                         <input type="text" class="form-control" name="sat" readonly value="<?= $item_po['sat'] ?>">
                                                     </div>
                                                 </div>
-                                                <div class="form-group row col-md-6">
-                                                    <label class="col-sm-3 col-form-label">Kondisi</label>
-                                                    <div class="col-sm-9">
+                                                <hr>
+                                                <h4 class="section-title mt-1">Form Edit BKB</h4>
+
+                                                <div class="form-row mt-3">
+                                                    <div class="col-md-1">
+                                                        <label>Kondisi</label>
                                                         <select class="form-control" name="kondisi" id="">
                                                             <option value="Baik">Baik</option>
                                                             <option value="Rusak">Rusak</option>
                                                         </select>
                                                     </div>
-                                                </div>
-
-                                                <div class="form-group row col-md-6">
-                                                    <label class="col-sm-3 col-form-label">Tanggal</label>
-                                                    <div class="col-sm-9">
+                                                    <div class="col-md-2">
+                                                        <label>Tanggal</label>
                                                         <input type="date" class="form-control" name="tgl" value="<?= $item_po['tgl'] ?>">
                                                     </div>
-                                                </div>
 
-                                                <div class="form-group row col-md-6">
-                                                    <label class="col-sm-3 col-form-label">Jam BKB</label>
-                                                    <div class="col-sm-9">
+                                                    <div class="col-md-1">
+                                                        <label>Jam BKB</label>
                                                         <input type="text" class="form-control" name="jam" value="<?= $item_po['jam'] ?>">
                                                     </div>
-                                                </div>
 
-                                                <div class="form-group row col-md-6">
-                                                    <label class="col-sm-3 col-form-label">QTY BKB</label>
-                                                    <div class="col-sm-9">
+                                                    <div class="col-md-1">
+                                                        <label>QTY BKB</label>
                                                         <input type="text" class="form-control" name="qty_bkb" value="<?= $item_po['qty_bkb'] ?>">
                                                     </div>
-                                                </div>
-                                                <div class="form-group row col-md-6">
-                                                    <label class="col-sm-3 col-form-label">Transport</label>
-                                                    <div class="col-sm-9">
+                                                    <div class="col-md-1">
+                                                        <label>Transport</label>
                                                         <select class="form-control" name="transport" id="">
                                                             <option value="Internal">Internal</option>
                                                             <option value="Eksternal">Eksternal</option>
                                                         </select>
                                                     </div>
-                                                </div>
-                                                <div class="form-group row col-md-6">
-                                                    <label class="col-sm-3 col-form-label">Nama Transporter</label>
-                                                    <div class="col-sm-9">
+                                                    <div class="col-md-2">
+                                                        <label>Nama Transporter</label>
                                                         <input type="text" class="form-control" name="pengirim" value="<?= $item_po['pengirim'] ?>">
                                                     </div>
-                                                </div>
 
-                                                <div class="form-group row col-md-6">
-                                                    <label class="col-sm-3 col-form-label">No Pol</label>
-                                                    <div class="col-sm-9">
+                                                    <div class="col-md-2">
+                                                        <label>No Pol</label>
                                                         <input type="text" class="form-control" name="nopol" value="<?= $item_po['nopol'] ?>">
                                                     </div>
-                                                </div>
 
 
-                                                <div class="form-group row col-md-6">
-                                                    <label class="col-sm-3 col-form-label">Ket</label>
-                                                    <div class="col-sm-9">
+                                                    <div class="col-md-2">
+                                                        <label>Ket</label>
                                                         <input type="text" class="form-control" name="ket" value="<?= $item_po['ket'] ?>">
                                                     </div>
                                                 </div>
 
-                                                <div class="text-right">
+
+                                                <div class="text-right mt-3">
                                                     <button type="submit" href="#" class="btn btn-icon icon-left btn-info pull-right mr-2">
                                                         <i class="far fa-edit"></i> Edit
                                                     </button>
+                                                    <?= anchor('tabel_bkb/cetakBKB/' . $item_po['ID'], '<button type="button" href="#" class="btn btn-icon icon-left btn-warning mr-2">
+                                                    <i class="fas fa-print"></i> Cetak BKB</button>') ?>
                                                     <a onclick="deleteConfirm('<?= base_url('tabel_bkb/delete_itembkb/' . $item_po['ID']) ?>')" href="#!" class="btn btn-icon icon-left btn-danger"><i class="fas fa-trash"></i> Hapus</a>
                                                 </div>
                                             </form>
