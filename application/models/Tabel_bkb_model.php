@@ -32,13 +32,22 @@ class Tabel_bkb_model extends CI_Model
     public function getItemBKB($id)
     {
         $getItem = $this->db->get_where('lpb', ['id' => $id])->row_array();
+        $this->db->group_by('nabar');
+        //$this->db->select_sum('qty_lpb');
         return $this->db->get_where('lpb', ['potxt' => $getItem['potxt']]);
     }
+
 
     public function getQtyBkb($kodebar)
     {
         $this->db->select_sum('qty_bkb');
         return $this->db->get_where('bkb', ['kodebar' => $kodebar])->row_array();
+    }
+
+    public function getQtyLpb($kodebar)
+    {
+        $this->db->select_sum('qty_lpb');
+        return $this->db->get_where('lpb', ['kodebar' => $kodebar])->row_array();
     }
 
     public function getRowsLpb($kodebar)

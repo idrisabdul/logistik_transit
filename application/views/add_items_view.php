@@ -53,12 +53,23 @@
                           <?php foreach ($po as $show_po) : ?>
                             <?php
                             $nopo = $show_po->noreftxt;
-                            $result2 = $this->db->query("SELECT * FROM lpb where potxt='$nopo'");
-                            if ($result2->num_rows() >= 1) {
-                              $status = "<div class='badge badge-success'>LPB</div>";
+                            $sumqtypo = $this->tabel_lpb_model->getSumQtyPO($nopo);
+                            $sumqtylpb = $this->tabel_lpb_model->getSumQtyLPB($nopo);
+
+                            $total = $sumqtypo['qty'] - $sumqtylpb['qty_lpb'];
+                            if ($total == 0) {
+                              $status = "<div class='badge badge-danger'>Habis</div>";
+                            } elseif ($total < $sumqtypo['qty']) {
+                              $status = "<div class='badge badge-success'>Sebagian</div>";
                             } else {
                               $status = "<div class='badge badge-warning'>__</div>";
                             }
+
+                            // if ($result2->num_rows() >= 1) {
+                            //   $status = "<div class='badge badge-success'>LPB</div>";
+                            // } else {
+                            //   $status = "<div class='badge badge-warning'>__</div>";
+                            // }
                             ?>
                             <tr>
                               <td><?= $i ?></td>

@@ -85,11 +85,26 @@ class Tabel_lpb_model extends CI_Model
         $this->db->delete('lpb', ['id' => $id]);
     }
 
-    public function getQtyLPB($kodebar)
+    public function getQtyLPB($kodebar, $merek, $potxt)
     {
         //SELECT SUM(qty_lpb) FROM `lpb` WHERE kodebar = '102505420000012'
 
-        return $this->db->get_where('lpb', ['kodebar' => $kodebar])->row_array();
+        $this->db->select_sum('qty_lpb');
+        $this->db->where('kodebar', $kodebar);
+        $this->db->where('merek', $merek);
+        $this->db->where('potxt', $potxt);
+        return $this->db->get('lpb')->row_array();
+    }
+
+    public function getSumQtyLPB($potxt)
+    {
+        $this->db->select_sum('qty_lpb');
+        return $this->db->get_where('lpb', ['potxt' => $potxt])->row_array();
+    }
+    public function getSumQtyPO($potxt)
+    {
+        $this->db->select_sum('qty');
+        return $this->db->get_where('item_po', ['noref' => $potxt])->row_array();
     }
 
     public function updateItemLPB($data, $kodebar, $potxt, $merek)

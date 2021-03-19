@@ -32,6 +32,16 @@ class Tabel_lpb extends CI_Controller
 
         $data['po'] = $this->tabel_lpb_model->get_data_po();
 
+        // foreach ($data['po'] as $po) {
+
+        //     $data['qtylpb'] = $this->tabel_lpb_model->getSumQtyLPB($po->noreftxt);
+        //     // echo "<pre>";
+        //     // var_dump($qtylpb);
+        //     // echo "</pre>";
+        //     // if (($qtypo - $qtylpb) == 0) {
+        //     // }
+        // }
+
 
         $this->load->view('add_items_view', $data);
     }
@@ -179,59 +189,8 @@ class Tabel_lpb extends CI_Controller
 
             if ($qty_lpb <> "" or $qty_lpb <> 0) :
 
-                if ($jika_barang_ada->num_rows() > 0) {
-                    //jika qty barang lpb ada
-                    if ($qtylpb > 0) {
-                        //update data beserta qty-nya
-                        $updateqtylpb = $qty_lpb + $qtylpb;
-                        $dataupdate = [
-                            'po' => $po,
-                            'PT' => $pt,
-                            'potxt' => $potxt,
-                            'suplier' => $suplier,
-                            'tgl' => $tgl,
 
-                            'kodebar' => $kodebar,
-                            'nabar' => $nabar,
-                            'merek' => $merek,
-                            'qty_po' => $qty_po,
-                            'qty_lpb' => $updateqtylpb,
-
-                            'sat' => $sat,
-                            'jam' => $jam,
-                            'sj' => $sj,
-                            'transporter' => $transporter,
-                            'asal' => $asal,
-
-                            'petugas' => $petugas,
-                            'tgl' => $tglinput,
-                            'user' => $user,
-                            'txtperiode' => $periode,
-                            'thn' => date('Y'),
-
-                            'ket' => $ket,
-                            'qty_bkb' => "0",
-                            'nobkb' => "0",
-
-                            'depart' => $depart,
-                            'kodept' => $kodept,
-                        ];
-                        $this->session->set_flashdata('message', '<div class="alert alert-light alert-dismissible show fade col-md-6">
-                        <div class="alert-body">
-                          <button class="close" data-dismiss="alert">
-                            <span>&times;</span>
-                          </button>
-                          Item LPB Berhasil ditambahkan
-                        </div>
-                        </div>');
-                        $this->tabel_lpb_model->updateItemLPB($dataupdate, $kodebar, $potxt, $merek);
-                    } else {
-                        //kalau qty barang lpb 0; update sesuai inputan qty lpb
-                        $this->tabel_lpb_model->updateItemLPB($datates, $kodebar, $potxt, $merek);
-                    }
-                } else {
-                    //insert
-                    $this->session->set_flashdata('message', '<div class="alert alert-light alert-dismissible show fade col-md-6">
+                $this->session->set_flashdata('message', '<div class="alert alert-light alert-dismissible show fade col-md-6">
                     <div class="alert-body">
                       <button class="close" data-dismiss="alert">
                         <span>&times;</span>
@@ -239,8 +198,8 @@ class Tabel_lpb extends CI_Controller
                       Item LPB Berhasil ditambahkan
                     </div>
                     </div>');
-                    $this->db->insert('lpb', $datates);
-                }
+                $this->db->insert('lpb', $datates);
+
 
             endif;
             // ------END INSERT OR UPDATE -----

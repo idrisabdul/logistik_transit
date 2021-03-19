@@ -54,7 +54,8 @@
                                                             <th scope="col">Kode Barang</th>
                                                             <th scope="col">Nama Barang</th>
                                                             <th scope="col">Merek/Jenis</th>
-                                                            <th scope="col">QTY</th>
+                                                            <th scope="col">QTY PO</th>
+                                                            <th scope="col">QTY sisa</th>
                                                             <th scope="col">SAT</th>
 
                                                             <th scope="col">TGL</th>
@@ -94,13 +95,32 @@
                                                                 <td><?= $bp['kodebar'] ?></td>
                                                                 <td><?= $bp['nabar'] ?></td>
                                                                 <td><?= $bp['merek'] ?></td>
-                                                                <?php $row = $this->tabel_lpb_model->getQtyLPB($bp['kodebar']); ?>
+                                                                <?php $row = $this->tabel_lpb_model->getQtyLPB($bp['kodebar'], $bp['merek'], $bp['noref']); ?>
+                                                                <td><?= $bp['qty'] ?></td>
                                                                 <td><?= $bp['qty'] - $row['qty_lpb']; ?></td>
                                                                 <td><?= $bp['sat'] ?></td>
 
                                                                 <td><input type="date" class="form-control" name="tglinput<?= $no ?>"></td>
                                                                 <td><input type="text" class="form-control" name="time<?= $no ?>"></td>
-                                                                <td><input type="text" class="form-control" name="qty_lpb<?= $no ?>"></td>
+
+                                                                <td><input type="number" id="inputan" class="form-control" name="qty_lpb<?= $no ?>" min="1" max="<?= $bp['qty'] - $row['qty_lpb']; ?>" step=".01"></td>
+                                                                <script type="text/javascript">
+                                                                    var delay = (function() {
+                                                                        var timer = 0;
+                                                                        return function(callback, ms) {
+                                                                            clearTimeout(timer);
+                                                                            timer = setTimeout(callback, ms);
+                                                                        };
+                                                                    })();
+
+                                                                    $(document).ready(function() {
+                                                                        $("#inputan").keyup(function() {
+                                                                            delay(function() {
+                                                                                alert('LPB Melebih Qty Sisa');
+                                                                            }, 800);
+                                                                        });
+                                                                    });
+                                                                </script>
                                                                 <td><input type="text" class="form-control" name="transporter<?= $no ?>"></td>
                                                                 <td><input type="text" class="form-control" name="asal<?= $no ?>"></td>
                                                                 <td><input type="text" class="form-control" name="sj<?= $no ?>"></td>

@@ -44,7 +44,8 @@
                                                             <th scope="col">No</th>
                                                             <th scope="col">Kode Barang</th>
                                                             <th scope="col">Nama Barang</th>
-                                                            <th scope="col">QTY</th>
+                                                            <th scope="col">QTY Awal</th>
+                                                            <th scope="col">QTY sisa</th>
                                                             <th scope="col">SAT</th>
 
                                                             <th scope="col">Kondisi Fisik</th>
@@ -83,8 +84,10 @@
                                                                 <td><?= $no ?></td>
                                                                 <td><?= $bib['kodebar']; ?></td>
                                                                 <td><?= $bib['nabar']; ?></td>
-                                                                <?php $row = $this->tabel_bkb_model->getQtyBkb($bib['kodebar'], $bib['potxt']); ?>
-                                                                <td><?= $bib['qty_lpb'] - $row['qty_bkb']; ?></td>
+                                                                <?php $rowbkb = $this->tabel_bkb_model->getQtyBkb($bib['kodebar'], $bib['potxt']); ?>
+                                                                <?php $row = $this->tabel_bkb_model->getQtyLpb($bib['kodebar']); ?>
+                                                                <td><?= $row['qty_lpb'] ?></td>
+                                                                <td><?= $row['qty_lpb'] - $rowbkb['qty_bkb']; ?></td>
                                                                 <td><?= $bib['sat']; ?></td>
 
                                                                 <td><select class="form-control" name="kondisi<?= $no ?>" id="">
@@ -93,7 +96,7 @@
                                                                     </select></td>
                                                                 <td><input type="date" class="form-control" name="tglinput<?= $no ?>" value="<?= date('d-m-Y') ?>"></td>
                                                                 <td><input type="text" class="form-control" name="jam<?= $no ?>"></td>
-                                                                <td><input type="text" class="form-control" name="qty_bkb<?= $no ?>"></td>
+                                                                <td><input type="number" class="form-control" name="qty_bkb<?= $no ?>" min="1" max="<?= $row['qty_lpb'] - $rowbkb['qty_bkb']; ?>"></td>
                                                                 <td>
                                                                     <div class="col-xs-8"><select class="form-control" name="transport<?= $no ?>" id="">
                                                                             <option value="Internal">Internal</option>

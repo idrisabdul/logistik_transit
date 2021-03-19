@@ -122,45 +122,12 @@ class Tabel_bkb extends CI_Controller
 
             if ($qty_bkb <> "" or $qty_bkb <> 0) :
 
-                if ($barang->num_rows() > 0) {
-                    $bkbedit = $this->input->post('bkb');
-                    $updateqtybkb = $qty_bkb + $row['qty_bkb'];
-                    $dataupdate = [
-                        'tgl' => $tgl,
-                        'jam' => $jam,
 
-                        'nopo' => $nopo,
-                        'nopotxt' => $nopotxt,
-                        'suplier' => $suplier,
-                        'kodebar' => $kodebar,
-                        'nabar' => $nabar,
+                $this->db->insert('bkb', $data);
+                $this->session->set_flashdata('message', '<div class="alert alert-info" role="alert">BKB Diinput</div>');
+                redirect('tabel_bkb');
+                echo "<script>alert('Berhasil berhasil diinput')</script>";
 
-                        'qty_lpb' => $qty_lpb,
-                        'sat' => $sat,
-                        'qty_bkb' => $updateqtybkb,
-                        'kondisi' => $kondisi,
-                        'transport' => $transport,
-
-                        'pengirim' => $pengirim,
-                        'nopol' => $nopol,
-                        'tujuan' => $tujuan,
-                        'ket' => $ket,
-                        'periodetxt' => $this->session->userdata('periode'),
-
-                        'thn' => date('Y'),
-                        'user' => $this->session->userdata('user'),
-                        'depart' => $depart,
-                        'kodept' => $kodept
-                    ];
-                    $this->db->update('bkb', $dataupdate, ['kodebar' => $kodebar]);
-                    $this->session->set_flashdata('message', '<div class="alert alert-info" role="alert">BKB Diupdate</div>');
-                    redirect('tabel_bkb');
-                } else {
-                    $this->db->insert('bkb', $data);
-                    $this->session->set_flashdata('message', '<div class="alert alert-info" role="alert">BKB Diinput</div>');
-                    redirect('tabel_bkb');
-                    echo "<script>alert('Berhasil berhasil diinput')</script>";
-                }
 
             endif;
         }

@@ -61,12 +61,12 @@
 
                                                         $kodebar = $row['kodebar'];
 
-                                                        $query = "SELECT SUM(qty_lpb) as qtylpb,SUM(qty_po) as qtypo from lpb where kodebar='$kodebar'";
+                                                        $query = "SELECT SUM(qty_lpb) as qtylpb, qty_po from lpb where kodebar='$kodebar'";
                                                         $qry = $this->db->query($query)->result_array();
 
                                                         foreach ($qry as $data) {
                                                             $qtylpb = $data['qtylpb'];
-                                                            $qtypo = $data['qtypo'];
+                                                            $qtypo = $data['qty_po'];
                                                         }
 
                                                         $qrybkb = "SELECT SUM(qty_bkb) as qtybkb  FROM bkb where kodebar='$kodebar'";
@@ -82,7 +82,7 @@
                                                             echo "<td>" . $no . "</td>";
                                                             echo "<td>" . $row['kodebar'] . "</td>";
                                                             echo "<td>" . $row['nabar'] . "</td>";
-                                                            echo "<td>" . $qtypo . "</td>";
+                                                            echo "<td>" . $row['qty_po'] . "</td>";
                                                             echo "<td>" . $qtylpb . "</td>";
                                                             echo "<td>" . $qtybkb . "</td>";
                                                             echo "<td>" . $saldo . "</td>";
