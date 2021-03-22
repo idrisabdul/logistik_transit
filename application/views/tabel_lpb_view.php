@@ -37,7 +37,7 @@
                   <div class="card-body">
                     <?= $this->session->flashdata('message'); ?>
                     <div class="form-group text-right">
-                      <button class="btn btn-outline-success">Print</button>
+                      <a href="<?= base_url() ?>tabel_lpb/pdf" class="btn btn-outline-success">Print</a>
                       <?php if ($this->session->userdata('level') == 1) { ?>
                         <a class='btn btn-primary mr-3 ml-1' href="<?= base_url('tabel_lpb/add_new'); ?>">Terima Barang</a>
                       <?php } ?>

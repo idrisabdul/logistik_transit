@@ -36,7 +36,7 @@
                                     <div class="card-body">
                                         <?= $this->session->flashdata('message'); ?>
                                         <div class="form-group text-right">
-                                            <button class="btn btn-outline-success">Print</button>
+                                            <a href="<?= base_url() ?>tabel_bkb/pdf" class="btn btn-outline-success">Print</a>
                                             <?php if ($this->session->userdata('level') == 1) { ?>
                                                 <a class='btn btn-primary ml-1 mr-3' href='<?= base_url('tabel_bkb/tabel_lpb_distinct'); ?>'>Input Barang Keluar</a>
                                             <?php } ?>

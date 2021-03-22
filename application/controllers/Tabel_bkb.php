@@ -21,6 +21,16 @@ class Tabel_bkb extends CI_Controller
         $this->load->view('tabel_bkb_view', $data);
     }
 
+    public function pdf()
+    {
+        $this->load->library('pdfgenerator');
+
+        $data['tabel_bkb'] = $this->tabel_lpb_model->get_data_bkb();
+        $html = $this->load->view('bkb/cetak_listbkb_view', $data, true);
+
+        $this->pdfgenerator->generate($html, 'laporan_bkb');
+    }
+
     public function tabel_lpb_distinct()
     {
         $data['title'] = 'Daftar Barang Transit';

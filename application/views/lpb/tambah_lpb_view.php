@@ -98,13 +98,14 @@
                                                                 <?php $row = $this->tabel_lpb_model->getQtyLPB($bp['kodebar'], $bp['merek'], $bp['noref']); ?>
                                                                 <td><?= $bp['qty'] ?></td>
                                                                 <td id="hasil"><?= $sisa = $bp['qty'] - $row['qty_lpb']; ?></td>
-                                                                <input type="hidden" id="sisa<?= $no ?>" value="<?= $sisa ?>">
+                                                                <input type="text" id="sisa<?= $no ?>" value="<?= $sisa ?>">
+                                                                <input type="hidden" value="<?= $sisa ?>" min="1" max="<?= $sisa ?>" step="01">
                                                                 <td><?= $bp['sat'] ?></td>
 
                                                                 <td><input type="date" class="form-control" name="tglinput<?= $no ?>"></td>
                                                                 <td><input type="text" class="form-control" name="time<?= $no ?>"></td>
 
-                                                                <td><input type="text" id="input<?= $no ?>" class="form-control" name="qty_lpb<?= $no ?>"></td>
+                                                                <td><input type="text" id="input<?= $no ?>" class="form-control" name="qty_lpb<?= $no ?>" min="1" max="<?= $sisa ?>" step=".01"></td>
                                                                 <td><input type="text" class="form-control" name="transporter<?= $no ?>"></td>
                                                                 <td><input type="text" class="form-control" name="asal<?= $no ?>"></td>
                                                                 <td><input type="text" class="form-control" name="sj<?= $no ?>"></td>
@@ -137,8 +138,10 @@
                 console.log(i);
                 $(document).ready(function() {
                     $("#input" + i).keyup(function() {
-                        var inp_1 = $("#input" + i).val();
-                        var inp_2 = $("#sisa" + i).val();
+                        var a = $("#input" + i).val();
+                        var b = $("#sisa" + i).val();
+                        var inp_1 = Number(a);
+                        var inp_2 = Number(b);
 
                         if (inp_1 > inp_2) {
                             swal("QTY Melebihi sisa");
