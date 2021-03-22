@@ -97,30 +97,14 @@
                                                                 <td><?= $bp['merek'] ?></td>
                                                                 <?php $row = $this->tabel_lpb_model->getQtyLPB($bp['kodebar'], $bp['merek'], $bp['noref']); ?>
                                                                 <td><?= $bp['qty'] ?></td>
-                                                                <td><?= $bp['qty'] - $row['qty_lpb']; ?></td>
+                                                                <td id="hasil"><?= $sisa = $bp['qty'] - $row['qty_lpb']; ?></td>
+                                                                <input type="hidden" id="sisa<?= $no ?>" value="<?= $sisa ?>">
                                                                 <td><?= $bp['sat'] ?></td>
 
                                                                 <td><input type="date" class="form-control" name="tglinput<?= $no ?>"></td>
                                                                 <td><input type="text" class="form-control" name="time<?= $no ?>"></td>
 
-                                                                <td><input type="number" id="inputan" class="form-control" name="qty_lpb<?= $no ?>" min="1" max="<?= $bp['qty'] - $row['qty_lpb']; ?>" step=".01"></td>
-                                                                <script type="text/javascript">
-                                                                    var delay = (function() {
-                                                                        var timer = 0;
-                                                                        return function(callback, ms) {
-                                                                            clearTimeout(timer);
-                                                                            timer = setTimeout(callback, ms);
-                                                                        };
-                                                                    })();
-
-                                                                    $(document).ready(function() {
-                                                                        $("#inputan").keyup(function() {
-                                                                            delay(function() {
-                                                                                alert('LPB Melebih Qty Sisa');
-                                                                            }, 800);
-                                                                        });
-                                                                    });
-                                                                </script>
+                                                                <td><input type="text" id="input<?= $no ?>" class="form-control" name="qty_lpb<?= $no ?>"></td>
                                                                 <td><input type="text" class="form-control" name="transporter<?= $no ?>"></td>
                                                                 <td><input type="text" class="form-control" name="asal<?= $no ?>"></td>
                                                                 <td><input type="text" class="form-control" name="sj<?= $no ?>"></td>
@@ -129,10 +113,12 @@
 
                                                             </tr>
                                                         <?php endforeach; ?>
+
                                                     </tbody>
                                                 </table>
                                             </div>
                                             <button type="submit" class="btn btn-info pull-right">Simpan</button>
+                                            <input type="hidden" id="count" value="<?= count($barang_po) ?>">
                                         </form>
                                     </div>
                                 </div>
@@ -145,32 +131,24 @@
         </div>
 
         <?php $this->load->view('_partials/footer') ?>
-    </div>
-    </div>
+        <script type="text/javascript">
+            var count = $("#count").val();
+            for (let i = 1; i <= count; i++) {
+                console.log(i);
+                $(document).ready(function() {
+                    $("#input" + i).keyup(function() {
+                        var inp_1 = $("#input" + i).val();
+                        var inp_2 = $("#sisa" + i).val();
 
-    <script>
-        function deleteConfirm(url) {
-            $('#btn-delete').attr('href', url);
-            $('#deleteModal').modal();
-        }
-    </script>
+                        if (inp_1 > inp_2) {
+                            swal("QTY Melebihi sisa");
+                            $("#input" + i).val("");
+                        } else {
+                            $("#input" + i).val(inp_1);
+                        }
+                    });
+                });
 
-
-    <!-- Logout Delete Confirmation-->
-    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Anda yakin?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Data yang dihapus tidak akan bisa dikembalikan.</div>
-                <div class="modal-footer">
-                    <button class="btn" type="button" data-dismiss="modal">Batal</button>
-                    <a id="btn-delete" class="btn btn-danger" href="#">Hapus</a>
-                </div>
-            </div>
-        </div>
+            }
+        </script>
     </div>

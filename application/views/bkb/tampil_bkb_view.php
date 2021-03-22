@@ -87,7 +87,9 @@
                                                                 <?php $rowbkb = $this->tabel_bkb_model->getQtyBkb($bib['kodebar'], $bib['potxt']); ?>
                                                                 <?php $row = $this->tabel_bkb_model->getQtyLpb($bib['kodebar']); ?>
                                                                 <td><?= $row['qty_lpb'] ?></td>
-                                                                <td><?= $row['qty_lpb'] - $rowbkb['qty_bkb']; ?></td>
+                                                                <td><?= $sisa = $row['qty_lpb'] - $rowbkb['qty_bkb']; ?></td>
+                                                                <input type="hidden" id="sisa<?= $no ?>" value="<?= $sisa ?>">
+                                                                <input type="hidden" id="total" value="<?= count($barang_item_bkb); ?>">
                                                                 <td><?= $bib['sat']; ?></td>
 
                                                                 <td><select class="form-control" name="kondisi<?= $no ?>" id="">
@@ -96,7 +98,7 @@
                                                                     </select></td>
                                                                 <td><input type="date" class="form-control" name="tglinput<?= $no ?>" value="<?= date('d-m-Y') ?>"></td>
                                                                 <td><input type="text" class="form-control" name="jam<?= $no ?>"></td>
-                                                                <td><input type="number" class="form-control" name="qty_bkb<?= $no ?>" min="1" max="<?= $row['qty_lpb'] - $rowbkb['qty_bkb']; ?>"></td>
+                                                                <td><input type="text" id="input<?= $no ?>" class="form-control" name="qty_bkb<?= $no ?>"></td>
                                                                 <td>
                                                                     <div class="col-xs-8"><select class="form-control" name="transport<?= $no ?>" id="">
                                                                             <option value="Internal">Internal</option>
@@ -127,5 +129,25 @@
         </div>
 
         <?php $this->load->view('_partials/footer') ?>
+        <script type="text/javascript">
+            var count = $("#total").val();
+            for (let i = 1; i <= count; i++) {
+                console.log(i);
+                $(document).ready(function() {
+                    $("#input" + i).keyup(function() {
+                        var inp_1 = $("#input" + i).val();
+                        var inp_2 = $("#sisa" + i).val();
+
+                        if (inp_1 > inp_2) {
+                            swal("QTY Melebihi sisa");
+                            $("#input" + i).val("");
+                        } else {
+                            $("#input" + i).val(inp_1);
+                        }
+                    });
+                });
+
+            }
+        </script>
     </div>
     </div>
