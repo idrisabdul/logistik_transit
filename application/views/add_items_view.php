@@ -70,19 +70,23 @@
                             // } else {
                             //   $status = "<div class='badge badge-warning'>__</div>";
                             // }
+
+                            if ($total == 0) {
+                            } else {
                             ?>
-                            <tr>
-                              <td><?= $i ?></td>
-                              <td><?= $show_po->namapt ?></td>
-                              <td><?= $show_po->noreftxt; ?></td>
-                              <?php $tanggal = date("j F Y", strtotime($show_po->tglpo)); ?>
-                              <td><?= $tanggal; ?></td>
-                              <td><?= $show_po->nama_supply; ?></td>
-                              <td><?= $status ?></td>
-                              <td><?= anchor('tabel_lpb/tambah_lpb/' . $show_po->id, '<button type="button" href="#" class="btn btn-outline-info">
+                              <tr>
+                                <td><?= $i ?></td>
+                                <td><?= $show_po->namapt ?></td>
+                                <td><?= $show_po->noreftxt; ?></td>
+                                <?php $tanggal = date("j F Y", strtotime($show_po->tglpo)); ?>
+                                <td><?= $tanggal; ?></td>
+                                <td><?= $show_po->nama_supply; ?></td>
+                                <td><?= $status ?></td>
+                                <td><?= anchor('tabel_lpb/tambah_lpb/' . $show_po->id, '<button type="button" href="#" class="btn btn-outline-info">
                                                     input</button>') ?></td>
-                            </tr>
-                            <?php $i++ ?>
+                              </tr>
+                              <?php $i++ ?>
+                            <?php } ?>
                           <?php endforeach; ?>
                         </tbody>
                       </table>

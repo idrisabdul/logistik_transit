@@ -44,7 +44,8 @@
                                                             <th scope="col">No</th>
                                                             <th scope="col">Kode Barang</th>
                                                             <th scope="col">Nama Barang</th>
-                                                            <th scope="col">QTY Awal</th>
+                                                            <th scope="col">QTY LPB</th>
+                                                            <th scope="col">QTY BKB</th>
                                                             <th scope="col">QTY sisa</th>
                                                             <th scope="col">SAT</th>
 
@@ -87,6 +88,7 @@
                                                                 <?php $rowbkb = $this->tabel_bkb_model->getQtyBkb($bib['kodebar'], $bib['potxt']); ?>
                                                                 <?php $row = $this->tabel_bkb_model->getQtyLpb($bib['kodebar']); ?>
                                                                 <td><?= $row['qty_lpb'] ?></td>
+                                                                <td><?= $rowbkb['qty_bkb'] == NULL ? 0 : $rowbkb['qty_bkb']; ?></td>
                                                                 <td><?= $sisa = $row['qty_lpb'] - $rowbkb['qty_bkb']; ?></td>
                                                                 <input type="hidden" id="sisa<?= $no ?>" value="<?= $sisa ?>">
                                                                 <input type="hidden" id="total" value="<?= count($barang_item_bkb); ?>">

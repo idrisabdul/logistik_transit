@@ -56,6 +56,7 @@
                                                             <th scope="col">Nama Barang</th>
                                                             <th scope="col">Merek/Jenis</th>
                                                             <th scope="col">QTY PO</th>
+                                                            <th scope="col">QTY LPB</th>
                                                             <th scope="col">QTY sisa</th>
                                                             <th scope="col">SAT</th>
 
@@ -98,6 +99,7 @@
                                                                 <td><?= $bp['merek'] ?></td>
                                                                 <?php $row = $this->tabel_lpb_model->getQtyLPB($bp['kodebar'], $bp['merek'], $bp['noref']); ?>
                                                                 <td><?= $bp['qty'] ?></td>
+                                                                <td><?= $row['qty_lpb'] == NULL ? 0 : $row['qty_lpb']; ?></td>
                                                                 <td id="hasil"><?= $sisa = $bp['qty'] - $row['qty_lpb']; ?></td>
                                                                 <input type="hidden" id="sisa<?= $no ?>" value="<?= $sisa ?>">
                                                                 <input type="hidden" value="<?= $sisa ?>" min="1" max="<?= $sisa ?>" step="01">

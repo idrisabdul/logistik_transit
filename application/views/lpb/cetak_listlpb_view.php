@@ -48,7 +48,7 @@
                         <font face="Verdana" size="1">No PO</font>
                     </th>
                     <th align="center" width="116">
-                        <font face="Verdana" size="1">KODE BRG</font>
+                        <font face="Verdana" size="1">Kode Barang</font>
                     </th>
                     <th align="center">
                         <font face="Verdana" size="1">Nama Barang</font>
@@ -57,7 +57,7 @@
                         <font face="Verdana" size="1">QTY LPB</font>
                     </th>
                     <th align="center" width="76">
-                        <font face="Verdana" size="1">SATUAN</font>
+                        <font face="Verdana" size="1">Satuan</font>
                     </th>
                     <th align="center">
                         <font face="Verdana" size="1">No LPB</font>
