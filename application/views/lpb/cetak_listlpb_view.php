@@ -3,12 +3,42 @@
 
 <head>
     <title>Cetak LPB</title>
+    <style>
+        .table1 {
+            font-family: sans-serif;
+            color: #444;
+            border-collapse: collapse;
+            width: 50%;
+            border: 1px solid #f2f5f7;
+        }
+
+        .table1 tr th {
+            background: #35A9DB;
+            color: #fff;
+            font-weight: normal;
+        }
+
+        .table1,
+        th,
+        td {
+            padding: 8px 5px;
+            text-align: center;
+        }
+
+        .table1 tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .table1 tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 
 <body>
     <div id="outtable">
         <h1>Laporan Penerimaan Barang</h1>
-        <table border="1" width="100%" cellspacing="0" cellpadding="0">
+        <table class="table1">
             <thead>
                 <tr>
                     <th align="center">
@@ -38,25 +68,25 @@
                 <?php $no = 1; ?>
                 <?php foreach ($tabel_lpb->result_array() as $lpb) : ?>
                     <tr>
-                        <td>
+                        <td align="center">
                             <font face="Verdana" size="1"><?php echo $no; ?></font>
                         </td>
-                        <td>
+                        <td align="center">
                             <font face="Verdana" size="1"><?php echo $lpb['potxt']; ?></font>
                         </td>
-                        <td>
+                        <td align="center">
                             <font face="Verdana" size="1"><?php echo $lpb['kodebar']; ?></font>
                         </td>
-                        <td>
+                        <td align="center">
                             <font face="Verdana" size="1"><?php echo $lpb['nabar']; ?></font>
                         </td>
-                        <td>
+                        <td align="center">
                             <font face="Verdana" size="1"><?php echo $lpb['qty_lpb']; ?></font>
                         </td>
-                        <td>
+                        <td align="center">
                             <font face="Verdana" size="1"><?php echo $lpb['sat']; ?></font>
                         </td>
-                        <td>
+                        <td align="center">
                             <font face="Verdana" size="1"><?php echo $lpb['lpbtxt']; ?></font>
                         </td>
                     </tr>

@@ -44,6 +44,7 @@
                                         </div>
                                         <div class="col-md-1"></div>
                                     </div>
+
                                     <div class="card-body">
                                         <form action="<?= base_url('tabel_lpb/save') ?>" method="post">
                                             <div class="table-responsive">
@@ -98,7 +99,7 @@
                                                                 <?php $row = $this->tabel_lpb_model->getQtyLPB($bp['kodebar'], $bp['merek'], $bp['noref']); ?>
                                                                 <td><?= $bp['qty'] ?></td>
                                                                 <td id="hasil"><?= $sisa = $bp['qty'] - $row['qty_lpb']; ?></td>
-                                                                <input type="text" id="sisa<?= $no ?>" value="<?= $sisa ?>">
+                                                                <input type="hidden" id="sisa<?= $no ?>" value="<?= $sisa ?>">
                                                                 <input type="hidden" value="<?= $sisa ?>" min="1" max="<?= $sisa ?>" step="01">
                                                                 <td><?= $bp['sat'] ?></td>
 
