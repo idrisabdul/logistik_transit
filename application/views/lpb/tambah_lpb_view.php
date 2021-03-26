@@ -105,15 +105,63 @@
                                                                 <input type="hidden" value="<?= $sisa ?>" min="1" max="<?= $sisa ?>" step="01">
                                                                 <td><?= $bp['sat'] ?></td>
 
-                                                                <td><input type="date" class="form-control" name="tglinput<?= $no ?>"></td>
-                                                                <td><input type="text" class="form-control" name="time<?= $no ?>"></td>
+                                                                <td><?php if ($sisa == 0) { ?>
+                                                                        <input type="date" class="form-control" name="tglinput<?= $no ?>" disabled>
+                                                                    <?php } else { ?>
+                                                                        <input type="date" class="form-control" name="tglinput<?= $no ?>">
+                                                                    <?php } ?>
+                                                                </td>
 
-                                                                <td><input type="text" id="input<?= $no ?>" class="form-control" name="qty_lpb<?= $no ?>" min="1" max="<?= $sisa ?>" step=".01"></td>
-                                                                <td><input type="text" class="form-control" name="transporter<?= $no ?>"></td>
-                                                                <td><input type="text" class="form-control" name="asal<?= $no ?>"></td>
-                                                                <td><input type="text" class="form-control" name="sj<?= $no ?>"></td>
-                                                                <td><input type="text" class="form-control" name="petugas<?= $no ?>"></td>
-                                                                <td><input type="text" class="form-control" name="ket<?= $no ?>"></td>
+                                                                <td><?php if ($sisa == 0) { ?>
+                                                                        <input type="text" class="form-control" name="time<?= $no ?>" disabled>
+                                                                    <?php } else { ?>
+                                                                        <input type="text" class="form-control" name="time<?= $no ?>">
+                                                                    <?php } ?>
+                                                                </td>
+
+                                                                <td>
+                                                                    <?php if ($sisa == 0) { ?>
+                                                                        <input type="text" id="input<?= $no ?>" class="form-control" name="qty_lpb<?= $no ?>" min="1" max="<?= $sisa ?>" step=".01" disabled>
+                                                                    <?php } else { ?>
+                                                                        <input type="text" id="input<?= $no ?>" class="form-control" name="qty_lpb<?= $no ?>" min="1" max="<?= $sisa ?>" step=".01">
+                                                                    <?php } ?>
+                                                                </td>
+
+                                                                <td>
+                                                                    <?php if ($sisa == 0) { ?>
+                                                                        <input type="text" class="form-control" name="transporter<?= $no ?>" disabled>
+                                                                    <?php } else { ?>
+                                                                        <input type="text" class="form-control" name="transporter<?= $no ?>">
+                                                                    <?php } ?>
+                                                                </td>
+
+                                                                <td>
+                                                                    <?php if ($sisa == 0) { ?>
+                                                                        <input type="text" class="form-control" name="asal<?= $no ?>" disabled>
+                                                                    <?php } else { ?>
+                                                                        <input type="text" class="form-control" name="asal<?= $no ?>">
+                                                                    <?php } ?>
+                                                                </td>
+
+                                                                <td><?php if ($sisa == 0) { ?>
+                                                                        <input type="text" class="form-control" name="sj<?= $no ?>" disabled>
+                                                                    <?php } else { ?>
+                                                                        <input type="text" class="form-control" name="sj<?= $no ?>">
+                                                                    <?php } ?>
+                                                                </td>
+
+                                                                <td><?php if ($sisa == 0) { ?>
+                                                                        <input type="text" class="form-control" name="petugas<?= $no ?>" disabled>
+                                                                    <?php } else { ?>
+                                                                        <input type="text" class="form-control" name="petugas<?= $no ?>">
+                                                                    <?php } ?>
+                                                                </td>
+                                                                <td><?php if ($sisa == 0) { ?>
+                                                                        <input type="text" class="form-control" name="ket<?= $no ?>" disabled>
+                                                                    <?php } else { ?>
+                                                                        <input type="text" class="form-control" name="ket<?= $no ?>">
+                                                                    <?php } ?>
+                                                                </td>
 
                                                             </tr>
                                                         <?php endforeach; ?>

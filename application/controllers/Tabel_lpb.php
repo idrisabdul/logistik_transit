@@ -293,7 +293,7 @@ class Tabel_lpb extends CI_Controller
                 # code...
 
                 $image_name = substr($qr['lpbtxt'], -7) . '.png'; //buat name dari qr code sesuai dengan nim
-                $params['data'] = "Lpbtxt : " . $qr['lpbtxt'] . "; Suplier : " . $qr['suplier'] . "; No PO : " . $qr['potxt']; //data yang akan di jadikan QR CODE
+                $params['data'] = $qr['potxt']; //data yang akan di jadikan QR CODE
                 $params['level'] = 'H'; //H=High
                 $params['size'] = 10;
                 $params['savename'] = FCPATH . $config['imagedir'] . $image_name; //simpan image QR CODE ke folder assets/images/

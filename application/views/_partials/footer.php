@@ -3,6 +3,7 @@
         Copyright &copy; <?= date('Y') ?> <div class="bullet"></div> Logistik Transit HO
     </div>
 </footer>
+<script type="text/javascript" src="<?= base_url('') ?>vendor/qrcode/minified/html5-qrcode.min.js"></script>
 
 <!-- General JS Scripts -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>

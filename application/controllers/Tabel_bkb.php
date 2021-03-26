@@ -187,7 +187,7 @@ class Tabel_bkb extends CI_Controller
                 # code...
 
                 $image_name = substr($qr['nobkbtxt'], -8) . '.png'; //buat name dari qr code
-                $params['data'] = $qr['nobkbtxt']; //data yang akan di jadikan QR CODE
+                $params['data'] = $qr['nopotxt']; //data yang akan di jadikan QR CODE
                 $params['level'] = 'H'; //H=High
                 $params['size'] = 10;
                 $params['savename'] = FCPATH . $config['imagedir'] . $image_name; //simpan image QR CODE ke folder assets/images/

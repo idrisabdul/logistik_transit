@@ -102,167 +102,6 @@
         </div>
     </div>
 
-    <div class="modal fade bd-example-modal-xl" id="modal_add_new" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">
-                        <span id="noreftxtspan"></span>
-                    </h4>
-                </div>
-                <form class="form-horizontal" method="post" action="<?php echo base_url('tabel_bkb/save'); ?>">
-                    <div class="modal-body">
-
-
-                        <div class="form-group col-md-6">
-                            <label class="control-label col-xs-3">Suplier</label>
-                            <div class="col-xs-8">
-                                <span id="suplierspan"></span>
-                                <input type="hidden" id="suplier" name="suplier">
-                            </div>
-                        </div>
-
-
-                        <input type="hidden" name="nopo" id="nopo">
-                        <input type="hidden" name="PT" id="pt">
-
-                        <input type="hidden" name="tgl" id="tgl">
-                        <input type="hidden" name="nopotxt" id="potxt" placeholder="nopotxt">
-                        <input type="hidden" name="user" value="<?= $this->session->userdata['nama'] ?>" placeholder="user">
-                        <input type="hidden" name="periodetxt" id="periodetxt">
-
-                        <input type="hidden" name="nobkb" value="<?= $nobkb ?>">
-                        <input type="hidden" name="nobkbtxt" value="<?= $awalref; ?>">
-                        <input type="hidden" name="depart" id="ket_dept">
-                        <input type="hidden" name="kodept" id="kodept">
-                        <hr>
-                        <div class="form-row">
-
-                            <div class="form-group col-md-2">
-                                <label class="control-label col-xs-3">Kode Barang</label>
-                                <div class="col-xs-8">
-                                    <span id="kodebarspan"></span>
-                                    <input type="hidden" id="kodebar" name="kodebar" value="">
-                                </div>
-                            </div>
-                            <div class="form-group col-md-2">
-                                <label class="control-label col-xs-3">Nama Barang</label>
-                                <div class="col-xs-8">
-                                    <span id="nabarspan"></span>
-                                    <input type="hidden" id="nabar" name="nabar" value="">
-                                </div>
-                            </div>
-
-                            <div class="form-group col-md-2">
-                                <label class="control-label col-xs-3">QTY LPB</label>
-                                <div class="col-xs-8">
-                                    <?php $qtylpb = '<span id="qtylpbspan"></span>'; ?>
-                                    <?php $qtybkb = '<span id="qtybkbspan"></span>'; ?>
-                                    <?php $saldo = $qtylpb //- $qtybkb 
-                                    ?>
-                                    <?= $saldo ?>
-                                    <input type="hidden" id="qtylpb" name="qty_lpb">
-                                </div>
-                            </div>
-
-                            <div class="form-group col-md-2">
-                                <label class="control-label col-xs-3">SISA QTY LPB</label>
-                                <div class="col-xs-8">
-                                    <span id="sisalpb"></span>
-                                </div>
-                            </div>
-
-                            <div class="form-group col-md-2">
-                                <label class="control-label col-xs-3">SAT</label>
-                                <div class="col-xs-8">
-                                    <span id="satspan"></span>
-                                    <input type="hidden" id="sat" name="sat">
-                                </div>
-                            </div>
-
-                            <div class="form-grup col-md-2">
-                                <label class="control-label col-xs-3">Kondisi</label>
-                                <select class="form-control" name="kondisi" id="">
-                                    <option value="Baik">Baik</option>
-                                    <option value="Rusak">Rusak</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group col-md-2">
-                                <label class="control-label col-xs-3">Tanggal BKB</label>
-                                <div class="col-xs-8">
-                                    <input name="tglinput" class="form-control" type="date" required>
-                                </div>
-                            </div>
-
-                            <div class="form-group col-md-2">
-                                <label class="control-label col-xs-3">Jam</label>
-                                <div class="col-xs-8">
-                                    <input name="jam" class="form-control" type="text" placeholder="Jam" required>
-                                </div>
-                            </div>
-
-                            <div class="form-group col-md-2">
-                                <label class="control-label col-xs-3">QTY BKB</label>
-                                <div class="col-xs-8">
-                                    <input name="qty_bkb" class="form-control" type="number" placeholder="Jumlah" required>
-                                </div>
-                            </div>
-
-
-
-                            <div class="form-group col-md-2">
-                                <label class="control-label col-xs-3">Transport</label>
-                                <div class="col-xs-8"><select class="form-control" name="transport" id="">
-                                        <option value="Internal">Internal</option>
-                                        <option value="External">External</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group col-md-2">
-                                <label class="control-label col-xs-3">Nama Transport</label>
-                                <div class="col-xs-8">
-                                    <input name="pengirim" class="form-control" type="text" required>
-                                </div>
-                            </div>
-
-                            <div class="form-group col-md-2">
-                                <label class="control-label col-xs-3">No. Pol</label>
-                                <div class="col-xs-8">
-                                    <input name="nopol" class="form-control" type="text" required>
-                                </div>
-                            </div>
-
-                            <div class="form-group col-md-2">
-                                <label class="control-label col-xs-3">Tujuan</label>
-                                <div class="col-xs-8">
-                                    <input name="tujuan" class="form-control" type="text" required>
-                                </div>
-                            </div>
-
-                            <div class="form-group col-md-2">
-                                <label class="control-label col-xs-3">Ket</label>
-                                <div class="col-xs-8">
-                                    <input name="ket" class="form-control" type="text" required>
-                                </div>
-                            </div>
-
-                        </div>
-                        <hr>
-
-                    </div>
-
-                    <div class="modal-footer">
-                        <button class="btn" data-dismiss="modal" aria-hidden="true">Tutup</button>
-                        <button type="submit" class="btn btn-info">Simpan</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
     <script>
         $(document).ready(function() {
             $(document).on('click', '#set_dtl', function() {
@@ -311,7 +150,10 @@
 
             })
         })
+
+        $(document).ready
     </script>
+
 
 
 </body>
