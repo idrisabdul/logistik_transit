@@ -30,6 +30,13 @@ class Tabel_lpb_model extends CI_Model
         return $this->db->get_where('item_po', ['noref' => $cari_po['noref']])->result_array();
     }
 
+    public function getByPO_Ajax()
+    {
+        $this->db->select('*');
+        $this->db->join('po', 'item_po.noref=po.noreftxt');
+        return $this->db->get_where('item_po', ['noref' => $this->input->post('po')])->result_array();
+    }
+
     //SELECT * FROM `lpb` where `po` = $po ORDER BY `nabar` ASC
     //Menampilkan data barang berdasarkan PO di cetak LPB
     public function getPoLPB($lpbtxt)
@@ -114,5 +121,12 @@ class Tabel_lpb_model extends CI_Model
         $this->db->where('potxt', $potxt);
         $this->db->where('merek', $merek);
         return $this->db->update('lpb');
+    }
+
+    public function getNoPO($nopo)
+    {
+        $this->db->select('*');
+        $this->db->join('po', 'item_po.noref=po.noreftxt');
+        return $this->db->get_where('item_po', ['noref' => $nopo])->result_array();
     }
 }

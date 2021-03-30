@@ -37,10 +37,9 @@
                                             <h2 class="section-title ml-2"><?= $nopo ?></h2>
                                             <p class="section-lead"><?= $supply ?></p>
                                         </div>
-                                        <div class="col-md-4"></div>
+                                        <div class="col-md-4 mt-4 mr-3">
+                                        </div>
                                         <div class="col-md-1 text-right">
-                                            <button type="button" href="#" class="btn btn-lg btn-outline-info mt-4 mr-6 trigger-info">
-                                                <i class="fas fa-camera"></i></button>
                                         </div>
                                         <div class="col-md-1"></div>
                                     </div>
@@ -71,7 +70,7 @@
                                                             <th scope="col">Ket</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
+                                                    <tbody id="input_barang">
                                                         <?php $no = 0; ?>
                                                         <?php foreach ($barang_po as $bp) : ?>
                                                             <?php $no = $no + 1; ?>
@@ -205,4 +204,5 @@
 
             }
         </script>
+
     </div>

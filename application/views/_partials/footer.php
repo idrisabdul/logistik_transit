@@ -36,3 +36,6 @@
 <script src="<?php echo base_url('js/demo/datatables-demo.js') ?>"></script>
 <script src="<?php echo base_url('assets/datatables/jquery.dataTables.js') ?>"></script>
 <script src="<?php echo base_url('assets/datatables/dataTables.bootstrap4.js') ?>"></script>
+
+<!-- QRCODE MAS ALI -->
+<script src="<?php echo base_url() ?>assets/qrcode/dist/js/qrcode-reader.min.js?v=20190604"></script>

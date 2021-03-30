@@ -336,4 +336,22 @@ class Tabel_lpb extends CI_Controller
 
         $this->load->view('lpb/tambah_lpb_view', $data);
     }
+
+    public function input_lpb_qrcode()
+    {
+        $data['title'] = "Input Penerimaan Barang Transit HO";
+
+        $po = $this->input->post('po');
+        $data['barang_po'] = $this->tabel_lpb_model->getNoPO($po);
+        // echo "<pre>";
+        // var_dump($po);
+        // echo "</pre>";
+        $view = $this->load->view('lpb/tambah_lpb_qrcode', $data);
+        echo json_encode($data);
+    }
+
+    function test($po)
+    {
+        var_dump($po);
+    }
 }

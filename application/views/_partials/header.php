@@ -17,3 +17,7 @@
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+
+<!-- QRCODE MAS ALI -->
+<link rel="stylesheet" href="<?php echo base_url() ?>assets/qrcode/dist/css/qrcode-reader.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
