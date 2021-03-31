@@ -36,7 +36,8 @@
                   <div class="card-body">
                     <div class="row mb-2">
                       <div class="col-md-4">
-                        <input id="multiple" type="text" class="form-control" size="50" onkeyup="test()">
+                        <input id="multiple" type="text" class="form-control" size="50" onkeyup="test()" placeholder="No PO via QRCODE">
+                        <input id="getId" type="hidden" class="form-control" size="50" onkeyup="test2()" placeholder="get Id">
                         <div class="mb-1">
                         </div>
                       </div>
@@ -185,25 +186,35 @@
     });
 
     function test() {
-      var po = $('#multiple').val();
-      window.location.href = '<?= base_url() ?>tabel_lpb/test/' + po;
 
-      // var po = $('#multiple').val();
-      // if (po != "") {
-      //   $.ajax({
-      //     type: 'POST',
-      //     url: '<?= base_url('tabel_lpb/input_lpb_qrcode/') ?>',
-      //     dataType: 'JSON',
-      //     async: true,
-      //     cache: false,
-      //     data: {
-      //       po: po
-      //     },
-      //     success: function(data) {
-      //       window.location.href = '<?= base_url() ?>tabel_lpb/input_lpb_qrcode';
-      //     }
-      //   });
-      // }
+      var po = $('#multiple').val();
+      if (po != "") {
+        $.ajax({
+          type: 'POST',
+          url: '<?= base_url('tabel_lpb/input_lpb_qrcode/') ?>',
+          dataType: 'JSON',
+          async: true,
+          cache: false,
+          data: {
+            po: po
+          },
+          success: function(id) {
+            $('#getId').val(id);
+            // console.log("success");
+            test2();
+          },
+          error: function(data) {
+            $('#getId').val("error");
+            console.log("error");
+          }
+        });
+      }
+    }
+
+    function test2() {
+      var id = $('#getId').val();
+      // alert(id);
+      window.location.href = '<?= base_url() ?>tabel_lpb/test/' + id;
     }
   </script>
 

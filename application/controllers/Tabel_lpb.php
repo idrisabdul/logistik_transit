@@ -342,16 +342,31 @@ class Tabel_lpb extends CI_Controller
         $data['title'] = "Input Penerimaan Barang Transit HO";
 
         $po = $this->input->post('po');
-        $data['barang_po'] = $this->tabel_lpb_model->getNoPO($po);
+        $data = $this->tabel_lpb_model->getNoPO($po);
+        foreach ($data as $i) {
+            $id = $i['id'];
+        }
         // echo "<pre>";
         // var_dump($po);
         // echo "</pre>";
-        $view = $this->load->view('lpb/tambah_lpb_qrcode', $data);
-        echo json_encode($data);
+        // $view = $this->load->view('lpb/tambah_lpb_qrcode', $data);
+        echo json_encode($id);
     }
 
-    function test($po)
+    function test($id)
     {
-        var_dump($po);
+        $data['title'] = "QRCODE";
+        $data['barang_po'] = $this->tabel_lpb_model->getByPO($id);
+
+        // echo "<pre>";
+        // var_dump($data['barang_po']);
+        // echo "</pre>";
+
+        foreach ($data['barang_po'] as $row) {
+            $data['supply'] = $row['nama_supply'];
+            $data['nopo'] = $row['noref'];
+        }
+
+        $this->load->view('lpb/tambah_lpb_view', $data);
     }
 }
