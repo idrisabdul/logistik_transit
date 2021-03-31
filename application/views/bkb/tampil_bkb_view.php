@@ -23,7 +23,7 @@
                     <div class="section-header">
                         <h2 class="section-title my-0"><?= $title ?></h2>
                         <div class="section-header-breadcrumb">
-                            <div class="breadcrumb-item active"><a href="menu.htm">Home</a></div>
+                            <div class="breadcrumb-item active"><a href="<?= base_url('home') ?>">Home</a></div>
                             <div class="breadcrumb-item">Tambah BKB</div>
                         </div>
                     </div>

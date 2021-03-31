@@ -24,7 +24,7 @@
                     <div class="section-header">
                         <h2 class="section-title my-0"><?= $title ?></h2>
                         <div class="section-header-breadcrumb">
-                            <div class="breadcrumb-item active"><a href="#">Home</a></div>
+                            <div class="breadcrumb-item active"><a href="<?= base_url('home') ?>">Home</a></div>
                             <div class="breadcrumb-item">Bukti Keluar Barang</div>
                         </div>
                     </div>
@@ -37,7 +37,7 @@
                                     <div class="card-body">
                                         <div class="row mb-2">
                                             <div class="col-md-4">
-                                                <input id="multiple" type="text" class="form-control" size="50" onkeyup="test()" placeholder="No PO via QRCODE">
+                                                <input id="multiple" type="text" class="form-control" size="50" onkeyup="test()" placeholder="Input via QRCODE">
                                                 <input id="getId" type="hidden" class="form-control" size="50" onkeyup="test2()" placeholder="get Id">
                                                 <div class="mb-1">
                                                 </div>

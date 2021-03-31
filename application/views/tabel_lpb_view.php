@@ -25,7 +25,7 @@
           <div class="section-header">
             <h2 class="section-title my-0">Tabel LPB</h2>
             <div class="section-header-breadcrumb">
-              <div class="breadcrumb-item active"><a href="#">Home</a></div>
+              <div class="breadcrumb-item active"><a href="<?= base_url('home') ?>">Home</a></div>
               <div class="breadcrumb-item">Laporan Penerimaan Barang</div>
             </div>
           </div>

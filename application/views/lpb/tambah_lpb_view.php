@@ -9,7 +9,7 @@
 
 <body>
     <div id="app">
-        <div class="main-wrapper">
+        <div class="main-wrapper" class="toggled">
 
             <!-- Menu Navbar -->
             <?php $this->load->view('_partials/navbar') ?>
@@ -23,7 +23,7 @@
                     <div class="section-header">
                         <h2 class="section-title my-0">Input LPB</h2>
                         <div class="section-header-breadcrumb">
-                            <div class="breadcrumb-item active"><a href="menu.htm">Home</a></div>
+                            <div class="breadcrumb-item active"><a href="<?= base_url('home') ?>">Home</a></div>
                             <div class="breadcrumb-item">Tambah LPB</div>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                                                 <table class="table table-sm" style="width:100%">
                                                     <thead>
                                                         <tr>
-                                                            <th scope="col">ID</th>
+                                                            <th scope="col">No</th>
                                                             <th scope="col">Kode Barang</th>
                                                             <th scope="col">Nama Barang</th>
                                                             <th scope="col">Merek/Jenis</th>
@@ -92,7 +92,7 @@
                                                             <input type="hidden" name="txtperiode<?= $no ?>" value="<?= $this->session->userdata('periode'); ?>">
 
                                                             <tr>
-                                                                <td><?= $bp['id'] ?></td>
+                                                                <td><?= $no ?></td>
                                                                 <td><?= $bp['kodebar'] ?></td>
                                                                 <td><?= $bp['nabar'] ?></td>
                                                                 <td><?= $bp['merek'] ?></td>

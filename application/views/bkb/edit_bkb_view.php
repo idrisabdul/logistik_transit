@@ -23,7 +23,7 @@
                     <div class="section-header">
                         <h1>Logistik Transit HO</h1>
                         <div class="section-header-breadcrumb">
-                            <div class="breadcrumb-item active"><a href="menu.htm">Home</a></div>
+                            <div class="breadcrumb-item active"><a href="<?= base_url('home') ?>">Home</a></div>
                             <div class="breadcrumb-item">Edit LPB</div>
                         </div>
                     </div>
