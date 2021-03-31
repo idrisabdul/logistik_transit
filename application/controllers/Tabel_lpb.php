@@ -355,7 +355,7 @@ class Tabel_lpb extends CI_Controller
 
     function test($id)
     {
-        $data['title'] = "QRCODE";
+        $data['title'] = "QRCODE LPB";
         $data['barang_po'] = $this->tabel_lpb_model->getByPO($id);
 
         // echo "<pre>";

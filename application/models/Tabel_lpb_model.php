@@ -129,4 +129,11 @@ class Tabel_lpb_model extends CI_Model
         // $this->db->join('po', 'item_po.noref=po.noreftxt');
         return $this->db->get_where('item_po', ['noref' => $nopo])->result_array();
     }
+
+    public function getNoLPB($nopo)
+    {
+        // $this->db->select('*');
+        // $this->db->join('po', 'item_po.noref=po.noreftxt');
+        return $this->db->get_where('lpb', ['potxt' => $nopo])->result_array();
+    }
 }

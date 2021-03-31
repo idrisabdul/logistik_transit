@@ -35,6 +35,18 @@
                                 <div class="card">
                                     <?= $this->session->flashdata('message'); ?>
                                     <div class="card-body">
+                                        <div class="row mb-2">
+                                            <div class="col-md-4">
+                                                <input id="multiple" type="text" class="form-control" size="50" onkeyup="test()" placeholder="No PO via QRCODE">
+                                                <input id="getId" type="hidden" class="form-control" size="50" onkeyup="test2()" placeholder="get Id">
+                                                <div class="mb-1">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <button href="<?= base_url('tabel_lpb/input_lpb_qrcode') ?>" class="btn btn-lg btn-outline-info mr-6 qrcode-reader" id="openreader-multi" data-qrr-multiple="true" data-qrr-repeat-timeout="0" data-qrr-line-color="#00FF00" data-qrr-target="#multiple">
+                                                    <i class="fas fa-camera"></i></button>
+                                            </div>
+                                        </div>
                                         <div class="table-responsive">
                                             <table class="table table-sm" style="width:100%" id="myTable">
                                                 <thead>
@@ -152,6 +164,105 @@
         })
 
         $(document).ready
+    </script>
+    <script>
+        $(function() {
+
+            // overriding path of JS script and audio 
+            $.qrCodeReader.jsQRpath = "<?php echo base_url() ?>assets/qrcode/dist/js/jsQR/jsQR.min.js";
+            $.qrCodeReader.beepPath = "<?php echo base_url() ?>assets/qrcode/dist/audio/beep.mp3";
+
+            // bind all elements of a given class
+            $(".qrcode-reader").qrCodeReader();
+
+            // bind elements by ID with specific options
+            $("#openreader-multi2").qrCodeReader({
+                multiple: true,
+                target: "#multiple2",
+                skipDuplicates: false
+            });
+            $("#openreader-multi3").qrCodeReader({
+                multiple: true,
+                target: "#multiple3"
+            });
+
+            // read or follow qrcode depending on the content of the target input
+            $("#openreader-single2").qrCodeReader({
+                callback: function(code) {
+                    if (code) {
+                        window.location.href = code;
+                    }
+                }
+            }).off("click.qrCodeReader").on("click", function() {
+                var qrcode = $("#single2").val().trim();
+                if (qrcode) {
+                    window.location.href = qrcode;
+                } else {
+                    $.qrCodeReader.instance.open.call(this);
+                }
+            });
+
+
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#multiple").keyup(function() {
+
+
+                var po = $('#multiple').val();
+                // console.log(po);
+                if (po != "") {
+                    $.ajax({
+                        type: 'POST',
+                        url: '<?= base_url('tabel_lpb/input_lpb_qrcode/') ?>',
+                        dataType: 'JSON',
+                        cache: false,
+                        data: {
+                            po: po
+                        },
+                        success: function(data) {
+                            // window.location.href = '<?= base_url() ?>tabel_lpb/input_lpb_qrcode';
+                            console.log(data);
+                        }
+
+                    });
+                }
+            });
+
+        });
+
+        function test() {
+
+            var po = $('#multiple').val();
+            if (po != "") {
+                $.ajax({
+                    type: 'POST',
+                    url: '<?= base_url('tabel_bkb/input_bkb_qrcode/') ?>',
+                    dataType: 'JSON',
+                    async: true,
+                    cache: false,
+                    data: {
+                        po: po
+                    },
+                    success: function(id) {
+                        $('#getId').val(id);
+                        // console.log("success");
+                        test2();
+                    },
+                    error: function(data) {
+                        $('#getId').val("error");
+                        console.log("error");
+                    }
+                });
+            }
+        }
+
+        function test2() {
+            var id = $('#getId').val();
+            // alert(id);
+            window.location.href = '<?= base_url() ?>tabel_bkb/tampil_input_bkb/' + id;
+        }
     </script>
 
 
