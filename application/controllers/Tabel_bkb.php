@@ -62,13 +62,12 @@ class Tabel_bkb extends CI_Controller
             }
 
             $data['nobkb'] = $nobkb;
-
             $awalref = "HO-BKB/JKT/" . date('m') . "/" . date('Y') . "/" . "61" . $URUT;
         }
 
-        $qty_lpb = $this->input->post('qty_lpb');
-        $qty_bkb = $this->input->post('qty_bkb');
-        $kodebar = $this->input->post('kodebar');
+        // $qty_lpb = $this->input->post('qty_lpb');
+        // $qty_bkb = $this->input->post('qty_bkb');
+        // $kodebar = $this->input->post('kodebar');
 
         $jumlah_barang = $this->input->post('count');
 
@@ -94,11 +93,11 @@ class Tabel_bkb extends CI_Controller
             $tglinput = $this->input->post('tglinput' . $i);
             $depart = $this->input->post('depart' . $i);
             $kodept = $this->input->post('kodept' . $i);
-            $data = [
+            $data = array(
                 'PT' => $pt,
                 'nobkb' => $nobkb,
                 'nobkbtxt' => $awalref,
-                'tgl' => $tgl,
+                'tgl' => $tglinput,
                 'jam' => $jam,
 
                 'nopo' => $nopo,
@@ -120,11 +119,11 @@ class Tabel_bkb extends CI_Controller
                 'periodetxt' => $this->session->userdata('periode'),
 
                 'thn' => date('Y'),
-                'tglinput' => $tglinput,
+                // 'tglinput' => $tglinput,
                 'user' => $this->session->userdata('nama'),
                 'depart' => $depart,
                 'kodept' => $kodept
-            ];
+            );
 
             $barang = $this->tabel_bkb_model->getRowsLpb($kodebar);
 
@@ -133,14 +132,13 @@ class Tabel_bkb extends CI_Controller
             if ($qty_bkb <> "" or $qty_bkb <> 0) :
 
 
-                $this->db->insert('bkb', $data);
                 $this->session->set_flashdata('message', '<div class="alert alert-info" role="alert">BKB Diinput</div>');
-                redirect('tabel_bkb');
-                echo "<script>alert('Berhasil berhasil diinput')</script>";
+                $this->db->insert('bkb', $data);
 
 
             endif;
         }
+        redirect('tabel_bkb');
 
 
         // $qtylpb = $qty_lpb - $qty_bkb;

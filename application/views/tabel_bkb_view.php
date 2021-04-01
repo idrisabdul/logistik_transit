@@ -42,7 +42,7 @@
                                             <?php } ?>
                                         </div>
                                         <div class="table-responsive">
-                                            <table class="table table-sm" style="width:100%" id="myTable">
+                                            <table class="table table-sm table-hover" style="width:100%" id="myTable">
                                                 <thead>
                                                     <tr>
                                                         <?php if ($this->session->userdata('level') == 1) { ?>
