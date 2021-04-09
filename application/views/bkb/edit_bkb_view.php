@@ -82,6 +82,7 @@
                                                     <div class="col-md-1">
                                                         <label>QTY BKB</label>
                                                         <input type="text" class="form-control" id="qty_bkb" name="qty_bkb" value="<?= $item_po['qty_bkb'] ?>">
+                                                        <input type="hidden" class="" id="qty_bkb_1" name="qty_bkb_1" value="<?= $item_po['qty_bkb'] ?>">
                                                     </div>
                                                     <div class="col-md-1">
                                                         <label>Transport</label>
@@ -146,11 +147,13 @@
             $('#qty_bkb').keyup(function() {
                 var a = $('#qty_lpb').val();
                 var b = $('#qty_bkb').val();
+                var c = $('#qty_bkb_1').val();
                 var inp_lpb = Number(a);
                 var inp_bkb = Number(b);
 
                 if (inp_bkb > inp_lpb) {
                     swal('QTY melebihi LPB!');
+                    $('#qty_bkb').val(c);
                 } else {
                     $('#qty_bkb').val(inp_bkb);
                 }

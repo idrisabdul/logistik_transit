@@ -81,6 +81,7 @@
                                                     <div class="form-group col-md-2">
                                                         <label>QTY LPB</label>
                                                         <input type="text" class="form-control" id="qty_lpb" name="qty_lpb" value="<?= $item_po['qty_lpb'] ?>">
+                                                        <input type="hidden" class="" id="qty_lpb_1" name="qty_lpb_1" value="<?= $item_po['qty_lpb'] ?>">
 
                                                     </div>
                                                     <div class="form-group col-md-2">
@@ -161,11 +162,13 @@
             $('#qty_lpb').keyup(function() {
                 var a = $('#qty_lpb').val();
                 var b = $('#qty_po').val();
+                var c = $('#qty_lpb_1').val();
                 var inp_lpb = Number(a);
                 var inp_po = Number(b);
 
                 if (inp_lpb > inp_po) {
                     swal('QTY melebihi PO!');
+                    $('#qty_lpb').val(c);
                 } else {
                     $('#qty_lpb').val(inp_lpb);
                 }
