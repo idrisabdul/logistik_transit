@@ -83,7 +83,7 @@
                                                             <?php $tanggal = date("j F Y", strtotime($row->tgl)); ?>
                                                             <td><?= $tanggal; ?></td>
                                                             <td><?php if ($this->session->userdata('level') == 1) { ?>
-                                                                    <?= substr($row->nobkbtxt, -8); ?>
+                                                                    <?php echo substr($row->nobkbtxt, -8); ?>
                                                                 <?php } else {
                                                                     echo $row->nobkbtxt;
                                                                 } ?>

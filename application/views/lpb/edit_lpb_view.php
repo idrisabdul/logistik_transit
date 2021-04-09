@@ -56,7 +56,7 @@
                                                     </div>
                                                     <div class="form-group col-md-2">
                                                         <label>QTY PO</label>
-                                                        <input type="text" class="form-control" name="qty_po" readonly value="<?= $item_po['qty_po'] ?>">
+                                                        <input type="text" class="form-control" id="qty_po" name="qty_po" readonly value="<?= $item_po['qty_po'] ?>">
                                                     </div>
                                                     <div class="form-group col-md-2">
                                                         <label>SAT</label>
@@ -80,7 +80,7 @@
 
                                                     <div class="form-group col-md-2">
                                                         <label>QTY LPB</label>
-                                                        <input type="text" class="form-control" name="qty_lpb" value="<?= $item_po['qty_lpb'] ?>">
+                                                        <input type="text" class="form-control" id="qty_lpb" name="qty_lpb" value="<?= $item_po['qty_lpb'] ?>">
 
                                                     </div>
                                                     <div class="form-group col-md-2">
@@ -104,7 +104,7 @@
                                                         <i class="far fa-edit"></i> Edit
                                                     </button>
                                                     <?= anchor('tabel_lpb/cetakpo/' . $item_po['id'], '<button type="button" href="#" class="btn btn-icon icon-left btn-warning mr-2">
-                                                    <i class="fas fa-print"></i> Cetak PO</button>') ?>
+                                                    <i class="fas fa-print"></i> Cetak LPB</button>') ?>
                                                     <?php // base_url('tabel_lpb/delete_itemlpb/' . $item_po['id']) 
                                                     ?>
                                                     <a onclick="deleteConfirm('<?= base_url('tabel_lpb/delete_itemlpb/' . $item_po['id']) ?>')" href="#!" class="btn btn-icon icon-left btn-danger"><i class="fas fa-trash"></i> Hapus</a>
@@ -154,3 +154,21 @@
             </div>
         </div>
     </div>
+
+    <?php $this->load->view('_partials/footer') ?>
+    <script>
+        $(document).ready(function() {
+            $('#qty_lpb').keyup(function() {
+                var a = $('#qty_lpb').val();
+                var b = $('#qty_po').val();
+                var inp_lpb = Number(a);
+                var inp_po = Number(b);
+
+                if (inp_lpb > inp_po) {
+                    swal('QTY melebihi PO!');
+                } else {
+                    $('#qty_lpb').val(inp_lpb);
+                }
+            });
+        });
+    </script>

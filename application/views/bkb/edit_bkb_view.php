@@ -50,8 +50,8 @@
                                                         <input type="text" class="form-control" id="nabar" name="nabar" readonly value="<?= $item_po['nabar']; ?>">
                                                     </div>
                                                     <div class="form-group col-md-2">
-                                                        <label>QTY PO</label>
-                                                        <input type="text" class="form-control" name="qty_po" readonly value="<?= $item_po['qty_lpb'] ?>">
+                                                        <label>QTY</label>
+                                                        <input type="text" class="form-control" id="qty_lpb" name="qty_po" readonly value="<?= $item_po['qty_lpb'] ?>">
                                                     </div>
                                                     <div class="form-group col-md-2">
                                                         <label>SAT</label>
@@ -81,7 +81,7 @@
 
                                                     <div class="col-md-1">
                                                         <label>QTY BKB</label>
-                                                        <input type="text" class="form-control" name="qty_bkb" value="<?= $item_po['qty_bkb'] ?>">
+                                                        <input type="text" class="form-control" id="qty_bkb" name="qty_bkb" value="<?= $item_po['qty_bkb'] ?>">
                                                     </div>
                                                     <div class="col-md-1">
                                                         <label>Transport</label>
@@ -140,6 +140,22 @@
             $('#btn-delete').attr('href', url);
             $('#deleteModal').modal();
         }
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#qty_bkb').keyup(function() {
+                var a = $('#qty_lpb').val();
+                var b = $('#qty_bkb').val();
+                var inp_lpb = Number(a);
+                var inp_bkb = Number(b);
+
+                if (inp_bkb > inp_lpb) {
+                    swal('QTY melebihi LPB!');
+                } else {
+                    $('#qty_bkb').val(inp_bkb);
+                }
+            });
+        });
     </script>
 
 

@@ -236,9 +236,12 @@
                 $(document).ready(function() {
                     $('#example').DataTable({
                         "lengthMenu": [
-                            [5],
-                            [5]
-                        ]
+                            [7]
+                        ],
+                        "dom": 'lfrtip',
+                        "select": false,
+                        "bLengthChange": false,
+                        "scrollCollapse": false,
                     });
                 });
             </script>
