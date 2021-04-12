@@ -51,7 +51,6 @@
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">No</th>
-                                                            <th scope="col">Kode Barang</th>
                                                             <th scope="col">Nama Barang</th>
                                                             <th scope="col">Merek/Jenis</th>
                                                             <th scope="col">QTY PO</th>
@@ -93,7 +92,6 @@
 
                                                             <tr>
                                                                 <td><?= $no ?></td>
-                                                                <td><?= $bp['kodebar'] ?></td>
                                                                 <td><?= $bp['nabar'] ?></td>
                                                                 <td><?= $bp['merek'] ?></td>
                                                                 <?php $row = $this->tabel_lpb_model->getQtyLPB($bp['kodebar'], $bp['merek'], $bp['noref']); ?>
@@ -107,14 +105,14 @@
                                                                 <td><?php if ($sisa == 0) { ?>
                                                                         <input type="date" class="form-control" name="tglinput<?= $no ?>" disabled>
                                                                     <?php } else { ?>
-                                                                        <input type="date" class="form-control" name="tglinput<?= $no ?>" required>
+                                                                        <input type="date" class="form-control" name="tglinput<?= $no ?>">
                                                                     <?php } ?>
                                                                 </td>
 
                                                                 <td><?php if ($sisa == 0) { ?>
-                                                                        <input type="text" class="form-control" name="time<?= $no ?>" disabled>
+                                                                        <input type="time" class="form-control" name="time<?= $no ?>" disabled>
                                                                     <?php } else { ?>
-                                                                        <input type="text" class="form-control" name="time<?= $no ?>">
+                                                                        <input type="time" class="form-control" name="time<?= $no ?>" />
                                                                     <?php } ?>
                                                                 </td>
 

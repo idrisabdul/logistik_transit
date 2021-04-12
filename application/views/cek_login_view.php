@@ -16,8 +16,10 @@
                         </div>
 
                         <div class="card card-primary">
-                            <div class="card-header">
-                                <h4>Login</h4>
+                            <div class="text-center">
+                                <div class="card-header">
+                                    <h4>Logistik Transit HO</h4>
+                                </div>
                             </div>
 
                             <?= $this->session->flashdata('message'); ?>

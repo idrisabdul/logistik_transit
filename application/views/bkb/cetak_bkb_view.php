@@ -41,7 +41,7 @@
                     <tr>
                         <td width="933" colspan="8" height="21">
                             <p align="center"><u><b>
-                                        <font face="Verdana" size="3">BUKTI KELUAR BARANG (BKB) RO</font>
+                                        <font face="Verdana" size="3">BUKTI KELUAR BARANG (BKB) HO</font>
                                     </b></u>
                         </td>
                     </tr>

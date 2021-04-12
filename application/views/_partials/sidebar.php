@@ -1,7 +1,8 @@
 <div class="main-sidebar">
   <aside id="sidebar-wrapper">
-    <div class="sidebar-brand">
+    <div class="sidebar-brand mb-2">
       <img src="<?= base_url() ?>/assets/img/logo.jpg" width="50" alt="">
+      <h6 style="color:royalblue;">Logistik Transit HO</h6>
     </div>
     <div class="sidebar-brand sidebar-brand-sm">
       <a href="menu.htm">MSAL</a>
