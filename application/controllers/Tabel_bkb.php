@@ -129,7 +129,7 @@ class Tabel_bkb extends CI_Controller
 
             $row = $this->tabel_bkb_model->getRowsLpb($kodebar)->row_array();
 
-            if ($qty_bkb <> "" or $qty_bkb <> 0) :
+            if ($qty_bkb <> "" and $tgl == null) :
 
 
                 $this->session->set_flashdata('message', '<div class="alert alert-info" role="alert">BKB Diinput</div>');
