@@ -40,12 +40,12 @@
                       <div class="col-md-4">
                         <input id="multiple" type="text" class="form-control" size="50" onkeyup="test()" placeholder="Input via QRCODE">
                         <input id="getId" type="hidden" class="form-control" size="50" onkeyup="test2()" placeholder="get Id">
-                        <video id="preview"></video>
+                        <!-- <video id="preview"></video> -->
                         <div class="mb-1">
                         </div>
                       </div>
                       <div class="col-md-6">
-                        <button id="buton" class="btn btn-lg btn-outline-info mr-6" onclick="showCamera()"><i class="fas fa-camera"></i></button>
+                        <button id="buton" class="btn btn-lg btn-outline-info mr-6" data-toggle="modal" data-target="#exampleModal" onclick="showCamera()"><i class="fas fa-camera"></i></button>
                       </div>
                     </div>
                     <div class="table-responsive">
@@ -115,6 +115,33 @@
       </div>
 
       <?php $this->load->view('_partials/footer') ?>
+    </div>
+  </div>
+
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="text-center">
+            <video width="80%" id="preview"></video>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="batalCamera()" data-dismiss="modal">Batal</button>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -225,7 +252,20 @@
 
     });
 
+
+
     function showCamera() {
+
+      Instascan.Camera.getCameras().then(function(cameras) {
+        if (cameras.length > 0) {
+          scanner.start(cameras[0]);
+        } else {
+          console.error('No cameras found.');
+        }
+      }).catch(function(e) {
+        console.error(e);
+      });
+      $('#exampleModal').show();
       $('#preview').show();
     }
 
@@ -238,15 +278,14 @@
       get_nopo(content);
       test(content);
     });
-    Instascan.Camera.getCameras().then(function(cameras) {
-      if (cameras.length > 0) {
-        scanner.start(cameras[0]);
-      } else {
-        console.error('No cameras found.');
-      }
-    }).catch(function(e) {
-      console.error(e);
-    });
+
+
+
+    function batalCamera() {
+      Instascan.Camera.getCameras().then(function() {
+        scanner.stop();
+      });
+    }
 
     function get_nopo(e) {
       // $('#multiple').val(e);

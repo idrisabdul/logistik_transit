@@ -74,7 +74,7 @@
 
                                                     <div class="form-group col-md-2">
                                                         <label>Jam</label>
-                                                        <input type="text" class="form-control" name="jam" value="<?= $item_po['jam'] ?>">
+                                                        <input type="time" class="form-control" name="jam" value="<?= $item_po['jam'] ?>">
 
                                                     </div>
 

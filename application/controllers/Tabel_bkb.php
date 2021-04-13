@@ -73,7 +73,7 @@ class Tabel_bkb extends CI_Controller
 
         for ($i = 1; $i <= $jumlah_barang; $i++) {
             $pt = $this->input->post('PT' . $i);
-            $tgl = $this->input->post('tgl' . $i);
+            $tgl = $this->input->post('tglinput' . $i);
             $jam = $this->input->post('jam' . $i);
             $nopo = $this->input->post('nopo' . $i);
             $kodebar = $this->input->post('kodebar' . $i);
@@ -129,7 +129,7 @@ class Tabel_bkb extends CI_Controller
 
             $row = $this->tabel_bkb_model->getRowsLpb($kodebar)->row_array();
 
-            if ($qty_bkb <> "" and $tgl == null) :
+            if ($qty_bkb <> "" and $tgl != null) :
 
 
                 $this->session->set_flashdata('message', '<div class="alert alert-info" role="alert">BKB Diinput</div>');

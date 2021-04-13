@@ -96,7 +96,7 @@ class Tabel_lpb extends CI_Controller
             $potxt = $this->input->post('potxt' . $i);
             $kodebar = $this->input->post('kodebar' . $i);
             $suplier = $this->input->post('suplier' . $i);
-            $tgl = $this->input->post('tgl' . $i);
+            $tgl = $this->input->post('tglinput' . $i);
             $nabar = $this->input->post('nabar' . $i);
             $transporter = $this->input->post('transporter' . $i);
             $merek = $this->input->post('merek' . $i);
@@ -190,14 +190,14 @@ class Tabel_lpb extends CI_Controller
             //$this->db->insert('lpb', $data);
 
             //-------INSERT OR UPDATE-----
-            $queryLPB = "SELECT * FROM `lpb` WHERE `kodebar` = $kodebar AND `potxt`= '$potxt' AND `merek` = '$merek'";
-            $jika_barang_ada = $this->db->query($queryLPB);
+            // $queryLPB = "SELECT * FROM `lpb` WHERE `kodebar` = $kodebar AND `potxt`= '$potxt' AND `merek` = '$merek'";
+            // $jika_barang_ada = $this->db->query($queryLPB);
 
             //mengambil qty barang
-            $qty_lpb1 = $this->db->query($queryLPB)->row_array();
-            $qtylpb = $qty_lpb1['qty_lpb'];
+            // $qty_lpb1 = $this->db->query($queryLPB)->row_array();
+            // $qtylpb = $qty_lpb1['qty_lpb'];
 
-            if ($qty_lpb <> "" and $tgl == null) :
+            if ($qty_lpb != "" and $tgl != "") :
 
 
                 $this->session->set_flashdata('message', '<div class="alert alert-light alert-dismissible show fade col-md-6">

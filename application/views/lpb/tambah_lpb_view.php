@@ -83,8 +83,8 @@
                                                             <input type="hidden" name="count" value="<?= $no ?>">
                                                             <input type="hidden" name="kodebar<?= $no ?>" value="<?= $bp['kodebar'] ?>">
                                                             <input type="hidden" name="qty_po<?= $no ?>" value="<?= $bp['qty'] ?>">
-                                                            <input type="hidden" name="nabar<?= $no ?>" value="<?= $bp['nabar'] ?>">
-                                                            <input type="hidden" name="merek<?= $no ?>" value="<?= $bp['merek'] ?>">
+                                                            <input type="hidden" name="nabar<?= $no ?>" value="<?= htmlspecialchars($bp['nabar'], ENT_QUOTES) ?>">
+                                                            <input type="hidden" name="merek<?= $no ?>" value="<?= htmlspecialchars($bp['merek'], ENT_QUOTES) ?>">
                                                             <input type="hidden" name="sat<?= $no ?>" value="<?= $bp['sat'] ?>">
                                                             <input type="hidden" name="kodept<?= $no ?>" value="<?= $bp['kodept'] ?>">
                                                             <input type="hidden" name="user<?= $no ?>" value="<?= $this->session->userdata('nama'); ?>">
