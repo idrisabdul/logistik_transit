@@ -9,6 +9,16 @@ class Stok_transit_model extends CI_Model
         return $this->db->get('lpb');
     }
 
+    public function stokTransitPo()
+    {
+        $this->db->select('*');
+        $this->db->group_by('kodebar');
+        $this->db->order_by('no_lpb', 'desc');
+        $this->db->from('lpb');
+        $this->db->join('po', 'po.noreftxt=lpb.potxt');
+        return $this->db->get();
+    }
+
     public function sumLPBPO($kodebar)
     {
         $this->db->query()('SUM(qty_lpb) as qtylpb,SUM(qty_po) as qtypo');

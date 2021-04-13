@@ -76,7 +76,7 @@
 
                                                     <div class="col-md-1">
                                                         <label>Jam BKB</label>
-                                                        <input type="text" class="form-control" name="jam" value="<?= $item_po['jam'] ?>">
+                                                        <input type="time" class="form-control" name="jam" value="<?= $item_po['jam'] ?>">
                                                     </div>
 
                                                     <div class="col-md-1">

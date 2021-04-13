@@ -4,6 +4,8 @@
 <head>
 
   <?php $this->load->view('_partials/header'); ?>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
 
 </head>
 
@@ -38,12 +40,12 @@
                       <div class="col-md-4">
                         <input id="multiple" type="text" class="form-control" size="50" onkeyup="test()" placeholder="Input via QRCODE">
                         <input id="getId" type="hidden" class="form-control" size="50" onkeyup="test2()" placeholder="get Id">
+                        <!-- <video id="preview"></video> -->
                         <div class="mb-1">
                         </div>
                       </div>
                       <div class="col-md-6">
-                        <button href="<?= base_url('tabel_lpb/input_lpb_qrcode') ?>" class="btn btn-lg btn-outline-info mr-6 qrcode-reader" id="openreader-multi" data-qrr-multiple="true" data-qrr-repeat-timeout="0" data-qrr-line-color="#00FF00" data-qrr-target="#multiple">
-                          <i class="fas fa-camera"></i></button>
+                        <button id="buton" class="btn btn-lg btn-outline-info mr-6" data-toggle="modal" data-target="#exampleModal" onclick="showCamera()"><i class="fas fa-camera"></i></button>
                       </div>
                     </div>
                     <div class="table-responsive">
@@ -116,6 +118,27 @@
     </div>
   </div>
 
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">SCAN QRCODE</h5>
+        </div>
+        <div class="modal-body">
+          <div class="text-center">
+            <video width="80%" id="preview"></video>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="batalCamera()" data-dismiss="modal">Batal</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     $(function() {
 
@@ -185,9 +208,9 @@
 
     });
 
-    function test() {
+    function test(po) {
 
-      var po = $('#multiple').val();
+      // var po = $('#multiple').val();
       if (po != "") {
         $.ajax({
           type: 'POST',
@@ -217,7 +240,54 @@
       window.location.href = '<?= base_url() ?>tabel_lpb/test/' + id;
     }
   </script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#preview').hide();
 
+    });
+
+
+
+    function showCamera() {
+
+      Instascan.Camera.getCameras().then(function(cameras) {
+        if (cameras.length > 0) {
+          scanner.start(cameras[0]);
+        } else {
+          console.error('No cameras found.');
+        }
+      }).catch(function(e) {
+        console.error(e);
+      });
+      $('#exampleModal').show();
+      $('#preview').show();
+    }
+
+    let scanner = new Instascan.Scanner({
+      video: document.getElementById('preview')
+    });
+    scanner.addListener('scan', function(content) {
+      console.log(content);
+      $('#preview').hide();
+      get_nopo(content);
+      test(content);
+    });
+
+
+
+    function batalCamera() {
+      Instascan.Camera.getCameras().then(function() {
+        scanner.stop();
+      });
+    }
+
+    function get_nopo(e) {
+      // $('#multiple').val(e);
+      // window.location.href = '<?= base_url() ?>tabel_lpb/test/' + 206;
+
+      // alert(id);
+    }
+  </script>
 
 </body>
 

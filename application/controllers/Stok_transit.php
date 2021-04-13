@@ -15,7 +15,7 @@ class Stok_transit extends CI_Controller
     public function index()
     {
         $data['title'] = "Stok Transit";
-        $data['stok_gudang'] = $this->stok_transit_model->stokTransit();
+        $data['stok_gudang'] = $this->stok_transit_model->stokTransitPo();
 
         // $stok =  $this->stok_transit_model->stokTransit();
 

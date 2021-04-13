@@ -43,6 +43,8 @@
                                                         <th>No</th>
                                                         <th>Kode Barang</th>
                                                         <th>Nama Barang</th>
+                                                        <th>PT</th>
+                                                        <th>Tujuan</th>
                                                         <th>QTY PO</th>
                                                         <th>QTY LPB</th>
                                                         <th>QTY BKB</th>
@@ -82,6 +84,8 @@
                                                             echo "<td>" . $no . "</td>";
                                                             echo "<td>" . $row['kodebar'] . "</td>";
                                                             echo "<td>" . $row['nabar'] . "</td>";
+                                                            echo "<td>" . $row['PT'] . "</td>";
+                                                            echo "<td>" . $row['lokasikirim'] . "</td>";
                                                             echo "<td>" . $row['qty_po'] . "</td>";
                                                             echo "<td>" . $qtylpb . "</td>";
                                                             echo "<td>" . $qtybkb . "</td>";
