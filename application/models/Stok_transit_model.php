@@ -21,7 +21,7 @@ class Stok_transit_model extends CI_Model
 
     public function sumLPBPO($kodebar)
     {
-        $this->db->query()('SUM(qty_lpb) as qtylpb,SUM(qty_po) as qtypo');
+        $this->db->query('SUM(qty_lpb) as qtylpb,SUM(qty_po) as qtypo');
         $this->db->from('lpb');
         return $this->db->where('kodebar', $kodebar);
     }
