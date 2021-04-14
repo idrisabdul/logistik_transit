@@ -38,7 +38,7 @@
         <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i> <span>Utility</span></a>
         <ul class="dropdown-menu">
           <li><a class="nav-link" href="#">Password</a></li>
-          <li><a class="nav-link" onclick="updatePo('#')" href="#">Update PO</a></li>
+          <li><a class="nav-link" onclick="updatePo('Update_po')" href="#">Update PO</a></li>
           <li><a class="nav-link" href="#">Transfer SPP</a></li>
         </ul>
       </li>
@@ -58,7 +58,7 @@
       </div>
       <div class="modal-body">Update PO akan membutuhkan waktu beberapa saat</div>
       <div class="modal-footer">
-        <button class="btn" type="button" data-dismiss="modal">Batal</button>
+        <button class="btn btn-light" type="button" data-dismiss="modal">Batal</button>
         <a id="btn-updatePo" class="btn btn-danger" href="#">OK</a>
       </div>
     </div>
