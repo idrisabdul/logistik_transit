@@ -6,7 +6,7 @@ class Tabel_lpb extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model('tabel_lpb_model');
+        $this->load->model('Tabel_lpb_model');
         if (!$this->session->userdata['auth']) {
             echo "<script>alert('Anda Harus Login Terlebih dahulu');</script>";
             redirect('login');
@@ -17,10 +17,10 @@ class Tabel_lpb extends CI_Controller
     {
         $data['title'] = "TABEL LPB";
         $data['konten'] = "Laporan Pemasukan Barang";
-        $data['tabel_lpb'] = $this->tabel_lpb_model->get_data_lpb();
+        $data['tabel_lpb'] = $this->Tabel_lpb_model->get_data_lpb();
 
 
-        $data['item_po'] = $this->tabel_lpb_model->getPoLPB($po);
+        $data['item_po'] = $this->Tabel_lpb_model->getPoLPB($po);
         $this->load->view('tabel_lpb_view', $data);
     }
 
@@ -28,19 +28,19 @@ class Tabel_lpb extends CI_Controller
     {
         $this->load->library('pdfgenerator');
 
-        $data['tabel_lpb'] = $this->tabel_lpb_model->get_data_lpb();
+        $data['tabel_lpb'] = $this->Tabel_lpb_model->get_data_lpb();
         $html = $this->load->view('lpb/cetak_listlpb_view', $data, true);
 
         $this->pdfgenerator->generate($html, 'lpb');
     }
 
-    function add_new()
+    function add_new_cadangan()
     {
-        $data['generate'] = $this->tabel_lpb_model->lpb_no_lpb_desc();
+        // $data['generate'] = $this->Tabel_lpb_model->lpb_no_lpb_desc();
 
         $data['title'] = "Tambah LPB";
 
-        $data['po'] = $this->tabel_lpb_model->get_data_po();
+        // $data['po'] = $this->tabel_lpb_model->get_data_po();
 
         // foreach ($data['po'] as $po) {
 
@@ -55,11 +55,55 @@ class Tabel_lpb extends CI_Controller
 
         $this->load->view('add_items_view', $data);
     }
+    function add_new()
+    {
+
+
+        $list = $this->Tabel_lpb_model->get_datatables();
+        $data = array();
+        $no = $_POST['start'];
+        foreach ($list as $field) {
+
+            $nopo = $field->noreftxt;
+            $sumqtypo = $this->Tabel_lpb_model->getSumQtyPO($nopo);
+            $sumqtylpb = $this->Tabel_lpb_model->getSumQtyLPB($nopo);
+
+            $total = $sumqtypo['qty'] - $sumqtylpb['qty_lpb'];
+            if ($total == 0) {
+                $status = "<div class='badge badge-danger'>Habis</div>";
+            } elseif ($total < $sumqtypo['qty']) {
+                $status = "<div class='badge badge-success'>Sebagian</div>";
+            } else {
+                $status = "<div class='badge badge-warning'>__</div>";
+            }
+
+            $no++;
+            $row = array();
+            $row[] = $no;
+            $row[] = $field->namapt;
+            $row[] = $field->noreftxt;
+            $row[] = $field->tglpo;
+            $row[] = $field->nama_supply;
+            $row[] = $status;
+            $row[] = '<a type="button" href="' . base_url('tabel_lpb/tambah_lpb/' . $field->id) . '" class="btn btn-outline-info">input</a>';
+
+            $data[] = $row;
+        }
+
+        $output = array(
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $this->Tabel_lpb_model->count_all(),
+            "recordsFiltered" => $this->Tabel_lpb_model->count_filtered(),
+            "data" => $data,
+        );
+        //output dalam format JSON
+        echo json_encode($output);
+    }
 
     public function save($id = null)
     {
 
-        $generate = $this->tabel_lpb_model->lpb_no_lpb_desc();
+        $generate = $this->Tabel_lpb_model->lpb_no_lpb_desc();
         foreach ($generate->result_array() as $rows) {
 
             if ($rows >= 1) {
@@ -228,14 +272,14 @@ class Tabel_lpb extends CI_Controller
 
     public function items_po($lpbtxt)
     {
-        $data['item_po'] = $this->tabel_lpb_model->getPoLPB($lpbtxt);
+        $data['item_po'] = $this->Tabel_lpb_model->getPoLPB($lpbtxt);
         $this->load->view('tabel_lpb_view', $data);
     }
 
     public function edit_lpb($id)
     {
         $data['title'] = "Edit LPB";
-        $data['po'] = $this->tabel_lpb_model->getIdLpb($id);
+        $data['po'] = $this->Tabel_lpb_model->getIdLpb($id);
         // echo "<pre>";
         // var_dump($data['po']);
         // echo "</pre>";
@@ -254,7 +298,7 @@ class Tabel_lpb extends CI_Controller
             'ket' => $this->input->post('ket')
         ];
 
-        $this->tabel_lpb_model->updateLPB($data, $id);
+        $this->Tabel_lpb_model->updateLPB($data, $id);
         $this->session->set_flashdata('message', '
         <div class="alert alert-light alert-dismissible show fade col-md-6">
         <div class="alert-body">
@@ -283,9 +327,9 @@ class Tabel_lpb extends CI_Controller
         $config['white']        = array(70, 130, 180); // array, default is array(0,0,0)
         $this->ciqrcode->initialize($config);
 
-        $po = $this->tabel_lpb_model->getIdLpb($id);
+        $po = $this->Tabel_lpb_model->getIdLpb($id);
 
-        $item_po = $this->tabel_lpb_model->getIdPo($id);
+        $item_po = $this->Tabel_lpb_model->getIdPo($id);
 
         foreach ($po->result_array() as $qrcode) :
 
@@ -302,15 +346,15 @@ class Tabel_lpb extends CI_Controller
 
         endforeach;
 
-        $data['po'] = $this->tabel_lpb_model->getIdLpb($id);
-        $data['item_po'] = $this->tabel_lpb_model->getIdPo($id);
+        $data['po'] = $this->Tabel_lpb_model->getIdLpb($id);
+        $data['item_po'] = $this->Tabel_lpb_model->getIdPo($id);
 
         $this->load->view('lpb/cetak_po_view', $data);
     }
 
     public function delete_itemlpb($id)
     {
-        $this->tabel_lpb_model->deleteLPB($id);
+        $this->Tabel_lpb_model->deleteLPB($id);
         $this->session->set_flashdata('message', '
             <div class="alert alert-light alert-dismissible show fade col-md-6">
             <div class="alert-body">
@@ -327,7 +371,7 @@ class Tabel_lpb extends CI_Controller
     public function tambah_lpb($id)
     {
         $data['title'] = "Input Penerimaan Barang Transit HO";
-        $data['barang_po'] = $this->tabel_lpb_model->getByPO($id);
+        $data['barang_po'] = $this->Tabel_lpb_model->getByPO($id);
 
         foreach ($data['barang_po'] as $row) {
             $data['supply'] = $row['nama_supply'];
@@ -342,7 +386,7 @@ class Tabel_lpb extends CI_Controller
         $data['title'] = "Input Penerimaan Barang Transit HO";
 
         $po = $this->input->post('po');
-        $data = $this->tabel_lpb_model->getNoPO($po);
+        $data = $this->Tabel_lpb_model->getNoPO($po);
         foreach ($data as $i) {
             $id = $i['id'];
         }
@@ -356,7 +400,7 @@ class Tabel_lpb extends CI_Controller
     function test($id)
     {
         $data['title'] = "QRCODE LPB";
-        $data['barang_po'] = $this->tabel_lpb_model->getByPO($id);
+        $data['barang_po'] = $this->Tabel_lpb_model->getByPO($id);
 
         // echo "<pre>";
         // var_dump($data['barang_po']);

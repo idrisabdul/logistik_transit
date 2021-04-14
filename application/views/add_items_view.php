@@ -49,7 +49,7 @@
                       </div>
                     </div>
                     <div class="table-responsive">
-                      <table class="table table-sm table-hover" id="myTable">
+                      <table class="table table-sm table-hover" id="po">
                         <thead>
                           <tr>
                             <th>No</th>
@@ -63,45 +63,7 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <?php $i = 1; ?>
-                          <?php foreach ($po as $show_po) : ?>
-                            <?php
-                            $nopo = $show_po->noreftxt;
-                            $sumqtypo = $this->tabel_lpb_model->getSumQtyPO($nopo);
-                            $sumqtylpb = $this->tabel_lpb_model->getSumQtyLPB($nopo);
 
-                            $total = $sumqtypo['qty'] - $sumqtylpb['qty_lpb'];
-                            if ($total == 0) {
-                              $status = "<div class='badge badge-danger'>Habis</div>";
-                            } elseif ($total < $sumqtypo['qty']) {
-                              $status = "<div class='badge badge-success'>Sebagian</div>";
-                            } else {
-                              $status = "<div class='badge badge-warning'>__</div>";
-                            }
-
-                            // if ($result2->num_rows() >= 1) {
-                            //   $status = "<div class='badge badge-success'>LPB</div>";
-                            // } else {
-                            //   $status = "<div class='badge badge-warning'>__</div>";
-                            // }
-
-                            if ($total == 0) {
-                            } else {
-                            ?>
-                              <tr>
-                                <td><?= $i ?></td>
-                                <td><?= $show_po->namapt ?></td>
-                                <td><?= $show_po->noreftxt; ?></td>
-                                <?php $tanggal = date("j F Y", strtotime($show_po->tglpo)); ?>
-                                <td><?= $tanggal; ?></td>
-                                <td><?= $show_po->nama_supply; ?></td>
-                                <td><?= $status ?></td>
-                                <td><?= anchor('tabel_lpb/tambah_lpb/' . $show_po->id, '<button type="button" href="#" class="btn btn-outline-info">
-                                                    input</button>') ?></td>
-                              </tr>
-                              <?php $i++ ?>
-                            <?php } ?>
-                          <?php endforeach; ?>
                         </tbody>
                       </table>
                     </div>
@@ -287,7 +249,33 @@
 
       // alert(id);
     }
+
+    var table;
+    $(document).ready(function() {
+
+      //datatables
+      table = $('#po').DataTable({
+
+        "processing": true,
+        "serverSide": true,
+        "order": [],
+
+        "ajax": {
+          "url": "<?php echo site_url('tabel_lpb/add_new') ?>",
+          "type": "POST"
+        },
+
+
+        "columnDefs": [{
+          "targets": [0],
+          "orderable": false,
+        }, ],
+
+      });
+
+    });
   </script>
+
 
 </body>
 

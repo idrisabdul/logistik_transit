@@ -94,7 +94,7 @@
                                                                 <td><?= $no ?></td>
                                                                 <td><?= $bp['nabar'] ?></td>
                                                                 <td><?= $bp['merek'] ?></td>
-                                                                <?php $row = $this->tabel_lpb_model->getQtyLPB($bp['kodebar'], $bp['merek'], $bp['noref']); ?>
+                                                                <?php $row = $this->Tabel_lpb_model->getQtyLPB($bp['kodebar'], $bp['merek'], $bp['noref']); ?>
                                                                 <td><?= $bp['qty'] ?></td>
                                                                 <td><?= $row['qty_lpb'] == NULL ? 0 : $row['qty_lpb']; ?></td>
                                                                 <td id="hasil"><?= $sisa = $bp['qty'] - $row['qty_lpb']; ?></td>
