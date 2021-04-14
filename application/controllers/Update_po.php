@@ -678,9 +678,10 @@ class Update_po extends CI_Controller
             $this->db->insert('item_po', $data_array_itempo_kpp);
         endforeach;
         //END PT KPP
-    }
 
-    // var_dump($data);
+        echo "PO BERHASIL DI UPDATE! <br>";
+        echo "<a class='btn btn-danger' href='Home'>BACK TO HOME</a>";
+    }
 }
 
 /* End of file Controllername.php */
