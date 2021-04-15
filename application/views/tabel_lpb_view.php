@@ -39,7 +39,7 @@
                     <div class="form-group text-right">
                       <a href="<?= base_url() ?>tabel_lpb/pdf" class="btn btn-outline-success">Print</a>
                       <?php if ($this->session->userdata('level') == 1) { ?>
-                        <a class='btn btn-primary mr-3 ml-1' href="<?= base_url('tabel_lpb/add_new_cadangan'); ?>">Terima Barang</a>
+                        <a class='btn btn-primary mr-3 ml-1' href="<?= base_url('tabel_lpb/list_po'); ?>">Terima Barang</a>
                       <?php } ?>
                     </div>
                     <div class="table-responsive">

@@ -73,11 +73,11 @@
                                                         <?php $no = 0; ?>
                                                         <?php foreach ($barang_po as $bp) : ?>
                                                             <?php $no = $no + 1; ?>
-                                                            <input type="hidden" name="po<?= $no ?>" value="<?= substr($bp['noref'], -7); ?>">
+                                                            <input type="hidden" name="po<?= $no ?>" value="<?= substr($nopo, -7); ?>">
                                                             <input type="hidden" name="PT<?= $no ?>" value="<?= $bp['namapt'] ?>">
-                                                            <input type="hidden" name="potxt<?= $no ?>" value="<?= $bp['noref'] ?>">
-                                                            <input type="hidden" name="ket_dept<?= $no ?>" value="<?= $bp['ket_dept'] ?>">
-                                                            <input type="hidden" name="suplier<?= $no ?>" value="<?= $bp['nama_supply'] ?>">
+                                                            <input type="hidden" name="potxt<?= $no ?>" value="<?= $nopo ?>">
+                                                            <input type="hidden" name="ket_dept<?= $no ?>" value="<?= $ket_dept ?>">
+                                                            <input type="hidden" name="suplier<?= $no ?>" value="<?= $supply ?>">
                                                             <input type="hidden" name="tgl<?= $no ?>" value="<?= $bp['tglpo'] ?>">
                                                             <input type="hidden" name="edit" value="0">
                                                             <input type="hidden" name="count" value="<?= $no ?>">

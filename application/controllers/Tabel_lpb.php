@@ -34,7 +34,7 @@ class Tabel_lpb extends CI_Controller
         $this->pdfgenerator->generate($html, 'lpb');
     }
 
-    function add_new_cadangan()
+    function list_po()
     {
         // $data['generate'] = $this->Tabel_lpb_model->lpb_no_lpb_desc();
 
@@ -81,7 +81,7 @@ class Tabel_lpb extends CI_Controller
             $row = array();
             $row[] = $no;
             $row[] = $field->namapt;
-            $row[] = $field->noreftxt;
+            $row[] = $field->nopo;
             $row[] = $field->tglpo;
             $row[] = $field->nama_supply;
             $row[] = $status;
@@ -371,13 +371,18 @@ class Tabel_lpb extends CI_Controller
     public function tambah_lpb($id)
     {
         $data['title'] = "Input Penerimaan Barang Transit HO";
-        $data['barang_po'] = $this->Tabel_lpb_model->getByPO($id);
+        $sql = "SELECT * FROM po WHERE id = $id";
+        $rowpo = $this->db->query($sql)->row_array();
 
-        foreach ($data['barang_po'] as $row) {
-            $data['supply'] = $row['nama_supply'];
-            $data['nopo'] = $row['noref'];
-        }
+        $noref  = $rowpo['noreftxt'];
+        $data['barang_po'] = $this->Tabel_lpb_model->getItemPO($noref);
 
+        $data['supply'] = $rowpo['nama_supply'];
+        $data['nopo'] = $rowpo['noreftxt'];
+        $data['ket_dept'] = $rowpo['ket_dept'];
+
+
+        // var_dump($da);
         $this->load->view('lpb/tambah_lpb_view', $data);
     }
 

@@ -175,7 +175,7 @@
                                         <div class="row mt-1">
                                             <div class="col-md">
                                                 <?php if ($this->session->userdata('level') == 1) { ?>
-                                                    <a href="<?= base_url('tabel_lpb/add_new') ?>">
+                                                    <a href="<?= base_url('tabel_lpb/list_po') ?>">
                                                         <div class="card shadow-primary card-hero">
                                                             <div class="card-header">
                                                                 <div class="card-icon">

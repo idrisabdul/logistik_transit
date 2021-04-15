@@ -106,6 +106,13 @@ class Tabel_lpb_model extends CI_Model
         return $this->db->get_where('item_po', ['noref' => $cari_po['noref']])->result_array();
     }
 
+    //ITEM PO BERDASARKAN NO PO
+    public function getItemPO($noref)
+    {
+        return $this->db->get_where('item_po', ['noref' => $noref])->result_array();
+        // return $this->db->get_where('item_po', ['noref' => $cari_po['noref']])->result_array();
+    }
+
     public function getByPO_Ajax()
     {
         $this->db->select('*');
