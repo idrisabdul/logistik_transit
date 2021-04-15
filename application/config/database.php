@@ -99,6 +99,32 @@ $db['default'] = array(
 	'save_queries' => TRUE
 );
 
+$db['db_logistiktransit_ho'] = array(
+	'dsn'	=> '',
+	'hostname' => '192.168.1.231',
+	'username' => 'mis',
+	'password' => 'msaljkt@88',
+	'database' => 'msalgrou_logistiktransit_ho',
+	// 'hostname' => 'localhost',
+	// 'username' => 'root',
+	// 'password' => '',
+	// 'database' => 'msalgrou_logistiktransit_ho',
+	'dbdriver' => 'mysqli',
+	'dbprefix' => '',
+	'pconnect' => FALSE,
+	'db_debug' => (ENVIRONMENT !== 'production'),
+	'cache_on' => FALSE,
+	'cachedir' => '',
+	'char_set' => 'utf8',
+	'dbcollat' => 'utf8_general_ci',
+	'swap_pre' => '',
+	'encrypt' => FALSE,
+	'compress' => FALSE,
+	'stricton' => FALSE,
+	'failover' => array(),
+	'save_queries' => TRUE
+);
+
 $db['db_logistik_mapa'] = array(
 	'dsn'	=> '',
 	'hostname' => '192.168.1.231',
