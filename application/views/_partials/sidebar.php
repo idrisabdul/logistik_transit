@@ -87,3 +87,10 @@
     $('.preloader').fadeOut();
   });
 </script>
+
+<script>
+  $('#btn-updatePo').click(function() {
+    $('#updatePoModal').hide();
+    $('.preloader').show();
+  });
+</script>

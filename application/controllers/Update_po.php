@@ -45,8 +45,8 @@ class Update_po extends CI_Controller
         $query_itempo_kpp = "INSERT INTO msalgrou_logistiktransit_ho.item_po SELECT * FROM msalgrou_logistikkpp.item_po";
         $this->db->query($query_itempo_kpp);
 
-        echo "PO BERHASIL DI UPDATE! <br>";
-        echo "<a class='btn btn-danger' href='Home'>BACK TO HOME</a>";
+        // $this->load->view('home_view', $data);
+        echo "<script>window.location='" . base_url('home') . "'</script>";
     }
 }
 
