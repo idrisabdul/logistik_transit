@@ -22,7 +22,7 @@ class Update_po extends CI_Controller
         $this->db->query($query_itempo_mapa);
 
         // PT MSAL
-        $query_po_msal = "INSERT INTO msalgrou_logistiktransit_ho.po SELECT id, kd_dept, ket_dept, grup, kode_budget, kd_subbudget, ket_subbudget, kode_supply, nama_supply, kode_pemesan, pemesan, nopo, nopotxt, noppo, noppotxt, no_refppo, tgl_refppo, tgl_reftxt, tglpo, tglpotxt, tglppo, tglpotxt, bayar, tempo_bayar, lokasikirim, tempo_kirim, lokasi_beli, ket, kodept, namapt, no_acc, ket_acc, periode, periodetxt, thn, tglisi, user, ppn, totalbayar, ket_kirim, lokasi, noreftxt, uangmuka, voucher, terbayar, nopp, batal, kirim FROM msalgrou_logistikmsal.po";
+        $query_po_msal = "INSERT INTO msalgrou_logistiktransit_ho.po SELECT id, kd_dept, ket_dept, grup, kode_budet, kd_subbudget, ket_subbudget, kode_supply, nama_supply, kode_pemesan, pemesan, nopo, nopotxt, noppo, noppotxt, no_refppo, tgl_refppo, tgl_reftxt, tglpo, tglpotxt, tglppo, tglpotxt, bayar, tempo_bayar, lokasikirim, tempo_kirim, lokasi_beli, ket, kodept, namapt, no_acc, ket_acc, periode, periodetxt, thn, tglisi, user, ppn, totalbayar, ket_kirim, lokasi, noreftxt, uangmuka, voucher, terbayar, nopp, batal, kirim FROM msalgrou_logistikmsal.po";
         $this->db->query($query_po_msal);
         $query_itempo_msal = "INSERT INTO msalgrou_logistiktransit_ho.item_po SELECT * FROM msalgrou_logistikmsal.item_po";
         $this->db->query($query_itempo_msal);
@@ -34,13 +34,13 @@ class Update_po extends CI_Controller
         $this->db->query($query_itempo_peak);
 
         // PT PSAM
-        $query_po_psam = "INSERT INTO msalgrou_logistiktransit_ho.po SELECT id, kd_dept, ket_dept, grup, kode_budget, kd_subbudget, ket_subbudget, kode_supply, nama_supply, kode_pemesan, pemesan, nopo, nopotxt, noppo, noppotxt, no_refppo, tgl_refppo, tgl_reftxt, tglpo, tglpotxt, tglppo, tglpotxt, bayar, tempo_bayar, lokasikirim, tempo_kirim, lokasi_beli, ket, kodept, namapt, no_acc, ket_acc, periode, periodetxt, thn, tglisi, user, ppn, totalbayar, ket_kirim, lokasi, noreftxt, uangmuka, voucher, terbayar, nopp, batal, kirim FROM msalgrou_logistikpsam.po";
+        $query_po_psam = "INSERT INTO msalgrou_logistiktransit_ho.po SELECT id, kd_dept, ket_dept, grup, kode_budet, kd_subbudget, ket_subbudget, kode_supply, nama_supply, kode_pemesan, pemesan, nopo, nopotxt, noppo, noppotxt, no_refppo, tgl_refppo, tgl_reftxt, tglpo, tglpotxt, tglppo, tglpotxt, bayar, tempo_bayar, lokasikirim, tempo_kirim, lokasi_beli, ket, kodept, namapt, no_acc, ket_acc, periode, periodetxt, thn, tglisi, user, ppn, totalbayar, ket_kirim, lokasi, noreftxt, uangmuka, voucher, terbayar, nopp, batal, kirim FROM msalgrou_logistikpsam.po";
         $this->db->query($query_po_psam);
         $query_itempo_psam = "INSERT INTO msalgrou_logistiktransit_ho.item_po SELECT * FROM msalgrou_logistikpsam.item_po";
         $this->db->query($query_itempo_psam);
 
         // PT KPP
-        $query_po_kpp = "INSERT INTO msalgrou_logistiktransit_ho.po SELECT id, kd_dept, ket_dept, grup, kode_budget, kd_subbudget, ket_subbudget, kode_supply, nama_supply, kode_pemesan, pemesan, nopo, nopotxt, noppo, noppotxt, no_refppo, tgl_refppo, tgl_reftxt, tglpo, tglpotxt, tglppo, tglpotxt, bayar, tempo_bayar, lokasikirim, tempo_kirim, lokasi_beli, ket, kodept, namapt, no_acc, ket_acc, periode, periodetxt, thn, tglisi, user, ppn, totalbayar, ket_kirim, lokasi, noreftxt, uangmuka, voucher, terbayar, nopp, batal, kirim FROM msalgrou_logistikkpp.po";
+        $query_po_kpp = "INSERT INTO msalgrou_logistiktransit_ho.po SELECT id, kd_dept, ket_dept, grup, kode_budet, kd_subbudget, ket_subbudget, kode_supply, nama_supply, kode_pemesan, pemesan, nopo, nopotxt, noppo, noppotxt, no_refppo, tgl_refppo, tgl_reftxt, tglpo, tglpotxt, tglppo, tglpotxt, bayar, tempo_bayar, lokasikirim, tempo_kirim, lokasi_beli, ket, kodept, namapt, no_acc, ket_acc, periode, periodetxt, thn, tglisi, user, ppn, totalbayar, ket_kirim, lokasi, noreftxt, uangmuka, voucher, terbayar, nopp, batal, kirim FROM msalgrou_logistikkpp.po";
         $this->db->query($query_po_kpp);
         $query_itempo_kpp = "INSERT INTO msalgrou_logistiktransit_ho.item_po SELECT * FROM msalgrou_logistikkpp.item_po";
         $this->db->query($query_itempo_kpp);
