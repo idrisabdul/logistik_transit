@@ -49,7 +49,7 @@
                             <th scope="col">Aksi</th>
                             <th scope="col">No</th>
                             <th scope="col">Tgl</th>
-                            <th scope="col">No LPB</th>
+                            <th scope="col">No Ref</th>
                             <th scope="col">Kode Barang</th>
                             <th scope="col">PT</th>
                             <th scope="col">No PO</th>
@@ -86,7 +86,7 @@
                               <td><?php echo $count; ?></td>
                               <?php $tanggal = date("j F Y", strtotime($row['tgl'])); ?>
                               <td><?php echo $tanggal; ?></td>
-                              <td><?php echo substr($row['lpbtxt'], -7); ?></td>
+                              <td><?php echo substr($row['potxt'], -7); ?></td>
                               <td><?php echo $row['kodebar'] ?></td>
                               <td><?= $row['PT'] ?></td>
                               <td><?= $row['potxt'] ?></td>

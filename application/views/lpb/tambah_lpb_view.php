@@ -118,9 +118,9 @@
 
                                                                 <td>
                                                                     <?php if ($sisa == 0) { ?>
-                                                                        <input type="text" id="input<?= $no ?>" class="form-control" name="qty_lpb<?= $no ?>" min="1" max="<?= $sisa ?>" step=".01" disabled>
+                                                                        <input type="number" id="input<?= $no ?>" class="form-control" name="qty_lpb<?= $no ?>" min="1" max="<?= $sisa ?>" step=".01" disabled>
                                                                     <?php } else { ?>
-                                                                        <input type="text" id="input<?= $no ?>" class="form-control" name="qty_lpb<?= $no ?>" min="1" max="<?= $sisa ?>" step=".01">
+                                                                        <input type="number" id="input<?= $no ?>" class="form-control" name="qty_lpb<?= $no ?>" min="1" max="<?= $sisa ?>" step=".01">
                                                                     <?php } ?>
                                                                 </td>
 

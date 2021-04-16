@@ -7,8 +7,8 @@ class Tabel_bkb extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model('tabel_lpb_model');
-        $this->load->model('tabel_bkb_model');
+        $this->load->model('Tabel_lpb_model');
+        $this->load->model('Tabel_bkb_model');
         if (!$this->session->userdata['auth']) {
             redirect('login');
         }
@@ -17,30 +17,30 @@ class Tabel_bkb extends CI_Controller
     public function index()
     {
         $data['title'] = "Tabel BKB";
-        $data['data_bkb'] = $this->tabel_lpb_model->get_data_bkb();
+        $data['data_bkb'] = $this->Tabel_lpb_model->get_data_bkb();
         $this->load->view('tabel_bkb_view', $data);
     }
 
     public function pdf()
     {
-        $this->load->library('pdfgenerator');
+        $this->load->library('PdfGenerator');
 
-        $data['tabel_bkb'] = $this->tabel_lpb_model->get_data_bkb();
+        $data['tabel_bkb'] = $this->Tabel_lpb_model->get_data_bkb();
         $html = $this->load->view('bkb/cetak_listbkb_view', $data, true);
 
-        $this->pdfgenerator->generate($html, 'laporan_bkb');
+        $this->PdfGenerator->generate($html, 'laporan_bkb');
     }
 
     public function tabel_lpb_distinct()
     {
         $data['title'] = 'Daftar Barang Transit';
-        $data['data_lpb'] = $this->tabel_lpb_model->get_data_lpb_distinct();
+        $data['data_lpb'] = $this->Tabel_lpb_model->get_data_lpb_distinct();
         $this->load->view('input_bkb_view', $data);
     }
 
     public function save()
     {
-        $generate = $this->tabel_bkb_model->getUrutBKB();
+        $generate = $this->Tabel_bkb_model->getUrutBKB();
 
         foreach ($generate as $rows) {
             if ($rows >= 1) {
@@ -125,9 +125,9 @@ class Tabel_bkb extends CI_Controller
                 'kodept' => $kodept
             );
 
-            $barang = $this->tabel_bkb_model->getRowsLpb($kodebar);
+            $barang = $this->Tabel_bkb_model->getRowsLpb($kodebar);
 
-            $row = $this->tabel_bkb_model->getRowsLpb($kodebar)->row_array();
+            $row = $this->Tabel_bkb_model->getRowsLpb($kodebar)->row_array();
 
             if ($qty_bkb <> "" and $tgl != null) :
 
@@ -146,7 +146,7 @@ class Tabel_bkb extends CI_Controller
         // //$qry = "UPDATE `lpb` SET `qty_lpb` = $qtylpb WHERE `kodebar` = $kodebar";
         // //$this->db->query($qry);
 
-        // $itembkb = $this->tabel_bkb_model->itemBKB($kodebar);
+        // $itembkb = $this->Tabel_bkb_model->itemBKB($kodebar);
         // $qtybkb = $itembkb['qty_bkb'];
 
 
@@ -155,7 +155,7 @@ class Tabel_bkb extends CI_Controller
     function edit_bkb($bkbtxt)
     {
         $data['title'] = 'Edit BKB';
-        $data['bkbtxt'] = $this->tabel_bkb_model->getIdBKB($bkbtxt);
+        $data['bkbtxt'] = $this->Tabel_bkb_model->getIdBKB($bkbtxt);
         $this->load->view('bkb/edit_bkb_view', $data);
     }
 
@@ -175,9 +175,9 @@ class Tabel_bkb extends CI_Controller
         $config['white']        = array(70, 130, 180); // array, default is array(0,0,0)
         $this->ciqrcode->initialize($config);
 
-        $cetakbkb = $this->tabel_bkb_model->getIdBKB($id);
+        $cetakbkb = $this->Tabel_bkb_model->getIdBKB($id);
 
-        $item_bkb = $this->tabel_bkb_model->getnoBkbItem($id);
+        $item_bkb = $this->Tabel_bkb_model->getnoBkbItem($id);
 
         foreach ($cetakbkb as $qrcode) :
 
@@ -194,8 +194,8 @@ class Tabel_bkb extends CI_Controller
 
         endforeach;
 
-        $data['cetakbkb'] = $this->tabel_bkb_model->getIdBKB($id);
-        $data['item_bkb'] = $this->tabel_bkb_model->getnoBkbItem($id);
+        $data['cetakbkb'] = $this->Tabel_bkb_model->getIdBKB($id);
+        $data['item_bkb'] = $this->Tabel_bkb_model->getnoBkbItem($id);
 
         $this->load->view('bkb/cetak_bkb_view', $data);
     }
@@ -213,7 +213,7 @@ class Tabel_bkb extends CI_Controller
             'ket' => $this->input->post('ket'),
         ];
 
-        $this->tabel_bkb_model->updateBKB($data, $id);
+        $this->Tabel_bkb_model->updateBKB($data, $id);
         $this->session->set_flashdata('message', '
         <div class="alert alert-light alert-dismissible show fade col-md-6">
         <div class="alert-body">
@@ -228,7 +228,7 @@ class Tabel_bkb extends CI_Controller
 
     public function delete_itembkb($id)
     {
-        $this->tabel_bkb_model->deleteBKB($id);
+        $this->Tabel_bkb_model->deleteBKB($id);
         $this->session->set_flashdata('message', '
             <div class="alert alert-light alert-dismissible show fade col-md-6">
             <div class="alert-body">
@@ -245,7 +245,7 @@ class Tabel_bkb extends CI_Controller
     {
         $data['title'] = 'Input BKB';
 
-        $data['barang_item_bkb'] = $this->tabel_bkb_model->getItemBKB($id)->result_array();
+        $data['barang_item_bkb'] = $this->Tabel_bkb_model->getItemBKB($id)->result_array();
 
         foreach ($data['barang_item_bkb'] as $row) {
             $data['nopo'] = $row['potxt'];
@@ -264,7 +264,7 @@ class Tabel_bkb extends CI_Controller
         $data['title'] = "Input Penerimaan Barang Transit HO";
 
         $po = $this->input->post('po');
-        $data = $this->tabel_lpb_model->getNoLPB($po);
+        $data = $this->Tabel_lpb_model->getNoLPB($po);
         foreach ($data as $i) {
             $id = $i['id'];
         }

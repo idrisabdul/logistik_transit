@@ -50,7 +50,7 @@
                                                         <?php } ?>
                                                         <th scope="col">No</th>
                                                         <th scope="col">Tgl</th>
-                                                        <th scope="col">No BKB</th>
+                                                        <th scope="col">No Ref</th>
                                                         <th scope="col">Kode Barang</th>
                                                         <th scope="col">Nama Barang</th>
 
@@ -77,15 +77,17 @@
 
                                                             <?php if ($this->session->userdata('level') == 1) { ?><td>
                                                                     <?= anchor('tabel_bkb/edit_bkb/' . $row->ID, '<button type="button" href="#" class="btn btn-sm btn-outline-info my-1">
-                                                                <i class="far fa-edit"></i></button>'); ?> </td>
+                                                                <i class="far fa-edit"></i></button>'); ?>
+                                                                    <?= anchor('tabel_bkb/cetakBKB/' . $row->ID, '<button type="button" href="#" class="btn btn-sm btn-outline-danger">
+                                                                <i class="fas fa-print"></i></button>'); ?> </td>
                                                             <?php } ?>
                                                             <td><?php echo $count; ?></td>
                                                             <?php $tanggal = date("j F Y", strtotime($row->tgl)); ?>
                                                             <td><?= $tanggal; ?></td>
                                                             <td><?php if ($this->session->userdata('level') == 1) { ?>
-                                                                    <?php echo substr($row->nobkbtxt, -8); ?>
+                                                                    <?php echo substr($row->nopotxt, -7); ?>
                                                                 <?php } else {
-                                                                    echo $row->nobkbtxt;
+                                                                    echo substr($row->nopotxt, -7);
                                                                 } ?>
                                                             </td>
                                                             <td><?php echo $row->kodebar; ?></td>

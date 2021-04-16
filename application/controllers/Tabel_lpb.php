@@ -26,12 +26,12 @@ class Tabel_lpb extends CI_Controller
 
     public function pdf()
     {
-        $this->load->library('pdfgenerator');
+        $this->load->library('PdfGenerator');
 
         $data['tabel_lpb'] = $this->Tabel_lpb_model->get_data_lpb();
         $html = $this->load->view('lpb/cetak_listlpb_view', $data, true);
 
-        $this->pdfgenerator->generate($html, 'lpb');
+        $this->PdfGenerator->generate($html, 'lpb');
     }
 
     function list_po()
@@ -77,16 +77,19 @@ class Tabel_lpb extends CI_Controller
                 $status = "<div class='badge badge-warning'>__</div>";
             }
 
-            $no++;
-            $row = array();
-            $row[] = $no;
-            $row[] = $field->namapt;
-            $row[] = $field->nopo;
-            $row[] = $field->tglpo;
-            $row[] = $field->nama_supply;
-            $row[] = $status;
-            $row[] = '<a type="button" href="' . base_url('tabel_lpb/tambah_lpb/' . $field->id) . '" class="btn btn-outline-info">input</a>';
-
+            if ($total == 0) {
+            } else {
+                $no++;
+                $row = array();
+                $row[] = $no;
+                $row[] = $field->namapt;
+                $row[] = $field->noreftxt;
+                $tanggal = date("j F Y", strtotime($field->tglpo));
+                $row[] = $tanggal;
+                $row[] = $field->nama_supply;
+                $row[] = $status;
+                $row[] = '<a type="button" href="' . base_url('tabel_lpb/tambah_lpb/' . $field->id) . '" class="btn btn-outline-info">input</a>';
+            }
             $data[] = $row;
         }
 

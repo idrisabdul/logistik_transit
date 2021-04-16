@@ -30,7 +30,12 @@
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
 <script>
     $(document).ready(function() {
-        $('#myTable').DataTable();
+        $('#myTable').DataTable({
+            "lengthMenu": [
+                [50, -1],
+                [50, "All"]
+            ]
+        });
     });
 </script>
 

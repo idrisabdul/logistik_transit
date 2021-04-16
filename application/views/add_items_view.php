@@ -54,7 +54,7 @@
                           <tr>
                             <th>No</th>
                             <th>PT</th>
-                            <th>No PO</th>
+                            <th>No Ref</th>
                             <th>TGL PO</th>
                             <th>Supplier</th>
                             <th>Status</th>
@@ -270,6 +270,11 @@
           "targets": [0],
           "orderable": false,
         }, ],
+
+        "lengthMenu": [
+          [50, -1],
+          [50, "All"]
+        ]
 
       });
 

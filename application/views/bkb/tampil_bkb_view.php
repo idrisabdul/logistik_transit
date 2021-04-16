@@ -120,9 +120,9 @@
                                                                 </td>
 
                                                                 <td><?php if ($sisa == 0) { ?>
-                                                                        <input type="text" id="input<?= $no ?>" class="form-control" name="qty_bkb<?= $no ?>" min="1" max="<?= $sisa ?>" disabled>
+                                                                        <input type="number" id="input<?= $no ?>" class="form-control" name="qty_bkb<?= $no ?>" min="1" max="<?= $sisa ?>" disabled>
                                                                     <?php } else { ?>
-                                                                        <input type="text" id="input<?= $no ?>" class="form-control" name="qty_bkb<?= $no ?>" min="1" max="<?= $sisa ?>">
+                                                                        <input type="number" id="input<?= $no ?>" class="form-control" name="qty_bkb<?= $no ?>" min="1" max="<?= $sisa ?>">
                                                                     <?php } ?>
                                                                 </td>
 
