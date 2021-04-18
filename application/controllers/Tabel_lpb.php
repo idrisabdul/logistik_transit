@@ -416,8 +416,11 @@ class Tabel_lpb extends CI_Controller
 
         foreach ($data['barang_po'] as $row) {
             $data['supply'] = $row['nama_supply'];
-            $data['nopo'] = $row['noref'];
+            $data['nopo'] = $row['noreftxt'];
+            $data['ket_dept'] = $row['ket_dept'];
         }
+
+
 
         $this->load->view('lpb/tambah_lpb_view', $data);
     }

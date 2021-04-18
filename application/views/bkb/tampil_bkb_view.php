@@ -83,8 +83,8 @@
                                                             <tr>
                                                                 <td><?= $no ?></td>
                                                                 <td><?= $bib['nabar']; ?></td>
-                                                                <?php $rowbkb = $this->tabel_bkb_model->getQtyBkb($bib['kodebar'], $bib['potxt']); ?>
-                                                                <?php $row = $this->tabel_bkb_model->getQtyLpb($bib['kodebar']); ?>
+                                                                <?php $rowbkb = $this->Tabel_bkb_model->getQtyBkb($bib['kodebar'], $bib['potxt']); ?>
+                                                                <?php $row = $this->Tabel_bkb_model->getQtyLpb($bib['kodebar']); ?>
                                                                 <td><?= $row['qty_lpb'] ?></td>
                                                                 <td><?= $rowbkb['qty_bkb'] == NULL ? 0 : $rowbkb['qty_bkb']; ?></td>
                                                                 <td><?= $sisa = $row['qty_lpb'] - $rowbkb['qty_bkb']; ?></td>
