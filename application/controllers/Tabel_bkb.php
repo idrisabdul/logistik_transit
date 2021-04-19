@@ -23,12 +23,12 @@ class Tabel_bkb extends CI_Controller
 
     public function pdf()
     {
-        $this->load->library('PdfGenerator');
+        $this->load->library('pdfgenerator');
 
         $data['tabel_bkb'] = $this->Tabel_lpb_model->get_data_bkb();
         $html = $this->load->view('bkb/cetak_listbkb_view', $data, true);
 
-        $this->PdfGenerator->generate($html, 'laporan_bkb');
+        $this->pdfgenerator->generate($html, 'laporan_bkb');
     }
 
     public function tabel_lpb_distinct()

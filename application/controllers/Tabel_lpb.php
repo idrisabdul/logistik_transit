@@ -26,12 +26,12 @@ class Tabel_lpb extends CI_Controller
 
     public function pdf()
     {
-        $this->load->library('PdfGenerator');
+        $this->load->library('pdfgenerator');
 
         $data['tabel_lpb'] = $this->Tabel_lpb_model->get_data_lpb();
         $html = $this->load->view('lpb/cetak_listlpb_view', $data, true);
 
-        $this->PdfGenerator->generate($html, 'lpb');
+        $this->pdfgenerator->generate($html, 'lpb');
     }
 
     function list_po()
