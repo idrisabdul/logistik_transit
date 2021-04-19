@@ -1,6 +1,6 @@
 <?php
 
-class pdfGenerator
+class pdfgenerator
 {
     public function generate($html, $filename)
     {
