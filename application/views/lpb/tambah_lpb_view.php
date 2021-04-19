@@ -102,21 +102,21 @@
                                                                 <input type="hidden" value="<?= $sisa ?>" min="1" max="<?= $sisa ?>" step="01">
                                                                 <td><?= $bp['sat'] ?></td>
 
-                                                                <td width="2%"><?php if ($sisa == 0) { ?>
+                                                                <td class="col-sm-1"><?php if ($sisa == 0) { ?>
                                                                         <input type="date" class="form-control" name="tglinput<?= $no ?>" disabled>
                                                                     <?php } else { ?>
                                                                         <input type="date" class="form-control" name="tglinput<?= $no ?>">
                                                                     <?php } ?>
                                                                 </td>
 
-                                                                <td><?php if ($sisa == 0) { ?>
+                                                                <td class="col-sm-1"><?php if ($sisa == 0) { ?>
                                                                         <input type="time" class="form-control" name="time<?= $no ?>" disabled>
                                                                     <?php } else { ?>
                                                                         <input type="time" class="form-control" name="time<?= $no ?>" />
                                                                     <?php } ?>
                                                                 </td>
 
-                                                                <td>
+                                                                <td class="col-sm-1">
                                                                     <?php if ($sisa == 0) { ?>
                                                                         <input type="number" id="input<?= $no ?>" class="form-control" name="qty_lpb<?= $no ?>" min="1" max="<?= $sisa ?>" step=".01" disabled>
                                                                     <?php } else { ?>

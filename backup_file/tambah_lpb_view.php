@@ -56,7 +56,7 @@
                                                             <th scope="col">Nama Barang</th>
                                                             <th scope="col">Merek/Jenis</th>
                                                             <th scope="col">QTY PO</th>
-                                                            <th scope="col">QTY LPB</th>
+                                                            <th scope="col" width="40%">QTY LPB</th>
                                                             <th scope="col">QTY sisa</th>
                                                             <th scope="col">SAT</th>
 
@@ -92,7 +92,7 @@
                                                             <input type="hidden" name="user<?= $no ?>" value="<?= $this->session->userdata('nama'); ?>">
                                                             <input type="hidden" name="txtperiode<?= $no ?>" value="<?= $this->session->userdata('periode'); ?>">
 
-                                                            <tr>
+                                                            <tr class="d-flex">
                                                                 <td><?= $bp['id'] ?></td>
                                                                 <td><?= $bp['kodebar'] ?></td>
                                                                 <td><?= $bp['nabar'] ?></td>
@@ -105,21 +105,21 @@
                                                                 <input type="hidden" value="<?= $sisa ?>" min="1" max="<?= $sisa ?>" step="01">
                                                                 <td><?= $bp['sat'] ?></td>
 
-                                                                <td><?php if ($sisa == 0) { ?>
+                                                                <td width="5%"><?php if ($sisa == 0) { ?>
                                                                         <input type="date" class="form-control" name="tglinput<?= $no ?>" disabled>
                                                                     <?php } else { ?>
                                                                         <input type="date" class="form-control" name="tglinput<?= $no ?>">
                                                                     <?php } ?>
                                                                 </td>
 
-                                                                <td><?php if ($sisa == 0) { ?>
+                                                                <td width="2%"><?php if ($sisa == 0) { ?>
                                                                         <input type="text" class="form-control" name="time<?= $no ?>" disabled>
                                                                     <?php } else { ?>
                                                                         <input type="text" class="form-control" name="time<?= $no ?>">
                                                                     <?php } ?>
                                                                 </td>
 
-                                                                <td>
+                                                                <td class="col-sm">
                                                                     <?php if ($sisa == 0) { ?>
                                                                         <input type="text" id="input<?= $no ?>" class="form-control" name="qty_lpb<?= $no ?>" min="1" max="<?= $sisa ?>" step=".01" disabled>
                                                                     <?php } else { ?>
@@ -127,7 +127,7 @@
                                                                     <?php } ?>
                                                                 </td>
 
-                                                                <td>
+                                                                <td width="2%">
                                                                     <?php if ($sisa == 0) { ?>
                                                                         <input type="text" class="form-control" name="transporter<?= $no ?>" disabled>
                                                                     <?php } else { ?>
