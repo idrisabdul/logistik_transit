@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 
 <head>
@@ -97,4 +97,72 @@
     </div>
 </body>
 
-</html>
+</html> -->
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    table,
+    th,
+    td {
+        border: 1px solid black;
+    }
+
+    th,
+
+    th {
+        background-color: #4CAF50;
+        color: white;
+    }
+</style>
+
+<h1>Laporan Penerimaan Barang</h1>
+
+<table style="width:100%; border: 1px;">
+    <tr>
+        <th>
+            NO
+        </th>
+        <th>
+            No PO
+        </th>
+        <th>
+            Nama Barang
+        </th>
+        <th>
+            QTY LPB
+        </th>
+        <th>
+            Satuan
+        </th>
+        <th>
+            No LPB
+        </th>
+    </tr>
+
+    <?php $no = 1; ?>
+    <?php foreach ($tabel_lpb->result_array() as $lpb) : ?>
+        <tr>
+            <td>
+                <?php echo $no; ?>
+            </td>
+            <td>
+                <?php echo $lpb['potxt']; ?>
+            </td>
+            <td>
+                <?php echo $lpb['nabar']; ?>
+            </td>
+            <td>
+                <?php echo $lpb['qty_lpb']; ?>
+            </td>
+            <td>
+                <?php echo $lpb['sat']; ?>
+            </td>
+            <td>
+                <?php echo $lpb['lpbtxt']; ?>
+            </td>
+        </tr>
+        <?php $no++; ?>
+    <?php endforeach; ?>
+</table>

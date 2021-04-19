@@ -23,7 +23,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-// $config['base_url'] = 'http://192.168.1.103/logistik_transit/';
+// $config['base_url'] = 'http://localhost/logistik_transit/';
 
 $base_url = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http");
 $base_url .= "://" . @$_SERVER['HTTP_HOST'];

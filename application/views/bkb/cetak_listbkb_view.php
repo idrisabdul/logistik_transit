@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 
 <head>
@@ -97,4 +97,74 @@
     </div>
 </body>
 
-</html>
+</html> -->
+
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    table,
+    th,
+    td {
+        border: 1px solid black;
+    }
+
+    th,
+
+    th {
+        background-color: #4CAF50;
+        color: white;
+    }
+</style>
+
+<h1>Bukti Keluar Barang</h1>
+<br>
+
+<table style="width:100%; border: 1px;">
+    <tr>
+        <th>
+            NO
+        </th>
+        <th>
+            No PO
+        </th>
+        <th>
+            Nama Barang
+        </th>
+        <th>
+            QTY BKB
+        </th>
+        <th>
+            Satuan
+        </th>
+        <th>
+            No BKB
+        </th>
+    </tr>
+
+    <?php $no = 1; ?>
+    <?php foreach ($tabel_bkb->result_array() as $bkb) : ?>
+        <tr>
+            <td>
+                <?php echo $no; ?>
+            </td>
+            <td>
+                <?php echo $bkb['nopotxt']; ?>
+            </td>
+            <td>
+                <?php echo $bkb['nabar']; ?>
+            </td>
+            <td>
+                <?php echo $bkb['qty_bkb']; ?>
+            </td>
+            <td>
+                <?php echo $bkb['sat']; ?>
+            </td>
+            <td>
+                <?php echo $bkb['nobkbtxt']; ?>
+            </td>
+        </tr>
+        <?php $no++; ?>
+    <?php endforeach; ?>
+</table>

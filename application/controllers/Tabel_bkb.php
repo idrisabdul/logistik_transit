@@ -9,6 +9,8 @@ class Tabel_bkb extends CI_Controller
         parent::__construct();
         $this->load->model('Tabel_lpb_model');
         $this->load->model('Tabel_bkb_model');
+
+        require_once APPPATH . 'third_party/dompdf/dompdf_config.inc.php';
         if (!$this->session->userdata['auth']) {
             redirect('login');
         }
@@ -23,12 +25,22 @@ class Tabel_bkb extends CI_Controller
 
     public function pdf()
     {
-        $this->load->library('pdfgenerator');
+        // $this->load->library('pdfgenerator');
 
+        // $data['tabel_bkb'] = $this->Tabel_lpb_model->get_data_bkb();
+        // $html = $this->load->view('bkb/cetak_listbkb_view', $data, true);
+
+        // $this->pdfgenerator->generate($html, 'laporan_bkb');
+        $dompdf = new Dompdf();
         $data['tabel_bkb'] = $this->Tabel_lpb_model->get_data_bkb();
         $html = $this->load->view('bkb/cetak_listbkb_view', $data, true);
 
-        $this->pdfgenerator->generate($html, 'laporan_bkb');
+        $dompdf->load_html($html);
+        $dompdf->set_paper('A4', 'potrait');
+        $dompdf->render();
+        // $dompdf->set_option('enable_html5_parser', TRUE);
+        $pdf = $dompdf->output();
+        $dompdf->stream('bkb.pdf', array('Attachment' => false));
     }
 
     public function tabel_lpb_distinct()
