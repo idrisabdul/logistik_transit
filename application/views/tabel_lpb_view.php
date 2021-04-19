@@ -86,7 +86,7 @@
                               <td><?php echo $count; ?></td>
                               <?php $tanggal = date("j F Y", strtotime($row['tgl'])); ?>
                               <td><?php echo $tanggal; ?></td>
-                              <td><?php echo substr($row['potxt'], -7); ?></td>
+                              <td><?php echo $row['lpbtxt']; ?></td>
                               <td><?php echo $row['kodebar'] ?></td>
                               <td><?= $row['PT'] ?></td>
                               <td><?= $row['potxt'] ?></td>

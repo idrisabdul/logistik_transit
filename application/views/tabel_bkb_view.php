@@ -85,9 +85,9 @@
                                                             <?php $tanggal = date("j F Y", strtotime($row->tgl)); ?>
                                                             <td><?= $tanggal; ?></td>
                                                             <td><?php if ($this->session->userdata('level') == 1) { ?>
-                                                                    <?php echo substr($row->nopotxt, -7); ?>
+                                                                    <?php echo $row->nobkbtxt; ?>
                                                                 <?php } else {
-                                                                    echo substr($row->nopotxt, -7);
+                                                                    echo $row->nobkbtxt;
                                                                 } ?>
                                                             </td>
                                                             <td><?php echo $row->kodebar; ?></td>

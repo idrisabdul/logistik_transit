@@ -92,7 +92,7 @@
 
                                                             <tr>
                                                                 <td><?= $no ?></td>
-                                                                <td><?= $bp['nabar'] ?></td>
+                                                                <td width="5%"><?= $bp['nabar'] ?></td>
                                                                 <td><?= $bp['merek'] ?></td>
                                                                 <?php $row = $this->Tabel_lpb_model->getQtyLPB($bp['kodebar'], $bp['merek'], $bp['noref']); ?>
                                                                 <td><?= $bp['qty'] ?></td>
@@ -102,7 +102,7 @@
                                                                 <input type="hidden" value="<?= $sisa ?>" min="1" max="<?= $sisa ?>" step="01">
                                                                 <td><?= $bp['sat'] ?></td>
 
-                                                                <td><?php if ($sisa == 0) { ?>
+                                                                <td width="2%"><?php if ($sisa == 0) { ?>
                                                                         <input type="date" class="form-control" name="tglinput<?= $no ?>" disabled>
                                                                     <?php } else { ?>
                                                                         <input type="date" class="form-control" name="tglinput<?= $no ?>">
