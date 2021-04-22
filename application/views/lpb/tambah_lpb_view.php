@@ -7,7 +7,7 @@
 
 </head>
 
-<body>
+<body class="sidebar-mini">
     <div id="app">
         <div class="main-wrapper" class="toggled">
 
@@ -102,7 +102,7 @@
                                                                 <input type="hidden" value="<?= $sisa ?>" min="1" max="<?= $sisa ?>" step="01">
                                                                 <td><?= $bp['sat'] ?></td>
 
-                                                                <td class="col-sm-1"><?php if ($sisa == 0) { ?>
+                                                                <td><?php if ($sisa == 0) { ?>
                                                                         <input type="date" class="form-control" name="tglinput<?= $no ?>" disabled>
                                                                     <?php } else { ?>
                                                                         <input type="date" class="form-control" name="tglinput<?= $no ?>">
@@ -116,7 +116,7 @@
                                                                     <?php } ?>
                                                                 </td>
 
-                                                                <td class="col-sm-1">
+                                                                <td class="col-sm-2">
                                                                     <?php if ($sisa == 0) { ?>
                                                                         <input type="number" id="input<?= $no ?>" class="form-control" name="qty_lpb<?= $no ?>" min="1" max="<?= $sisa ?>" step=".01" disabled>
                                                                     <?php } else { ?>

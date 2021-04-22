@@ -105,7 +105,7 @@
                                                                     <?php } ?>
                                                                 </td>
 
-                                                                <td width="1%"><?php if ($sisa == 0) { ?>
+                                                                <td><?php if ($sisa == 0) { ?>
                                                                         <input type="date" class="form-control" name="tglinput<?= $no ?>" value="<?= date('d-m-Y') ?>" disabled>
                                                                     <?php } else { ?>
                                                                         <input type="date" class="form-control" name="tglinput<?= $no ?>" value="<?= date('d-m-Y') ?>" />
