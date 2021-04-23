@@ -93,12 +93,12 @@
                                                                 <td><?= $bib['sat']; ?></td>
 
                                                                 <td> <?php if ($sisa == 0) { ?>
-                                                                        <select class="form-control" name="kondisi<?= $no ?>" id="" disabled>
+                                                                        <select size="1" name="kondisi<?= $no ?>" id="" disabled>
                                                                             <option value="Baik">Baik</option>
                                                                             <option value="Rusak">Rusak</option>
                                                                         </select>
                                                                     <?php } else { ?>
-                                                                        <select class="form-control" name="kondisi<?= $no ?>" id="">
+                                                                        <select size="1" name="kondisi<?= $no ?>" id="">
                                                                             <option value="Baik">Baik</option>
                                                                             <option value="Rusak">Rusak</option>
                                                                         </select>
@@ -106,35 +106,35 @@
                                                                 </td>
 
                                                                 <td><?php if ($sisa == 0) { ?>
-                                                                        <input type="date" class="form-control" name="tglinput<?= $no ?>" value="<?= date('d-m-Y') ?>" disabled>
+                                                                        <input type="date" size="6" name="tglinput<?= $no ?>" value="<?= date('d-m-Y') ?>" disabled>
                                                                     <?php } else { ?>
-                                                                        <input type="date" class="form-control" name="tglinput<?= $no ?>" value="<?= date('d-m-Y') ?>" />
+                                                                        <input type="date" size="6" name="tglinput<?= $no ?>" value="<?= date('d-m-Y') ?>" />
                                                                     <?php } ?>
                                                                 </td>
 
                                                                 <td><?php if ($sisa == 0) { ?>
-                                                                        <input type="time" class="form-control" name="jam<?= $no ?>" disabled>
+                                                                        <input type="time" size="6" name="jam<?= $no ?>" disabled>
                                                                     <?php } else { ?>
-                                                                        <input type="time" class="form-control" name="jam<?= $no ?>">
+                                                                        <input type="time" size="6" name="jam<?= $no ?>">
                                                                     <?php } ?>
                                                                 </td>
 
                                                                 <td class="col-sm-1"><?php if ($sisa == 0) { ?>
-                                                                        <input type="number" id="input<?= $no ?>" class="form-control" name="qty_bkb<?= $no ?>" min="1" max="<?= $sisa ?>" disabled>
+                                                                        <input type="number" id="input<?= $no ?>" size="6" name="qty_bkb<?= $no ?>" min="1" max="<?= $sisa ?>" disabled>
                                                                     <?php } else { ?>
-                                                                        <input type="number" id="input<?= $no ?>" class="form-control" name="qty_bkb<?= $no ?>" min="1" max="<?= $sisa ?>">
+                                                                        <input type="number" id="input<?= $no ?>" size="6" name="qty_bkb<?= $no ?>" min="1" max="<?= $sisa ?>">
                                                                     <?php } ?>
                                                                 </td>
 
                                                                 <td>
                                                                     <div class="col-xs-8">
                                                                         <?php if ($sisa == 0) { ?>
-                                                                            <select class="form-control" name="transport<?= $no ?>" id="" disabled>
+                                                                            <select size="1" name="transport<?= $no ?>" id="" disabled>
                                                                                 <option value="Internal">Internal</option>
                                                                                 <option value="External">External</option>
                                                                             </select>
                                                                         <?php } else { ?>
-                                                                            <select class="form-control" name="transport<?= $no ?>" id="">
+                                                                            <select size="1" name="transport<?= $no ?>" id="">
                                                                                 <option value="Internal">Internal</option>
                                                                                 <option value="External">External</option>
                                                                             </select>
@@ -144,27 +144,27 @@
 
                                                                 <td>
                                                                     <?php if ($sisa == 0) { ?>
-                                                                        <input type="text" class="form-control" name="pengirim<?= $no ?>" disabled>
+                                                                        <input type="text" size="8" name="pengirim<?= $no ?>" disabled>
                                                                     <?php } else { ?>
-                                                                        <input type="text" class="form-control" name="pengirim<?= $no ?>">
+                                                                        <input type="text" size="8" name="pengirim<?= $no ?>">
                                                                     <?php } ?>
                                                                 </td>
                                                                 <td><?php if ($sisa == 0) { ?>
-                                                                        <input type="text" class="form-control" name="nopol<?= $no ?>" disabled>
+                                                                        <input type="text" size="6" name="nopol<?= $no ?>" disabled>
                                                                     <?php } else { ?>
-                                                                        <input type="text" class="form-control" name="nopol<?= $no ?>">
+                                                                        <input type="text" size="6" name="nopol<?= $no ?>">
                                                                     <?php } ?>
                                                                 </td>
                                                                 <td><?php if ($sisa == 0) { ?>
-                                                                        <input type="text" class="form-control" name="tujuan<?= $no ?>" disabled>
+                                                                        <input type="text" size="6" name="tujuan<?= $no ?>" disabled>
                                                                     <?php } else { ?>
-                                                                        <input type="text" class="form-control" name="tujuan<?= $no ?>">
+                                                                        <input type="text" size="6" name="tujuan<?= $no ?>">
                                                                     <?php } ?>
                                                                 </td>
                                                                 <td><?php if ($sisa == 0) { ?>
-                                                                        <input type="text" class="form-control" name="ket<?= $no ?>" disabled>
+                                                                        <input type="text" size="6" name="ket<?= $no ?>" disabled>
                                                                     <?php } else { ?>
-                                                                        <input type="text" class="form-control" name="ket<?= $no ?>">
+                                                                        <input type="text" size="6" name="ket<?= $no ?>">
                                                                     <?php } ?>
                                                                 </td>
 

@@ -103,60 +103,60 @@
                                                                 <td><?= $bp['sat'] ?></td>
 
                                                                 <td><?php if ($sisa == 0) { ?>
-                                                                        <input type="date" class="form-control" name="tglinput<?= $no ?>" disabled>
+                                                                        <input type="date" name="tglinput<?= $no ?>" disabled>
                                                                     <?php } else { ?>
-                                                                        <input type="date" class="form-control" name="tglinput<?= $no ?>">
+                                                                        <input type="date" name="tglinput<?= $no ?>">
                                                                     <?php } ?>
                                                                 </td>
 
                                                                 <td><?php if ($sisa == 0) { ?>
-                                                                        <input type="time" class="form-control" name="time<?= $no ?>" disabled>
+                                                                        <input type="time" name="time<?= $no ?>" disabled>
                                                                     <?php } else { ?>
-                                                                        <input type="time" class="form-control" name="time<?= $no ?>" />
-                                                                    <?php } ?>
-                                                                </td>
-
-                                                                <td class="col-sm-1">
-                                                                    <?php if ($sisa == 0) { ?>
-                                                                        <input type="number" id="input<?= $no ?>" class="form-control" name="qty_lpb<?= $no ?>" min="1" max="<?= $sisa ?>" step=".01" disabled>
-                                                                    <?php } else { ?>
-                                                                        <input type="number" id="input<?= $no ?>" class="form-control" name="qty_lpb<?= $no ?>" min="1" max="<?= $sisa ?>" step=".01">
+                                                                        <input type="time" name="time<?= $no ?>" />
                                                                     <?php } ?>
                                                                 </td>
 
                                                                 <td>
                                                                     <?php if ($sisa == 0) { ?>
-                                                                        <input type="text" class="form-control" name="transporter<?= $no ?>" disabled>
+                                                                        <input type="number" id="input<?= $no ?>" name="qty_lpb<?= $no ?>" min="1" max="<?= $sisa ?>" step=".01" size="7" disabled>
                                                                     <?php } else { ?>
-                                                                        <input type="text" class="form-control" name="transporter<?= $no ?>">
+                                                                        <input type="number" id="input<?= $no ?>" name="qty_lpb<?= $no ?>" min="1" max="<?= $sisa ?>" size="7" step=".01">
                                                                     <?php } ?>
                                                                 </td>
 
                                                                 <td>
                                                                     <?php if ($sisa == 0) { ?>
-                                                                        <input type="text" class="form-control" name="asal<?= $no ?>" disabled>
+                                                                        <input type="text" size="10" name="transporter<?= $no ?>" disabled>
                                                                     <?php } else { ?>
-                                                                        <input type="text" class="form-control" name="asal<?= $no ?>">
+                                                                        <input type="text" size="10" name="transporter<?= $no ?>">
+                                                                    <?php } ?>
+                                                                </td>
+
+                                                                <td>
+                                                                    <?php if ($sisa == 0) { ?>
+                                                                        <input type="text" size="8" name="asal<?= $no ?>" disabled>
+                                                                    <?php } else { ?>
+                                                                        <input type="text" size="8" name="asal<?= $no ?>">
                                                                     <?php } ?>
                                                                 </td>
 
                                                                 <td><?php if ($sisa == 0) { ?>
-                                                                        <input type="text" class="form-control" name="sj<?= $no ?>" disabled>
+                                                                        <input type="text" size="7" name="sj<?= $no ?>" disabled>
                                                                     <?php } else { ?>
-                                                                        <input type="text" class="form-control" name="sj<?= $no ?>">
+                                                                        <input type="text" size="7" name="sj<?= $no ?>">
                                                                     <?php } ?>
                                                                 </td>
 
                                                                 <td><?php if ($sisa == 0) { ?>
-                                                                        <input type="text" class="form-control" name="petugas<?= $no ?>" disabled>
+                                                                        <input type="text" size="7" name="petugas<?= $no ?>" disabled>
                                                                     <?php } else { ?>
-                                                                        <input type="text" class="form-control" name="petugas<?= $no ?>">
+                                                                        <input type="text" size="7" name="petugas<?= $no ?>">
                                                                     <?php } ?>
                                                                 </td>
                                                                 <td><?php if ($sisa == 0) { ?>
-                                                                        <input type="text" class="form-control" name="ket<?= $no ?>" disabled>
+                                                                        <input type="text" size="8" name="ket<?= $no ?>" disabled>
                                                                     <?php } else { ?>
-                                                                        <input type="text" class="form-control" name="ket<?= $no ?>">
+                                                                        <input type="text" size="8" name="ket<?= $no ?>">
                                                                     <?php } ?>
                                                                 </td>
 

@@ -247,7 +247,7 @@ class Tabel_bkb extends CI_Controller
               <button class="close" data-dismiss="alert">
                 <span>&times;</span>
               </button>
-              Data LPB Berhasil dihapus
+              Data BKB Berhasil dihapus
             </div>
             </div>');
         redirect('tabel_bkb');
