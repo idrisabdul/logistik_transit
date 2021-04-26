@@ -119,7 +119,7 @@
                                                                     <?php } ?>
                                                                 </td>
 
-                                                                <td class="col-sm-1"><?php if ($sisa == 0) { ?>
+                                                                <td><?php if ($sisa == 0) { ?>
                                                                         <input type="number" id="input<?= $no ?>" size="6" name="qty_bkb<?= $no ?>" min="1" max="<?= $sisa ?>" disabled>
                                                                     <?php } else { ?>
                                                                         <input type="number" id="input<?= $no ?>" size="6" name="qty_bkb<?= $no ?>" min="1" max="<?= $sisa ?>">
@@ -127,7 +127,7 @@
                                                                 </td>
 
                                                                 <td>
-                                                                    <div class="col-xs-8">
+                                                                    <div>
                                                                         <?php if ($sisa == 0) { ?>
                                                                             <select size="1" name="transport<?= $no ?>" id="" disabled>
                                                                                 <option value="Internal">Internal</option>
@@ -144,9 +144,9 @@
 
                                                                 <td>
                                                                     <?php if ($sisa == 0) { ?>
-                                                                        <input type="text" size="8" name="pengirim<?= $no ?>" disabled>
+                                                                        <input type="text" size="12" name="pengirim<?= $no ?>" disabled>
                                                                     <?php } else { ?>
-                                                                        <input type="text" size="8" name="pengirim<?= $no ?>">
+                                                                        <input type="text" size="12" name="pengirim<?= $no ?>">
                                                                     <?php } ?>
                                                                 </td>
                                                                 <td><?php if ($sisa == 0) { ?>
