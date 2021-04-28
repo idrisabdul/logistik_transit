@@ -35,34 +35,38 @@
                                         <div class="owl-carousel owl-theme" id="products-carousel">
                                             <div class="row">
                                                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                                                    <div class="card shadow-secondary card-statistic-1">
-                                                        <div class="card-icon bg-success">
-                                                            <i class="fas fa-box"></i>
-                                                        </div>
-                                                        <div class="card-wrap">
-                                                            <div class="card-header">
-                                                                <h4>Total LPB</h4>
+                                                    <a href="<?= base_url('tabel_lpb') ?>">
+                                                        <div class="card shadow-secondary card-statistic-1">
+                                                            <div class="card-icon bg-success">
+                                                                <i class="fas fa-box"></i>
                                                             </div>
-                                                            <div class="card-body">
-                                                                <?= strval($jumlahlpb); ?>
+                                                            <div class="card-wrap">
+                                                                <div class="card-header">
+                                                                    <h4>Total LPB</h4>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <?= strval($jumlahlpb); ?>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </a>
                                                 </div>
                                                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                                                    <div class="card shadow-secondary card-statistic-1">
-                                                        <div class="card-icon bg-danger">
-                                                            <i class="fas fa-truck"></i>
-                                                        </div>
-                                                        <div class="card-wrap">
-                                                            <div class="card-header">
-                                                                <h4>Total BKB</h4>
+                                                    <a href="<?= base_url('tabel_bkb') ?>">
+                                                        <div class="card shadow-secondary card-statistic-1">
+                                                            <div class="card-icon bg-danger">
+                                                                <i class="fas fa-truck"></i>
                                                             </div>
-                                                            <div class="card-body">
-                                                                <?= $jumlahbkb; ?>
+                                                            <div class="card-wrap">
+                                                                <div class="card-header">
+                                                                    <h4>Total BKB</h4>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <?= $jumlahbkb; ?>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </a>
                                                 </div>
                                                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                                                     <div class="card shadow-secondary card-statistic-1">

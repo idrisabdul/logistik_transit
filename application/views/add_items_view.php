@@ -186,10 +186,12 @@
           success: function(id) {
             $('#getId').val(id);
             // console.log("success");
+            // alert(id);
             test2();
           },
           error: function(data) {
             $('#getId').val("error");
+            alert('eror');
             console.log("error");
           }
         });
@@ -199,7 +201,7 @@
     function test2() {
       var id = $('#getId').val();
       // alert(id);
-      window.location.href = '<?= base_url() ?>tabel_lpb/test/' + id;
+      window.location.href = '<?= base_url() ?>tabel_lpb/qrcode_input/' + id;
     }
   </script>
   <script type="text/javascript">

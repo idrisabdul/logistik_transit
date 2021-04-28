@@ -144,9 +144,9 @@
 
                                                                 <td>
                                                                     <?php if ($sisa == 0) { ?>
-                                                                        <input type="text" size="12" name="pengirim<?= $no ?>" disabled>
+                                                                        <input type="text" size="11" name="pengirim<?= $no ?>" disabled>
                                                                     <?php } else { ?>
-                                                                        <input type="text" size="12" name="pengirim<?= $no ?>">
+                                                                        <input type="text" size="11" name="pengirim<?= $no ?>">
                                                                     <?php } ?>
                                                                 </td>
                                                                 <td><?php if ($sisa == 0) { ?>

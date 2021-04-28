@@ -89,8 +89,10 @@ class Tabel_lpb extends CI_Controller
                 $status = "<div class='badge badge-warning'>__</div>";
             }
 
-            if ($total == 0) {
-            } else {
+            // if ($total == 0) {
+            // } else {
+            // }
+            if ($total != 0) :
                 $no++;
                 $row = array();
                 $row[] = $no;
@@ -101,8 +103,8 @@ class Tabel_lpb extends CI_Controller
                 $row[] = $field->nama_supply;
                 $row[] = $status;
                 $row[] = '<a type="button" href="' . base_url('tabel_lpb/tambah_lpb/' . $field->id) . '" class="btn btn-outline-info">input</a>';
-            }
-            $data[] = $row;
+                $data[] = $row;
+            endif;
         }
 
         $output = array(
@@ -406,10 +408,12 @@ class Tabel_lpb extends CI_Controller
         $data['title'] = "Input Penerimaan Barang Transit HO";
 
         $po = $this->input->post('po');
-        $data = $this->Tabel_lpb_model->getNoPO($po);
-        foreach ($data as $i) {
-            $id = $i['id'];
-        }
+        // $data = $this->Tabel_lpb_model->getNoPO($po);
+        $data = $this->Tabel_lpb_model->getId_PO($po);
+        // foreach ($data as $i) {
+        //     $id = $i['id'];
+        // }
+        $id = $data['id'];
         // echo "<pre>";
         // var_dump($po);
         // echo "</pre>";
@@ -417,20 +421,28 @@ class Tabel_lpb extends CI_Controller
         echo json_encode($id);
     }
 
-    function test($id)
+    function qrcode_input($id)
     {
         $data['title'] = "QRCODE LPB";
-        $data['barang_po'] = $this->Tabel_lpb_model->getByPO($id);
+        // $data['barang_po'] = $this->Tabel_lpb_model->getByPO($id);
+        $sql = "SELECT * FROM po WHERE id = $id";
+        $rowpo = $this->db->query($sql)->row_array();
+
+        $noref  = $rowpo['noreftxt'];
+        $data['barang_po'] = $this->Tabel_lpb_model->getItemPO($noref);
 
         // echo "<pre>";
         // var_dump($data['barang_po']);
         // echo "</pre>";
 
-        foreach ($data['barang_po'] as $row) {
-            $data['supply'] = $row['nama_supply'];
-            $data['nopo'] = $row['noreftxt'];
-            $data['ket_dept'] = $row['ket_dept'];
-        }
+        // foreach ($data['barang_po'] as $row) {
+        //     $data['supply'] = $row['nama_supply'];
+        //     $data['nopo'] = $row['noreftxt'];
+        //     $data['ket_dept'] = $row['ket_dept'];
+        // }
+        $data['supply'] = $rowpo['nama_supply'];
+        $data['nopo'] = $rowpo['noreftxt'];
+        $data['ket_dept'] = $rowpo['ket_dept'];
 
 
 

@@ -102,12 +102,17 @@
 <style>
     table {
         border-collapse: collapse;
+        font-size: x-small;
+        border: 1px solid #f2f5f7;
     }
 
     table,
     th,
     td {
         border: 1px solid black;
+        font-size: x-small;
+        padding: 2px 2px;
+        text-align: center;
     }
 
     th,
@@ -121,7 +126,7 @@
 <h1>Bukti Keluar Barang</h1>
 <br>
 
-<table style="width:100%; border: 1px;">
+<table>
     <tr>
         <th>
             NO
@@ -140,6 +145,15 @@
         </th>
         <th>
             No BKB
+        </th>
+        <th>
+            Tgl
+        </th>
+        <th>
+            Jam
+        </th>
+        <th>
+            Tujuan
         </th>
     </tr>
 
@@ -163,6 +177,14 @@
             </td>
             <td>
                 <?php echo $bkb['nobkbtxt']; ?>
+            </td>
+            <?php $tanggal = date("j F Y", strtotime($bkb['tgl'])); ?>
+            <td><?= $tanggal; ?></td>
+            <td>
+                <?php echo $bkb['jam']; ?>
+            </td>
+            <td>
+                <?php echo $bkb['tujuan']; ?>
             </td>
         </tr>
         <?php $no++; ?>

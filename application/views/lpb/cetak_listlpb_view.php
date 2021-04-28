@@ -101,12 +101,17 @@
 <style>
     table {
         border-collapse: collapse;
+        font-size: x-small;
+        border: 1px solid #f2f5f7;
     }
 
     table,
     th,
     td {
         border: 1px solid black;
+        font-size: x-small;
+        padding: 2px 2px;
+        text-align: center;
     }
 
     th,
@@ -118,8 +123,9 @@
 </style>
 
 <h1>Laporan Penerimaan Barang</h1>
-
-<table style="width:100%; border: 1px;">
+<br>
+<br>
+<table>
     <tr>
         <th>
             NO
@@ -138,6 +144,15 @@
         </th>
         <th>
             No LPB
+        </th>
+        <th>
+            Tgl
+        </th>
+        <th>
+            Jam
+        </th>
+        <th>
+            Asal
         </th>
     </tr>
 
@@ -161,6 +176,14 @@
             </td>
             <td>
                 <?php echo $lpb['lpbtxt']; ?>
+            </td>
+            <?php $tanggal = date("j F Y", strtotime($lpb['tgl'])); ?>
+            <td><?php echo $tanggal; ?></td>
+            <td>
+                <?php echo $lpb['jam']; ?>
+            </td>
+            <td>
+                <?php echo $lpb['asal']; ?>
             </td>
         </tr>
         <?php $no++; ?>
