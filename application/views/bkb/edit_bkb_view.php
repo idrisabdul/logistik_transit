@@ -85,8 +85,8 @@
                                                         <input type="hidden" class="" id="qty_bkb_1" name="qty_bkb_1" value="<?= $item_po['qty_bkb'] ?>">
                                                         <?php $rowbkb = $this->Tabel_bkb_model->getQtyBkb($item_po['kodebar'], $item_po['nopotxt']); ?>
                                                         <?php $row = $this->Tabel_bkb_model->getQtyLpb($item_po['kodebar']); ?>
-                                                        <input type="text" class="" id="sisa_lpb" name="sisa_lpb" value="<?= $sisa = $row['qty_lpb'] - $rowbkb['qty_bkb']; ?>">
-                                                        <input type="text" class="" id="total" name="total" value="<?= $total = $sisa + $rowbkb['qty_bkb']; ?>">
+                                                        <input type="hidden" class="" id="sisa_lpb" name="sisa_lpb" value="<?= $sisa = $row['qty_lpb'] - $rowbkb['qty_bkb']; ?>">
+                                                        <input type="hidden" class="" id="total" name="total" value="<?= $total = $sisa + $rowbkb['qty_bkb']; ?>">
                                                     </div>
                                                     <div class="col-md-1">
                                                         <label>Transport</label>
