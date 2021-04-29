@@ -106,23 +106,23 @@
                                                                 </td>
 
                                                                 <td><?php if ($sisa == 0) { ?>
-                                                                        <input type="date" size="6" name="tglinput<?= $no ?>" value="<?= date('d-m-Y') ?>" disabled>
+                                                                        <input type="date" size="6" id="tglinput<?= $no ?>" name="tglinput<?= $no ?>" value="<?= date('d-m-Y') ?>" disabled>
                                                                     <?php } else { ?>
-                                                                        <input type="date" size="6" name="tglinput<?= $no ?>" value="<?= date('d-m-Y') ?>" />
+                                                                        <input type="date" size="6" id="tglinput<?= $no ?>" name="tglinput<?= $no ?>" value="<?= date('d-m-Y') ?>" />
                                                                     <?php } ?>
                                                                 </td>
 
                                                                 <td><?php if ($sisa == 0) { ?>
-                                                                        <input type="time" size="6" name="jam<?= $no ?>" disabled>
+                                                                        <input type="time" size="6" id="time<?= $no ?>" name="jam<?= $no ?>" disabled>
                                                                     <?php } else { ?>
-                                                                        <input type="time" size="6" name="jam<?= $no ?>">
+                                                                        <input type="time" size="6" id="time<?= $no ?>" name="jam<?= $no ?>">
                                                                     <?php } ?>
                                                                 </td>
 
                                                                 <td><?php if ($sisa == 0) { ?>
-                                                                        <input type="number" id="input<?= $no ?>" size="6" name="qty_bkb<?= $no ?>" min="1" max="<?= $sisa ?>" disabled>
+                                                                        <input type="number" size="6" id="input<?= $no ?>" name="qty_bkb<?= $no ?>" min="1" max="<?= $sisa ?>" disabled>
                                                                     <?php } else { ?>
-                                                                        <input type="number" id="input<?= $no ?>" size="6" name="qty_bkb<?= $no ?>" min="1" max="<?= $sisa ?>">
+                                                                        <input type="number" size="6" id="input<?= $no ?>" name="qty_bkb<?= $no ?>" min="1" max="<?= $sisa ?>">
                                                                     <?php } ?>
                                                                 </td>
 
@@ -173,7 +173,7 @@
                                                     </tbody>
                                                 </table>
                                             </div>
-                                            <button type="submit" class="btn btn-info pull-right">Simpan</button>
+                                            <button type="submit" id="submit" class="btn btn-info pull-right">Simpan</button>
                                         </form>
                                     </div>
                                 </div>
@@ -207,6 +207,81 @@
                 });
 
             }
+        </script>
+        <script>
+            var count = $("#total").val();
+            $('#submit').click(function() {
+                // alert('submi clicked');
+                for (let i = 1; i <= count; i++) {
+                    console.log(i);
+                    var tgl = $("#tglinput" + i).val();
+                    var time = $("#time" + i).val();
+                    var input = $("#input" + i).val();
+
+                    if (tgl != '') {
+                        $("#time" + i).prop('required', true);
+                        $("#input" + i).prop('required', true);
+                    } else if (time != '') {
+                        $("#tglinput" + i).prop('required', true);
+                        $("#input" + i).prop('required', true);
+                    } else if (input != '') {
+                        $("#tglinput" + i).prop('required', true);
+                        $("#time" + i).prop('required', true);
+                    } else {
+                        var cekjam = 'cekjam';
+                        // alert('isi cuk');
+                        if (cekjam == 'cekjam') {
+                            $("#tglinput" + i).prop('required', false);
+                            $("#input" + i).prop('required', false);
+                        }
+                    }
+
+
+                    // if (time != '') {
+                    //     $("#tglinput" + i).prop('required', true);
+                    //     $("#input" + i).prop('required', true);
+                    // } else {
+                    //     var cekjam = 'cekjam';
+                    //     // alert('isi cuk');
+                    //     if (cekjam == 'cekjam') {
+                    //         $("#tglinput" + i).prop('required', false);
+                    //         $("#input" + i).prop('required', false);
+                    //     }
+                    // }
+
+                    // if (tgl != '') {
+                    //     // alert(tgl);
+                    //     $("#time" + i).prop('required', true);
+                    //     $("#input" + i).prop('required', true);
+                    // } else {
+                    //     var cek = 'cek';
+                    //     // alert('isi cuk');
+                    //     if (cek == 'cek') {
+                    //         $("#input" + i).prop('required', false);
+                    //         $("#time" + i).prop('required', false);
+                    //     }
+                    // }
+
+                    // if (input != '') {
+                    //     $("#tglinput" + i).prop('required', true);
+                    //     $("#time" + i).prop('required', true);
+                    // } else {
+                    //     var cekinput = 'cekinput';
+                    //     // alert('isi cuk');
+                    //     if (cekinput == 'cekinput') {
+                    //         $("#tglinput" + i).prop('required', false);
+                    //         $("#time" + i).prop('required', false);
+                    //     }
+                    // }
+
+                    // if (tgl != null) {
+                    //     var input_lpb = $("#input" + i).val();
+                    //     if (input_lpb == null) {
+                    //         alert('lpb wajib diisi');
+                    //     }
+                    // }
+                }
+            })
         </script>
     </div>
     </div>

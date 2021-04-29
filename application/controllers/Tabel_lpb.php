@@ -258,7 +258,7 @@ class Tabel_lpb extends CI_Controller
             // $qty_lpb1 = $this->db->query($queryLPB)->row_array();
             // $qtylpb = $qty_lpb1['qty_lpb'];
 
-            if ($qty_lpb != "" and $tgl != "") :
+            if ($qty_lpb != "" and $tgl != "" and $jam != "") :
 
 
                 $this->session->set_flashdata('message', '<div class="alert alert-light alert-dismissible show fade col-md-6">

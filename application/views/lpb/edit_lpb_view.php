@@ -81,7 +81,11 @@
                                                     <div class="form-group col-md-2">
                                                         <label>QTY LPB</label>
                                                         <input type="text" class="form-control" id="qty_lpb" name="qty_lpb" value="<?= $item_po['qty_lpb'] ?>">
-                                                        <input type="hidden" class="" id="qty_lpb_1" name="qty_lpb_1" value="<?= $item_po['qty_lpb'] ?>">
+                                                        <input type="hidden" id="fix_qty_lpb" name="fix_qty_lpb" value="<?= $item_po['qty_lpb'] ?>">
+                                                        <?php $row = $this->Tabel_lpb_model->getQtyLPB($item_po['kodebar'], $item_po['merek'], $item_po['potxt']); ?>
+                                                        <input type="hidden" class="" id="qty_lpb_1" name="qty_lpb_1" value="<?= $sisa = $item_po['qty_po'] - $row['qty_lpb'];  ?>">
+                                                        <input type="hidden" class="" id="total" name="total" value="<?= $total = $sisa + $item_po['qty_lpb']  ?>">
+                                                        <!-- <input type="hidden" class="" id="qty_lpb_1" name="qty_lpb_1" value="<?= $item_po['qty_lpb'] ?>"> -->
 
                                                     </div>
                                                     <div class="form-group col-md-2">
@@ -161,17 +165,38 @@
         $(document).ready(function() {
             $('#qty_lpb').keyup(function() {
                 var a = $('#qty_lpb').val();
+                var fix_inp_lpb = $('#fix_qty_lpb').val();
                 var b = $('#qty_po').val();
                 var c = $('#qty_lpb_1').val();
+                var total = $('#total').val();
                 var inp_lpb = Number(a);
-                var inp_po = Number(b);
+                var fix_inp_lpb = Number(fix_inp_lpb);
+                var sisa_po = Number(c);
+                var total = Number(total);
 
-                if (inp_lpb > inp_po) {
-                    swal('QTY melebihi PO!');
-                    $('#qty_lpb').val(c);
-                } else {
-                    $('#qty_lpb').val(inp_lpb);
+                // if (inp_lpb > sisa_po) {
+                //     swal('QTY melebihi Sisa PO!');
+                //     $('#qty_lpb').val(c);
+                // } else {
+                //     $('#qty_lpb').val(inp_lpb);
+                // }
+                if (sisa_po == 0) {
+                    if (inp_lpb > fix_inp_lpb) {
+                        swal('QTY melebihi Sisa PO!');
+                        $('#qty_lpb').val(fix_inp_lpb);
+                    } else {
+                        $('#qty_lpb').val(inp_lpb);
+                    }
+                } else if ($sisa_po > 0) {
+                    // var totalsisa = Number($c + fix_inp_lpb);
+                    if (inp_lpb > total) {
+                        swal('QTY melebihi Sisa PO!');
+                        // $('#qty_lpb').val(c);
+                    } else {
+                        // $('#qty_lpb').vxal(inp_lpb);
+                    }
                 }
+
             });
         });
     </script>

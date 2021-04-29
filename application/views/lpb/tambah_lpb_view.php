@@ -103,16 +103,16 @@
                                                                 <td><?= $bp['sat'] ?></td>
 
                                                                 <td><?php if ($sisa == 0) { ?>
-                                                                        <input type="date" name="tglinput<?= $no ?>" disabled>
+                                                                        <input type="date" id="tglinput<?= $no ?>" name="tglinput<?= $no ?>" disabled>
                                                                     <?php } else { ?>
-                                                                        <input type="date" name="tglinput<?= $no ?>">
+                                                                        <input type="date" id="tglinput<?= $no ?>" name="tglinput<?= $no ?>">
                                                                     <?php } ?>
                                                                 </td>
 
                                                                 <td><?php if ($sisa == 0) { ?>
-                                                                        <input type="time" name="time<?= $no ?>" disabled>
+                                                                        <input type="time" id="time<?= $no ?>" name="time<?= $no ?>" disabled>
                                                                     <?php } else { ?>
-                                                                        <input type="time" name="time<?= $no ?>" />
+                                                                        <input type="time" id="time<?= $no ?>" name="time<?= $no ?>" />
                                                                     <?php } ?>
                                                                 </td>
 
@@ -166,7 +166,7 @@
                                                     </tbody>
                                                 </table>
                                             </div>
-                                            <button type="submit" class="btn btn-info pull-right">Simpan</button>
+                                            <button type="submit" id="submit" class="btn btn-info pull-right">Simpan</button>
                                             <input type="hidden" id="count" value="<?= count($barang_po) ?>">
                                         </form>
                                     </div>
@@ -201,6 +201,49 @@
                 });
 
             }
+        </script>
+        <script>
+            var count = $("#count").val();
+            $('#submit').click(function() {
+                // alert('submi clicked');
+                for (let i = 1; i <= count; i++) {
+                    console.log(i);
+                    var tgl = $("#tglinput" + i).val();
+                    var time = $("#time" + i).val();
+                    var input = $("#input" + i).val();
+
+
+                    // if (time != '') {
+                    //     $("#tglinput" + i).prop('required', true);
+                    //     $("#input" + i).prop('required', true);
+                    // } else {
+                    //     var cekjam = 'cekjam';
+                    //     // alert('isi cuk');
+                    //     if (cekjam == 'cekjam') {
+                    //         $("#tglinput" + i).prop('required', false);
+                    //         $("#input" + i).prop('required', false);
+                    //     }
+                    // }
+
+                    if (tgl != '') {
+                        $("#time" + i).prop('required', true);
+                        $("#input" + i).prop('required', true);
+                    } else if (time != '') {
+                        $("#tglinput" + i).prop('required', true);
+                        $("#input" + i).prop('required', true);
+                    } else if (input != '') {
+                        $("#tglinput" + i).prop('required', true);
+                        $("#time" + i).prop('required', true);
+                    } else {
+                        var cekjam = 'cekjam';
+                        // alert('isi cuk');
+                        if (cekjam == 'cekjam') {
+                            $("#tglinput" + i).prop('required', false);
+                            $("#input" + i).prop('required', false);
+                        }
+                    }
+                }
+            })
         </script>
 
     </div>
