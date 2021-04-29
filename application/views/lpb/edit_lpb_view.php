@@ -187,13 +187,13 @@
                     } else {
                         $('#qty_lpb').val(inp_lpb);
                     }
-                } else if ($sisa_po > 0) {
+                } else if (sisa_po > 0) {
                     // var totalsisa = Number($c + fix_inp_lpb);
                     if (inp_lpb > total) {
                         swal('QTY melebihi Sisa PO!');
-                        // $('#qty_lpb').val(c);
+                        $('#qty_lpb').val(fix_inp_lpb);
                     } else {
-                        // $('#qty_lpb').vxal(inp_lpb);
+                        $('#qty_lpb').val(inp_lpb);
                     }
                 }
 

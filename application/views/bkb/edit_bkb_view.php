@@ -50,7 +50,7 @@
                                                         <input type="text" class="form-control" id="nabar" name="nabar" readonly value="<?= $item_po['nabar']; ?>">
                                                     </div>
                                                     <div class="form-group col-md-2">
-                                                        <label>QTY</label>
+                                                        <label>QTY LPB</label>
                                                         <input type="text" class="form-control" id="qty_lpb" name="qty_po" readonly value="<?= $item_po['qty_lpb'] ?>">
                                                     </div>
                                                     <div class="form-group col-md-2">
@@ -83,6 +83,10 @@
                                                         <label>QTY BKB</label>
                                                         <input type="text" class="form-control" id="qty_bkb" name="qty_bkb" value="<?= $item_po['qty_bkb'] ?>">
                                                         <input type="hidden" class="" id="qty_bkb_1" name="qty_bkb_1" value="<?= $item_po['qty_bkb'] ?>">
+                                                        <?php $rowbkb = $this->Tabel_bkb_model->getQtyBkb($item_po['kodebar'], $item_po['nopotxt']); ?>
+                                                        <?php $row = $this->Tabel_bkb_model->getQtyLpb($item_po['kodebar']); ?>
+                                                        <input type="text" class="" id="sisa_lpb" name="sisa_lpb" value="<?= $sisa = $row['qty_lpb'] - $rowbkb['qty_bkb']; ?>">
+                                                        <input type="text" class="" id="total" name="total" value="<?= $total = $sisa + $rowbkb['qty_bkb']; ?>">
                                                     </div>
                                                     <div class="col-md-1">
                                                         <label>Transport</label>
@@ -147,16 +151,41 @@
             $('#qty_bkb').keyup(function() {
                 var a = $('#qty_lpb').val();
                 var b = $('#qty_bkb').val();
-                var c = $('#qty_bkb_1').val();
+                var fix_bkb = $('#qty_bkb_1').val();
+
+                var sisa_lpb = $('#sisa_lpb').val();
+                var total = $('#total').val();
+
                 var inp_lpb = Number(a);
                 var inp_bkb = Number(b);
 
-                if (inp_bkb > inp_lpb) {
-                    swal('QTY melebihi LPB!');
-                    $('#qty_bkb').val(c);
-                } else {
-                    $('#qty_bkb').val(inp_bkb);
+                var fix_bkb = Number(fix_bkb);
+                var sisa_lpb = Number(sisa_lpb);
+                var total = Number(total);
+
+                if (sisa_lpb == 0) {
+                    if (inp_bkb > fix_bkb) {
+                        swal('QTY melebihi Sisa LPB!');
+                        $('#qty_bkb').val(fix_bkb);
+                    } else {
+                        $('#qty_bkb').val(inp_bkb);
+                    }
+                } else if (sisa_lpb > 0) {
+                    // var totalsisa = Number($c + fix_bkb);
+                    if (inp_bkb > total) {
+                        swal('QTY melebihi Sisa LPB!');
+                        $('#qty_bkb').val(fix_bkb);
+                    } else {
+                        $('#qty_bkb').val(inp_bkb);
+                    }
                 }
+
+                // if (inp_bkb > inp_lpb) {
+                //     swal('QTY melebihi LPB!');
+                //     $('#qty_bkb').val(c);
+                // } else {
+                //     $('#qty_bkb').val(inp_bkb);
+                // }
             });
         });
     </script>
