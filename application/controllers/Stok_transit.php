@@ -7,8 +7,9 @@ class Stok_transit extends CI_Controller
     {
         parent::__construct();
         $this->load->model('stok_transit_model');
-        if (!$this->session->userdata['auth']) {
-            redirect('login');
+        if (!$this->session->userdata['userlogin']) {
+            // redirect('login');
+            redirect('http://mips.msalgroup.com:8181/msal-login/Login');
         }
     }
 

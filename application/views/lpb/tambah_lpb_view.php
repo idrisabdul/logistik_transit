@@ -87,7 +87,7 @@
                                                             <input type="hidden" name="merek<?= $no ?>" value="<?= htmlspecialchars($bp['merek'], ENT_QUOTES) ?>">
                                                             <input type="hidden" name="sat<?= $no ?>" value="<?= $bp['sat'] ?>">
                                                             <input type="hidden" name="kodept<?= $no ?>" value="<?= $bp['kodept'] ?>">
-                                                            <input type="hidden" name="user<?= $no ?>" value="<?= $this->session->userdata('nama'); ?>">
+                                                            <input type="hidden" name="user<?= $no ?>" value="<?= $this->session->userdata('user_nama'); ?>">
                                                             <input type="hidden" name="txtperiode<?= $no ?>" value="<?= $this->session->userdata('periode'); ?>">
 
                                                             <tr>

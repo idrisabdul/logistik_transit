@@ -26,6 +26,14 @@
                             <div class="card-body">
                                 <form method="post" action="<?= base_url('login/login') ?>" class="needs-validation" novalidate="">
                                     <div class="form-group" class="d-block">
+                                        <label for="password" class="control-label">Password</label>
+                                        <input id="password" type="password" class="form-control" name="password" tabindex="2" required>
+                                        <div class="invalid-feedback">
+                                            please fill in your password
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group" class="d-block">
                                         <label for="password" class="control-label">Periode</label>
                                         <input id="periode" type="date" class="form-control" name="periode" tabindex="2" value="<?= date("Y-m-d"); ?>" required>
                                     </div>

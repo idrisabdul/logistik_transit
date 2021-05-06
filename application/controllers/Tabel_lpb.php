@@ -8,9 +8,10 @@ class Tabel_lpb extends CI_Controller
         parent::__construct();
         $this->load->model('Tabel_lpb_model');
         require_once APPPATH . 'third_party/dompdf/dompdf_config.inc.php';
-        if (!$this->session->userdata['auth']) {
+        if (!$this->session->userdata['userlogin']) {
             echo "<script>alert('Anda Harus Login Terlebih dahulu');</script>";
-            redirect('login');
+            // redirect('login');
+            redirect('http://mips.msalgroup.com:8181/msal-login/Login');
         }
     }
 

@@ -11,8 +11,9 @@ class Tabel_bkb extends CI_Controller
         $this->load->model('Tabel_bkb_model');
 
         require_once APPPATH . 'third_party/dompdf/dompdf_config.inc.php';
-        if (!$this->session->userdata['auth']) {
-            redirect('login');
+        if (!$this->session->userdata['userlogin']) {
+            // redirect('login');
+            redirect('http://mips.msalgroup.com:8181/msal-login/Login');
         }
     }
 
@@ -132,7 +133,7 @@ class Tabel_bkb extends CI_Controller
 
                 'thn' => date('Y'),
                 // 'tglinput' => $tglinput,
-                'user' => $this->session->userdata('nama'),
+                'user' => $this->session->userdata('user_nama'),
                 'depart' => $depart,
                 'kodept' => $kodept
             );
