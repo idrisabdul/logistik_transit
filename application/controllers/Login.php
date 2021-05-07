@@ -15,7 +15,12 @@ class Login extends CI_Controller
         $data['title'] = 'Logistik Transit HO';
         if (!$this->session->userdata('userlogin')) {
             // redirect('home');
-            redirect('http://mips.msalgroup.com:8181/msal-login/Login');
+            redirect('https://192.168.1.231/msal-login/Login');
+        }
+
+        if ($this->session->userdata('periode')) {
+            // redirect('login');
+            redirect('https://192.168.1.231/logistik_transit_ho/home');
         }
 
         $this->load->view('cek_login_view', $data);
@@ -67,6 +72,6 @@ class Login extends CI_Controller
     {
         $this->session->sess_destroy();
         // redirect('login');
-        redirect('http://mips.msalgroup.com:8181/msal-login/Login');
+        redirect('https://192.168.1.231/msal-login/Login');
     }
 }

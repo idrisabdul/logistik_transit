@@ -8,6 +8,16 @@ class Update_po extends CI_Controller
     {
         // menjalankan method ketika class Auth dijalankan
         parent::__construct();
+        if (!$this->session->userdata('userlogin')) {
+            echo "<script>alert('Anda Harus Login Terlebih dahulu');</script>";
+            // redirect('login');
+            redirect('https://192.168.1.231/msal-login/Login');
+        }
+
+        if (!$this->session->userdata('periode')) {
+            // redirect('login');
+            redirect('https://192.168.1.231/logistik_transit_ho');
+        }
     }
 
     public function index()

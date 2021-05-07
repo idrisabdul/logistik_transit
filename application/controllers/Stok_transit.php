@@ -7,9 +7,14 @@ class Stok_transit extends CI_Controller
     {
         parent::__construct();
         $this->load->model('stok_transit_model');
-        if (!$this->session->userdata['userlogin']) {
+        if (!$this->session->userdata('userlogin')) {
             // redirect('login');
-            redirect('http://mips.msalgroup.com:8181/msal-login/Login');
+            redirect('https://192.168.1.231/msal-login/Login');
+        }
+
+        if (!$this->session->userdata('periode')) {
+            // redirect('login');
+            redirect('https://192.168.1.231/logistik_transit_ho');
         }
     }
 
