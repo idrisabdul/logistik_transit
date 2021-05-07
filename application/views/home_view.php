@@ -176,8 +176,8 @@
                                     <div class="card-body">
                                         <h2 class="section-title my-3">Menu Cepat</h2>
 
-                                        <div class="row mt-1">
-                                            <div class="col-md">
+                                        <div class="mt-1">
+                                            <div class="col">
                                                 <?php if ($this->session->userdata('level') == 1) { ?>
                                                     <a href="<?= base_url('tabel_lpb/list_po') ?>">
                                                         <div class="card shadow-primary card-hero">
@@ -202,7 +202,7 @@
                                                     </a>
                                                 <?php } ?>
                                             </div>
-                                            <div class="col-md">
+                                            <div class="col">
                                                 <?php if ($this->session->userdata('level') == 1) { ?>
                                                     <a href="<?= base_url('tabel_bkb/tabel_lpb_distinct') ?>">
                                                         <div class="card shadow-primary bg-danger card-hero">
